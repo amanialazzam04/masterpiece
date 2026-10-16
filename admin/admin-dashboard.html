@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5fbff">
+  <title>Admin Dashboard | Nafas Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+  <div class="family-layout admin-layout">
+    <aside class="sidebar" id="admin-sidebar">
+      <a href="admin-dashboard.html" class="logo" aria-label="Nafas Admin Dashboard"><img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image"></a>
+      <div class="sidebar-label">ADMIN SPACE</div>
+      <nav class="sidebar-nav" aria-label="Admin Portal navigation">
+        <a href="admin-dashboard.html" class="nav-link active" aria-current="page"><span class="nav-icon">⌂</span><span>Admin Dashboard</span></a>
+        <a href="user-management.html" class="nav-link"><span class="nav-icon">♙</span><span>User Management</span></a>
+        <a href="therapist-management.html" class="nav-link"><span class="nav-icon">✚</span><span>Therapist Management</span></a>
+        <a href="family-connections.html" class="nav-link"><span class="nav-icon">♡</span><span>Family &amp; Connections</span></a>
+        <a href="sessions-consultations.html" class="nav-link"><span class="nav-icon">◷</span><span>Sessions &amp; Consultations</span></a>
+        <a href="content-management.html" class="nav-link"><span class="nav-icon">▤</span><span>Content Management</span></a>
+        <a href="reports-analytics.html" class="nav-link"><span class="nav-icon">⌁</span><span>Reports &amp; Analytics</span></a>
+        <a href="roles-permissions.html" class="nav-link"><span class="nav-icon">◇</span><span>Roles &amp; Permissions</span></a>
+        <a href="security-audit-logs.html" class="nav-link"><span class="nav-icon">◈</span><span>Security &amp; Audit Logs</span></a>
+        <a href="admin-profile-settings.html" class="nav-link"><span class="nav-icon">◉</span><span>Admin Profile &amp; Settings</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">i</div><h3>Prototype workspace</h3><p>This interface has no administrative backend. No changes to real accounts or records are possible here.</p></div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="admin-sidebar-overlay"></div>
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="admin-menu-button" aria-label="Toggle Admin Portal navigation" aria-controls="admin-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Admin Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Admin Dashboard</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot muted-dot"></span> Admin Portal · Demo</span></div>
+      </header>
+      <div class="portal-container"><section class="portal-view" id="dashboard" data-title="Admin Dashboard" aria-labelledby="dashboard-title">
+          <div class="page-heading"><div><p class="eyebrow">ADMIN OVERVIEW</p><h1 id="dashboard-title" tabindex="-1">Platform overview</h1><p class="page-description">A view of administrative areas. Live records and operational metrics are not connected in this frontend prototype.</p></div><span class="demo-status"><span class="status-dot muted-dot"></span> Backend unavailable</span></div>
+          <section class="welcome-card"><div class="welcome-copy"><p class="eyebrow">NAFAS ADMIN WORKSPACE</p><h2>Careful oversight starts with clear boundaries.</h2><p>Use the sections to review the proposed administration experience. No account, consent, appointment, or security data is available to this page.</p><a class="primary-button view-link" href="roles-permissions.html">Review the role model <span>→</span></a></div><div class="welcome-art" aria-hidden="true"><span class="welcome-orb">⌂</span><span class="welcome-ring"></span></div></section>
+          <div class="connection-summary admin-metrics"><article class="summary-card"><span class="summary-label">USER ACCOUNTS</span><strong>Unavailable</strong><span>No user service connected</span></article><article class="summary-card"><span class="summary-label">THERAPIST REVIEWS</span><strong>Unavailable</strong><span>No verification queue connected</span></article><article class="summary-card"><span class="summary-label">CONSULTATIONS</span><strong>Unavailable</strong><span>No booking data connected</span></article><article class="summary-card"><span class="summary-label">SECURITY EVENTS</span><strong>Unavailable</strong><span>No audit service connected</span></article></div>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">ADMIN WORK QUEUE</p><h2>Items requiring attention</h2></div><span class="panel-icon">⌁</span></div><div class="empty-state"><span class="empty-state-icon">○</span><h3>No queue is connected</h3><p>There are no live requests, reviews, or alerts available in this demo.</p></div></section>
+          <section class="next-steps-section"><div class="section-heading"><p class="eyebrow">PORTAL SECTIONS</p><h2>Continue to an admin area</h2></div><div class="next-step-grid"><a class="next-step-card view-link" href="user-management.html"><strong>User Management</strong><span>Review the account management interface.</span><b>Open section →</b></a><a class="next-step-card view-link" href="content-management.html"><strong>Content Management</strong><span>Prepare a local content preview.</span><b>Open section →</b></a><a class="next-step-card view-link" href="security-audit-logs.html"><strong>Security &amp; Audit Logs</strong><span>View the current audit data connection state.</span><b>Open section →</b></a></div></section>
+        </section></div>
+    </main>
+  </div>
+<script src="admin.js" defer></script>
+<script src="admin-dashboard.js" defer></script>
+</body>
+</html>

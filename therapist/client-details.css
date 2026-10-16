@@ -1,0 +1,16 @@
+@import url("../family/family.css");
+@import url("therapist.css");
+.th-client-detail { display: grid; gap: 14px; }
+.th-detail-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; margin-top: 13px; }
+.th-detail-facts p { display: grid; gap: 3px; padding: 11px; border-radius: 10px; background: #f5fafc; }
+.th-detail-facts span { color: var(--muted); font-size: 9px; }
+.th-detail-facts strong { color: var(--navy); font-size: 11px; }
+.th-goal-list { display: grid; gap: 8px; padding-left: 18px; color: var(--text); font-size: 11px; }
+.th-subheading { margin-top: 16px; color: var(--navy); font: 700 12px "Manrope", sans-serif; }
+.th-reading-copy { color: #557286; font-size: 11px; }
+.th-history-list { display: grid; gap: 8px; }
+.th-history-item { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 7px 16px; padding: 11px 12px; border: 1px solid #e7f0f4; border-radius: 11px; color: var(--muted); font-size: 10px; }
+.th-history-item strong { color: var(--navy); }
+.th-empty-state { margin-top: 12px; }
+
+@media (max-width: 640px) { .th-detail-facts { grid-template-columns: 1fr; } }

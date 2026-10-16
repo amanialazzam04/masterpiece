@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6fcff">
+  <title>Consultations | Nafas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="consultations.css">
+</head>
+<body>
+  <div class="family-layout">
+    <aside class="sidebar" id="family-sidebar">
+      <a href="family-dashboard.html" class="logo" aria-label="Nafas Family Dashboard">
+        <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image">
+      </a>
+      <div class="sidebar-label">FAMILY SPACE</div>
+      <nav class="sidebar-nav" aria-label="Family Portal navigation">
+        <a href="family-dashboard.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⌂</span><span>Family Dashboard</span></a>
+        <a href="my-loved-ones.html" class="nav-link"><span class="nav-icon" aria-hidden="true">♡</span><span>My Loved Ones</span></a>
+        <a href="support-guidance.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✧</span><span>Support &amp; Guidance</span></a>
+        <a href="shared-wellness.html" class="nav-link"><span class="nav-icon" aria-hidden="true">☼</span><span>Shared Wellness</span></a>
+        <a href="consultations.html" class="nav-link active" aria-current="page"><span class="nav-icon" aria-hidden="true">▤</span><span>Consultations</span></a>
+        <a href="family-profile-settings.html" class="nav-link"><span class="nav-icon" aria-hidden="true">○</span><span>My Profile &amp; Settings</span></a>
+        <a href="help-safety.html" class="nav-link"><span class="nav-icon" aria-hidden="true">?</span><span>Help &amp; Safety</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon" aria-hidden="true">♡</div>
+          <h3>Care for yourself, too.</h3>
+          <p>Supporting someone can be a lot to carry. Your wellbeing matters as well.</p>
+          <a href="help-safety.html" class="view-link">Visit Help &amp; Safety <span>→</span></a>
+        </div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon" aria-hidden="true">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="family-sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="family-menu-button" aria-label="Toggle Family Portal navigation" aria-controls="family-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Family Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Consultations</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot"></span> Family Portal</span></div>
+      </header>
+
+      <div class="portal-container"><section class="portal-view" id="consultations" data-title="Consultations" aria-labelledby="consultations-title">
+          <div class="page-heading"><div><p class="eyebrow">PROFESSIONAL SUPPORT</p><h1 id="consultations-title">Consultations</h1><p class="page-description">Explore the sample therapist information already available in Nafas.</p></div></div>
+          <div class="therapist-grid">
+            <article class="therapist-card"><div class="therapist-initials">LA</div><div><h2>Dr. Lina Ahmad</h2><p class="therapist-role">Clinical Psychologist · Sample profile</p><p>Stress management, anxiety, and life transitions.</p></div></article>
+            <article class="therapist-card"><div class="therapist-initials initials-blue">OK</div><div><h2>Dr. Omar Khaled</h2><p class="therapist-role">Therapist · Sample profile</p><p>Relationships, confidence, and emotional wellbeing.</p></div></article>
+            <article class="therapist-card"><div class="therapist-initials initials-light">SN</div><div><h2>Dr. Sara Nasser</h2><p class="therapist-role">Counselor · Sample profile</p><p>Emotional awareness and personal development.</p></div></article>
+          </div>
+          <p class="demo-note">These are sample profiles from the existing Nafas session page. No provider availability or credentials are verified by this demo.</p>
+          <section class="panel request-panel"><div class="panel-heading"><div><p class="eyebrow">DEMO ONLY</p><h2>Prepare a consultation request</h2></div></div>
+            <p class="section-description">This form is for preview only. It does not contact a therapist, create an appointment, or save your information.</p>
+            <form id="consultation-form" class="form-grid">
+              <div class="form-field"><label for="consultation-therapist">Sample therapist</label><select id="consultation-therapist" required><option value="">Choose a sample profile</option><option>Dr. Lina Ahmad</option><option>Dr. Omar Khaled</option><option>Dr. Sara Nasser</option></select></div>
+              <div class="form-field"><label for="consultation-type">Consultation topic</label><select id="consultation-type" required><option value="">Choose a topic</option><option>General wellbeing support</option><option>Supporting a family member</option><option>Understanding available services</option></select></div>
+              <div class="form-field"><label for="consultation-date">Preferred date <span class="optional-label">Optional</span></label><input id="consultation-date" type="date"></div>
+              <div class="form-field"><label for="consultation-time">Preferred time <span class="optional-label">Optional</span></label><input id="consultation-time" type="time"></div>
+              <div class="form-field full-field"><label for="consultation-message">Optional message</label><textarea id="consultation-message" rows="3" maxlength="500" placeholder="Share only information about your own request. Do not include another person's private clinical details."></textarea><span class="field-hint"><span id="consultation-message-count">0</span>/500 characters</span></div>
+              <div class="form-actions"><button class="primary-button" type="submit">Preview demo request <span>→</span></button><p class="form-feedback" id="consultation-feedback" role="status" aria-live="polite"></p></div>
+            </form>
+          </section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">WHAT TO EXPECT</p><h2>Family consultation guidance</h2></div></div><p class="section-description">A family consultation may help you discuss supportive communication, practical boundaries, and ways to care for yourself. It should not expose a Personal User's private information without their permission.</p><p class="demo-note">This prototype has no verified provider availability or booking service. For real care, contact a qualified professional through a service you can verify.</p></section>
+        </section></div>
+    </main>
+  </div>
+<script src="consultations.js" defer></script>
+<script src="family.js" defer></script>
+</body>
+</html>

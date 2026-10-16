@@ -1,0 +1,9 @@
+@import url("../family/family.css");
+@import url("admin.css");
+.admin-reference-list { display: grid; gap: 8px; padding-left: 20px; color: var(--muted); font-size: 12px; }
+.table-scroll { overflow-x: auto; }
+.admin-table { width: 100%; min-width: 680px; border-collapse: collapse; text-align: left; font-size: 11px; }
+.admin-table th, .admin-table td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.admin-table thead th { background: #f4fafc; color: var(--navy); font-weight: 800; }
+.admin-table tbody th { color: var(--navy); font-weight: 700; }
+.admin-table td { color: var(--muted); }

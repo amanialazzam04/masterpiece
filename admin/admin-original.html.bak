@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5fbff">
+  <title>Admin Portal | Nafas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../family/family.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="family-layout admin-layout">
+    <aside class="sidebar" id="admin-sidebar">
+      <a href="#dashboard" class="logo" aria-label="Nafas Admin Dashboard"><img src="../homepage/assets/nafas-logo.jpg" alt="Nafas" class="logo-image"></a>
+      <div class="sidebar-label">ADMIN SPACE</div>
+      <nav class="sidebar-nav" aria-label="Admin Portal navigation">
+        <a href="#dashboard" class="nav-link active" aria-current="page"><span class="nav-icon">⌂</span><span>Admin Dashboard</span></a>
+        <a href="#users" class="nav-link"><span class="nav-icon">♙</span><span>User Management</span></a>
+        <a href="#therapists" class="nav-link"><span class="nav-icon">✚</span><span>Therapist Management</span></a>
+        <a href="#connections" class="nav-link"><span class="nav-icon">♡</span><span>Family &amp; Connections</span></a>
+        <a href="#sessions" class="nav-link"><span class="nav-icon">◷</span><span>Sessions &amp; Consultations</span></a>
+        <a href="#content" class="nav-link"><span class="nav-icon">▤</span><span>Content Management</span></a>
+        <a href="#reports" class="nav-link"><span class="nav-icon">⌁</span><span>Reports &amp; Analytics</span></a>
+        <a href="#roles" class="nav-link"><span class="nav-icon">◇</span><span>Roles &amp; Permissions</span></a>
+        <a href="#security" class="nav-link"><span class="nav-icon">◈</span><span>Security &amp; Audit Logs</span></a>
+        <a href="#profile" class="nav-link"><span class="nav-icon">◉</span><span>Admin Profile &amp; Settings</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">i</div><h3>Prototype workspace</h3><p>This interface has no administrative backend. No changes to real accounts or records are possible here.</p></div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="admin-sidebar-overlay"></div>
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="admin-menu-button" aria-label="Toggle Admin Portal navigation" aria-controls="admin-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Admin Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Admin Dashboard</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot muted-dot"></span> Admin Portal · Demo</span></div>
+      </header>
+      <div class="portal-container">
+        <section class="portal-view" id="dashboard" data-title="Admin Dashboard" aria-labelledby="dashboard-title">
+          <div class="page-heading"><div><p class="eyebrow">ADMIN OVERVIEW</p><h1 id="dashboard-title" tabindex="-1">Platform overview</h1><p class="page-description">A view of administrative areas. Live records and operational metrics are not connected in this frontend prototype.</p></div><span class="demo-status"><span class="status-dot muted-dot"></span> Backend unavailable</span></div>
+          <section class="welcome-card"><div class="welcome-copy"><p class="eyebrow">NAFAS ADMIN WORKSPACE</p><h2>Careful oversight starts with clear boundaries.</h2><p>Use the sections to review the proposed administration experience. No account, consent, appointment, or security data is available to this page.</p><a class="primary-button view-link" href="#roles">Review the role model <span>→</span></a></div><div class="welcome-art" aria-hidden="true"><span class="welcome-orb">⌂</span><span class="welcome-ring"></span></div></section>
+          <div class="connection-summary admin-metrics"><article class="summary-card"><span class="summary-label">USER ACCOUNTS</span><strong>Unavailable</strong><span>No user service connected</span></article><article class="summary-card"><span class="summary-label">THERAPIST REVIEWS</span><strong>Unavailable</strong><span>No verification queue connected</span></article><article class="summary-card"><span class="summary-label">CONSULTATIONS</span><strong>Unavailable</strong><span>No booking data connected</span></article><article class="summary-card"><span class="summary-label">SECURITY EVENTS</span><strong>Unavailable</strong><span>No audit service connected</span></article></div>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">ADMIN WORK QUEUE</p><h2>Items requiring attention</h2></div><span class="panel-icon">⌁</span></div><div class="empty-state"><span class="empty-state-icon">○</span><h3>No queue is connected</h3><p>There are no live requests, reviews, or alerts available in this demo.</p></div></section>
+          <section class="next-steps-section"><div class="section-heading"><p class="eyebrow">PORTAL SECTIONS</p><h2>Continue to an admin area</h2></div><div class="next-step-grid"><a class="next-step-card view-link" href="#users"><strong>User Management</strong><span>Review the account management interface.</span><b>Open section →</b></a><a class="next-step-card view-link" href="#content"><strong>Content Management</strong><span>Prepare a local content preview.</span><b>Open section →</b></a><a class="next-step-card view-link" href="#security"><strong>Security &amp; Audit Logs</strong><span>View the current audit data connection state.</span><b>Open section →</b></a></div></section>
+        </section>
+
+        <section class="portal-view" id="users" data-title="User Management" aria-labelledby="users-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">ACCOUNT DIRECTORY</p><h1 id="users-title" tabindex="-1">User Management</h1><p class="page-description">Search and review account records when an authorized user service is connected.</p></div></div>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">USER ACCOUNTS</p><h2>Account directory</h2></div><span class="panel-icon">♙</span></div><div class="admin-toolbar"><label class="form-field"><span class="field-label">Search accounts</span><input id="user-search" type="search" placeholder="Search by name or email" disabled aria-describedby="user-search-note"></label><label class="form-field"><span class="field-label">Account status</span><select disabled><option>All statuses</option></select></label></div><p id="user-search-note" class="section-description">Search and account actions are unavailable until a real account directory is connected.</p><div class="empty-state"><span class="empty-state-icon">○</span><h3>No accounts are connected</h3><p>No user records are loaded in this prototype. No accounts have been fabricated for the directory.</p></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">ACCOUNT ACTIONS</p><h2>Administrative controls</h2></div></div><p class="section-description">Suspend, restore, or remove controls require a connected account service and an authorized record. No such record or service is available here.</p><button class="secondary-button" type="button" disabled>Account actions unavailable</button></section>
+        </section>
+
+        <section class="portal-view" id="therapists" data-title="Therapist Management" aria-labelledby="therapists-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">PROVIDER DIRECTORY</p><h1 id="therapists-title" tabindex="-1">Therapist Management</h1><p class="page-description">Provider profiles, credentials, and verification decisions require a connected administrative service.</p></div></div>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">THERAPIST PROFILES</p><h2>Provider directory</h2></div><span class="panel-icon">✚</span></div><div class="empty-state"><span class="empty-state-icon">○</span><h3>No therapist records connected</h3><p>This prototype has no provider accounts or credentials to review.</p></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">CREDENTIALS &amp; APPROVALS</p><h2>Verification queue</h2></div></div><div class="empty-state compact-empty"><h3>No verification requests available</h3><p>No credentials are represented as checked, approved, or pending here.</p></div></section>
+        </section>
+
+        <section class="portal-view" id="connections" data-title="Family & Connections" aria-labelledby="connections-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">FAMILY LINKS &amp; CONSENT</p><h1 id="connections-title" tabindex="-1">Family &amp; Connections</h1><p class="page-description">Connection data and sharing permissions belong to the connected service and Personal User choices.</p></div></div>
+          <section class="privacy-banner"><span aria-hidden="true">♡</span><p><strong>Privacy boundary:</strong> Admin views do not grant access to private journals, private AI conversations, or data a Personal User has not explicitly shared.</p></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">CONNECTED ACCOUNTS</p><h2>Family connections</h2></div><span class="panel-icon">♡</span></div><div class="empty-state"><span class="empty-state-icon">○</span><h3>No connection records available</h3><p>No family links or connection requests are connected to this prototype.</p></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">SHARING PERMISSIONS</p><h2>Consent status</h2></div></div><div class="empty-state compact-empty"><h3>No consent records available</h3><p>Consent cannot be assumed, viewed, or changed from this disconnected demo.</p></div></section>
+        </section>
+
+        <section class="portal-view" id="sessions" data-title="Sessions & Consultations" aria-labelledby="sessions-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">SERVICE ACTIVITY</p><h1 id="sessions-title" tabindex="-1">Sessions &amp; Consultations</h1><p class="page-description">Consultation and appointment records require a connected booking service.</p></div></div>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">BOOKING DIRECTORY</p><h2>Sessions and consultations</h2></div><span class="panel-icon">◷</span></div><div class="admin-toolbar"><label class="form-field"><span class="field-label">Date range</span><select disabled><option>All dates</option></select></label><label class="form-field"><span class="field-label">Status</span><select disabled><option>All statuses</option></select></label></div><div class="empty-state"><span class="empty-state-icon">○</span><h3>No booking data connected</h3><p>No sessions or consultation records are available or implied by this prototype.</p></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">CANCELLATIONS &amp; DISPUTES</p><h2>Service requests</h2></div></div><div class="empty-state compact-empty"><h3>No service requests available</h3><p>There are no connected cases to review.</p></div></section>
+        </section>
+
+        <section class="portal-view" id="content" data-title="Content Management" aria-labelledby="content-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">EDUCATIONAL LIBRARY</p><h1 id="content-title" tabindex="-1">Content Management</h1><p class="page-description">Prepare content drafts for this page session. Publishing is not connected to the site or a backend.</p></div></div>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">NEW CONTENT PREVIEW</p><h2>Draft an educational resource</h2></div><span class="panel-icon">▤</span></div><p class="demo-note">Drafts remain in this browser page only, disappear on reload, and are never published to the Nafas website.</p><form id="content-form" class="form-grid"><div class="form-field"><label for="content-title-input">Title</label><input id="content-title-input" name="title" maxlength="90" required></div><div class="form-field"><label for="content-category">Category</label><select id="content-category" name="category" required><option value="">Choose a category</option><option>Wellbeing guidance</option><option>Support resources</option><option>Platform information</option></select></div><div class="form-field full-field"><label for="content-body">Resource text</label><textarea id="content-body" name="body" rows="5" maxlength="1200" required></textarea></div><div class="form-actions"><button class="primary-button" type="submit">Save draft preview</button><span id="content-feedback" class="form-feedback" role="status" aria-live="polite"></span></div></form></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">CURRENT PAGE DRAFTS</p><h2>Draft previews</h2></div></div><div id="content-drafts" class="admin-list"><div class="empty-state compact-empty"><h3>No draft previews yet</h3><p>Draft content you enter will appear here until the page is reloaded.</p></div></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">EXISTING FAMILY GUIDANCE</p><h2>Current hard-coded resource themes</h2></div></div><p class="section-description">These labels describe guidance already written in the Family Portal. They are read-only references, not content records in a management system.</p><ul class="admin-reference-list"><li>Listen with care</li><li>Offer practical help</li><li>Respect privacy and choice</li><li>Look after yourself</li></ul></section>
+        </section>
+
+        <section class="portal-view" id="reports" data-title="Reports & Analytics" aria-labelledby="reports-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">AGGREGATE INSIGHTS</p><h1 id="reports-title" tabindex="-1">Reports &amp; Analytics</h1><p class="page-description">Operational and wellbeing reporting is not available without a real data source and appropriate safeguards.</p></div></div>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">REPORT FILTERS</p><h2>Choose a reporting period</h2></div><span class="panel-icon">⌁</span></div><div class="admin-toolbar"><label class="form-field"><span class="field-label">From</span><input type="date" id="report-from"></label><label class="form-field"><span class="field-label">To</span><input type="date" id="report-to"></label><button type="button" class="secondary-button" id="report-preview">Check data availability</button></div><p id="report-feedback" class="form-feedback" role="status" aria-live="polite"></p></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">REPORT OUTPUT</p><h2>Platform activity</h2></div></div><div class="empty-state"><span class="empty-state-icon">○</span><h3>No report data connected</h3><p>No usage, wellbeing, or service metrics are fabricated or available to export.</p></div></section>
+        </section>
+
+        <section class="portal-view" id="roles" data-title="Roles & Permissions" aria-labelledby="roles-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">ACCESS MODEL REFERENCE</p><h1 id="roles-title" tabindex="-1">Roles &amp; Permissions</h1><p class="page-description">A proposed role boundary reference for the four Nafas portals. It is documentation only and does not enforce access.</p></div></div>
+          <section class="safety-panel"><span class="safety-symbol">i</span><div><p class="eyebrow">PROTOTYPE ONLY</p><h2>No role controls are enforced here.</h2><p>Real authorization requires a secure backend, verified identity, and server-side permission checks. This table does not create, grant, or change any role.</p></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">PROPOSED CAPABILITIES</p><h2>Role boundary reference</h2></div></div><div class="table-scroll"><table class="admin-table"><thead><tr><th scope="col">Capability</th><th scope="col">Personal User</th><th scope="col">Family</th><th scope="col">Therapist</th><th scope="col">Admin</th></tr></thead><tbody><tr><th scope="row">Manage own profile</th><td>Own</td><td>Own</td><td>Own</td><td>Own</td></tr><tr><th scope="row">View personal wellbeing</th><td>Own</td><td>Consented only</td><td>Authorized only</td><td>Not by default</td></tr><tr><th scope="row">Manage therapeutic care</th><td>Own choices</td><td>No</td><td>Authorized care</td><td>No clinical access</td></tr><tr><th scope="row">Manage platform content</th><td>No</td><td>No</td><td>No</td><td>Proposed</td></tr><tr><th scope="row">Manage accounts &amp; roles</th><td>No</td><td>No</td><td>No</td><td>Proposed, server enforced</td></tr></tbody></table></div><p class="section-description">“Authorized” means a verified, explicit relationship and least-privilege access implemented by the real service. No user content becomes visible to Admin through this reference.</p></section>
+        </section>
+
+        <section class="portal-view" id="security" data-title="Security & Audit Logs" aria-labelledby="security-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">SECURITY OVERSIGHT</p><h1 id="security-title" tabindex="-1">Security &amp; Audit Logs</h1><p class="page-description">Security controls and immutable audit records must come from a verified service.</p></div></div>
+          <section class="safety-panel"><span class="safety-symbol">!</span><div><p class="eyebrow">SECURITY STATUS</p><h2>No security service is connected.</h2><p>This frontend does not authenticate administrators, enforce permissions, monitor activity, or send alerts.</p></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">AUDIT TRAIL</p><h2>Administrative events</h2></div><span class="panel-icon">◈</span></div><div class="admin-toolbar"><label class="form-field"><span class="field-label">Event category</span><select disabled><option>All events</option></select></label><label class="form-field"><span class="field-label">Date range</span><input type="date" disabled></label></div><div class="empty-state"><span class="empty-state-icon">○</span><h3>No audit log service connected</h3><p>No audit events are invented or recorded by this frontend.</p></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">ADMINISTRATIVE SAFEGUARDS</p><h2>Security controls</h2></div></div><ul class="admin-reference-list"><li>Use server-side role checks for every protected action.</li><li>Record administrative changes in a protected audit service.</li><li>Require verified identity and appropriate session controls.</li><li>Restrict access to personal wellbeing information by default.</li></ul></section>
+        </section>
+
+        <section class="portal-view" id="profile" data-title="Admin Profile & Settings" aria-labelledby="profile-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">ADMIN ACCOUNT</p><h1 id="profile-title" tabindex="-1">Admin Profile &amp; Settings</h1><p class="page-description">No administrator identity is signed in. This form provides a local preview only.</p></div></div>
+          <section class="privacy-banner"><span aria-hidden="true">i</span><p>Profile edits and preference changes are not saved, submitted, or connected to an account.</p></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">PROFILE PREVIEW</p><h2>Display details</h2></div><span class="panel-icon">◉</span></div><form id="profile-form" class="form-grid"><div class="form-field"><label for="admin-name">Display name</label><input id="admin-name" name="name" autocomplete="name" maxlength="80" required></div><div class="form-field"><label for="admin-email">Email address</label><input id="admin-email" name="email" type="email" autocomplete="email" required></div><div class="form-field"><label class="check-row"><input type="checkbox" name="updates"> Show administrative update preferences</label></div><div class="form-actions"><button class="primary-button" type="submit">Preview profile</button><button class="secondary-button" type="reset">Clear</button><span id="profile-feedback" class="form-feedback" role="status" aria-live="polite"></span></div></form></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">ACCOUNT SECURITY</p><h2>Sign-in settings</h2></div></div><p class="section-description">Password changes, multi-factor authentication, and active sessions require a real identity service and are not implemented in this frontend.</p><button class="secondary-button" type="button" disabled>Security settings unavailable</button></section>
+        </section>
+        <footer class="page-footer"><span>♡</span><span>Nafas Admin Portal</span><span class="demo-label">Frontend demonstration · no backend data</span></footer>
+      </div>
+    </main>
+  </div>
+<script src="admin.js" defer></script>
+</body>
+</html>

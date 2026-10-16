@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6fcff">
+  <title>Family Dashboard | Nafas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="family-dashboard.css">
+</head>
+<body>
+  <div class="family-layout">
+    <aside class="sidebar" id="family-sidebar">
+      <a href="family-dashboard.html" class="logo" aria-label="Nafas Family Dashboard">
+        <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image">
+      </a>
+      <div class="sidebar-label">FAMILY SPACE</div>
+      <nav class="sidebar-nav" aria-label="Family Portal navigation">
+        <a href="family-dashboard.html" class="nav-link active" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span><span>Family Dashboard</span></a>
+        <a href="my-loved-ones.html" class="nav-link"><span class="nav-icon" aria-hidden="true">♡</span><span>My Loved Ones</span></a>
+        <a href="support-guidance.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✧</span><span>Support &amp; Guidance</span></a>
+        <a href="shared-wellness.html" class="nav-link"><span class="nav-icon" aria-hidden="true">☼</span><span>Shared Wellness</span></a>
+        <a href="consultations.html" class="nav-link"><span class="nav-icon" aria-hidden="true">▤</span><span>Consultations</span></a>
+        <a href="family-profile-settings.html" class="nav-link"><span class="nav-icon" aria-hidden="true">○</span><span>My Profile &amp; Settings</span></a>
+        <a href="help-safety.html" class="nav-link"><span class="nav-icon" aria-hidden="true">?</span><span>Help &amp; Safety</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon" aria-hidden="true">♡</div>
+          <h3>Care for yourself, too.</h3>
+          <p>Supporting someone can be a lot to carry. Your wellbeing matters as well.</p>
+          <a href="help-safety.html" class="view-link">Visit Help &amp; Safety <span>→</span></a>
+        </div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon" aria-hidden="true">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="family-sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="family-menu-button" aria-label="Toggle Family Portal navigation" aria-controls="family-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Family Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Family Dashboard</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot"></span> Family Portal</span></div>
+      </header>
+
+      <div class="portal-container"><section class="portal-view" id="dashboard" data-title="Family Dashboard" aria-labelledby="dashboard-title">
+          <div class="page-heading">
+            <div><p class="eyebrow">FAMILY DASHBOARD</p><h1 id="dashboard-title">Support, with their permission.</h1><p class="page-description">See only the updates your loved one has chosen to share with you.</p></div>
+            <span class="demo-status"><span class="status-dot muted-dot"></span> No family data connected</span>
+          </div>
+          <section class="welcome-card">
+            <div class="welcome-copy"><p class="eyebrow">A SPACE FOR FAMILY SUPPORT</p><h2>Start with listening and care.</h2><p>Nafas keeps personal wellbeing information private unless a person chooses to share specific updates. Connect with a loved one to see any information they have consented to share.</p><a class="primary-button view-link" href="support-guidance.html">Explore supportive guidance <span>→</span></a></div>
+            <div class="welcome-art" aria-hidden="true"><span class="welcome-orb">♡</span><span class="welcome-ring"></span></div>
+          </section>
+          <section class="connection-summary" aria-label="Connection summary">
+            <article class="summary-card"><span class="summary-label">CONNECTED LOVED ONES</span><strong>0</strong><span>No accounts connected</span></article>
+            <article class="summary-card"><span class="summary-label">SHARING UPDATES</span><strong>0</strong><span>No one has shared updates</span></article>
+            <article class="summary-card"><span class="summary-label">SHARING STATUS</span><strong class="summary-status">Not connected</strong><span>Consent is controlled by each Personal User</span></article>
+            <a class="summary-card summary-action view-link" href="my-loved-ones.html"><span class="summary-label">NEXT STEP</span><strong>Connect with a loved one</strong><span>Review connection options →</span></a>
+          </section>
+          <div class="dashboard-grid">
+            <section class="panel update-panel" aria-labelledby="updates-title">
+              <div class="panel-heading"><div><p class="eyebrow">CONSENTED UPDATES</p><h2 id="updates-title">Updates from loved ones</h2></div><span class="panel-icon" aria-hidden="true">♡</span></div>
+              <div class="empty-state"><span class="empty-state-icon" aria-hidden="true">○</span><h3>No updates have been shared</h3><p>There are no connected accounts or consented updates in this demo. Private journals and AI conversations are never available here.</p><a href="my-loved-ones.html" class="secondary-button view-link">Review connections</a></div>
+            </section>
+            <section class="panel trend-panel" aria-labelledby="trend-title">
+              <div class="panel-heading"><div><p class="eyebrow">WEEKLY MOOD</p><h2 id="trend-title">Shared mood trends</h2></div><span class="panel-icon" aria-hidden="true">⌁</span></div>
+              <div class="empty-state" id="trend-empty"><span class="empty-state-icon" aria-hidden="true">⌁</span><h3>No shared mood data</h3><p>Weekly trends appear only when a Personal User connects and explicitly enables mood sharing.</p></div>
+              <div class="trend-preview" id="trend-preview" aria-live="polite">
+                <p class="demo-note"><strong>Fictional sample preview.</strong> This example is not connected to a person and is not real wellbeing data.</p>
+                <div class="trend-chart" role="img" aria-label="Illustrative sample mood trend across a week"><div class="trend-day"><span class="trend-bar bar-one"></span><small>Mon</small></div><div class="trend-day"><span class="trend-bar bar-two"></span><small>Tue</small></div><div class="trend-day"><span class="trend-bar bar-three"></span><small>Wed</small></div><div class="trend-day"><span class="trend-bar bar-four"></span><small>Thu</small></div><div class="trend-day"><span class="trend-bar bar-five"></span><small>Fri</small></div><div class="trend-day"><span class="trend-bar bar-six"></span><small>Sat</small></div><div class="trend-day"><span class="trend-bar bar-seven"></span><small>Sun</small></div></div>
+                <p class="chart-caption">Fictional sample · Monday–Sunday · Bar heights are illustrative only. No private notes, journal entries, or AI conversations.</p>
+              </div>
+              <label class="preview-toggle"><input type="checkbox" id="demo-sharing-toggle"><span>Preview a sample trend (demo only)</span></label>
+              <p class="field-hint">This local preview does not enable real sharing or change another person's settings.</p>
+            </section>
+          </div>
+          <section class="next-steps-section" aria-labelledby="next-steps-title"><div class="section-heading"><p class="eyebrow">HELPFUL NEXT STEPS</p><h2 id="next-steps-title">Support them at their pace</h2></div><div class="next-step-grid">
+            <a class="next-step-card view-link" href="support-guidance.html"><strong>Support &amp; Guidance</strong><span>Try a listening prompt or explore practical resources.</span><b>Explore guidance →</b></a>
+            <a class="next-step-card view-link" href="shared-wellness.html"><strong>Shared Wellness</strong><span>Review the privacy-first view of updates they choose to share.</span><b>Open shared wellness →</b></a>
+            <a class="next-step-card view-link" href="consultations.html"><strong>Consultations</strong><span>Learn about sample consultation options.</span><b>View consultations →</b></a>
+          </div></section>
+          <div class="dashboard-grid activity-grid"><section class="panel" aria-labelledby="activity-title"><div class="panel-heading"><div><p class="eyebrow">RECENT ACTIVITY</p><h2 id="activity-title">Connection and sharing activity</h2></div><span class="panel-icon" aria-hidden="true">⌁</span></div><div class="empty-state compact-empty"><span class="empty-state-icon" aria-hidden="true">○</span><h3>No permitted activity to show</h3><p>Connection or sharing activity will appear here only when the service provides an authorized record. None is available in this demo.</p></div></section></div>
+          <div class="privacy-banner"><span class="privacy-icon" aria-hidden="true">♡</span><p><strong>Privacy comes first.</strong> Only information explicitly shared by a Personal User can appear in this portal. Consider asking what kind of support they would welcome.</p></div>
+        </section></div>
+    </main>
+  </div>
+<script src="family-dashboard.js" defer></script>
+<script src="family.js" defer></script>
+</body>
+</html>

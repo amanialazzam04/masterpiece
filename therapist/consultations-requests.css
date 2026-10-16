@@ -1,0 +1,6 @@
+@import url("../family/family.css");
+@import url("therapist.css");
+.th-proposal-form { display: flex; flex-wrap: wrap; align-items: end; gap: 9px; margin-top: 12px; padding: 12px; border-radius: 11px; background: #f6fbfd; }
+.th-proposal-form label { display: grid; gap: 4px; color: var(--navy); font-size: 10px; font-weight: 700; }
+.th-proposal-form input { min-height: 36px; padding: 6px 9px; border: 1px solid #d6e7ef; border-radius: 8px; background: #fff; color: var(--text); font-size: 11px; }
+.th-proposal-feedback { flex-basis: 100%; color: #34866e; font-size: 10px; }

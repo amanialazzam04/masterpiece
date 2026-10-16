@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f0f9ff">
+  <title>My Profile & Settings | Nafas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="therapist-profile-settings.css">
+</head>
+<body>
+  <div class="family-layout therapist-layout">
+    <aside class="sidebar" id="therapist-sidebar">
+      <a href="therapist-dashboard.html" class="logo" aria-label="Nafas Therapist Dashboard">
+        <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image">
+      </a>
+      <div class="sidebar-label">THERAPIST SPACE</div>
+      <nav class="sidebar-nav" aria-label="Therapist Portal navigation">
+        <a href="therapist-dashboard.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⌂</span><span>Therapist Dashboard</span></a>
+        <a href="my-clients.html" class="nav-link"><span class="nav-icon" aria-hidden="true">♧</span><span>My Clients</span></a>
+        <a href="client-details.html" class="nav-link"><span class="nav-icon" aria-hidden="true">○</span><span>Client Details</span></a>
+        <a href="sessions.html" class="nav-link"><span class="nav-icon" aria-hidden="true">▤</span><span>Sessions</span></a>
+        <a href="consultations-requests.html" class="nav-link"><span class="nav-icon" aria-hidden="true">↗</span><span>Consultations &amp; Requests</span></a>
+        <a href="clinical-notes.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✎</span><span>Clinical Notes</span></a>
+        <a href="alerts-follow-up.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✓</span><span>Alerts &amp; Follow-up</span></a>
+        <a href="reports-progress.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⌁</span><span>Reports &amp; Progress</span></a>
+        <a href="therapist-profile-settings.html" class="nav-link active" aria-current="page"><span class="nav-icon" aria-hidden="true">⚙</span><span>My Profile &amp; Settings</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><span class="help-icon" aria-hidden="true">♡</span><h3>Care with clear boundaries.</h3><p>This local prototype has no authenticated client records or secure clinical storage.</p></div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon" aria-hidden="true">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="therapist-sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="therapist-menu-button" aria-label="Toggle Therapist Portal navigation" aria-controls="therapist-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Therapist Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">My Profile & Settings</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot muted-dot"></span>Frontend demo</span></div>
+      </header>
+
+      <div class="portal-container therapist-container"><section class="portal-view" id="profile" data-title="My Profile & Settings" aria-labelledby="profile-title">
+          <div class="page-heading"><div><p class="eyebrow">PROFESSIONAL ACCOUNT</p><h1 id="profile-title">My Profile &amp; Settings</h1><p class="page-description">Review a fictional professional profile and notification preferences.</p></div></div>
+          <div class="th-demo-banner" role="note">Profile values are examples. Saving shows a local preview only; no account data or settings are sent or stored.</div>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">PROFILE DETAILS</p><h2>Professional profile</h2></div></div><form id="therapist-profile-form" class="form-grid">
+            <div class="form-field"><label for="profile-name">Display name</label><input id="profile-name" name="displayName" value="Therapist Demo" minlength="2" maxlength="80" required></div>
+            <div class="form-field"><label for="profile-email">Contact email</label><input id="profile-email" name="email" type="email" value="demo-therapist@nafas.test" required></div>
+            <div class="form-field"><label for="profile-specialization">Specialization</label><input id="profile-specialization" name="specialization" maxlength="100" value="Wellbeing support (sample)" required></div>
+            <div class="form-field"><label for="profile-qualifications">Qualifications</label><input id="profile-qualifications" name="qualifications" maxlength="180" placeholder="Example only; not verified" required></div>
+            <div class="form-field full-field"><label for="profile-contact">Professional contact details</label><input id="profile-contact" name="contact" maxlength="180" placeholder="Optional demo contact details"></div>
+            <fieldset class="form-field full-field th-availability"><legend class="field-label">Availability preview</legend><div class="th-checkbox-row"><label><input type="checkbox" name="availability" value="weekdays" checked> Weekdays</label><label><input type="checkbox" name="availability" value="evenings"> Evenings</label><label><input type="checkbox" name="availability" value="weekends"> Weekends</label></div></fieldset>
+            <fieldset class="form-field full-field th-availability"><legend class="field-label">Notification preferences</legend><div class="th-checkbox-row"><label><input type="checkbox" name="notifications" value="requests" checked> Consultation request reminders</label><label><input type="checkbox" name="notifications" value="followups" checked> Follow-up task reminders</label></div></fieldset>
+            <div class="form-actions"><button type="submit" class="primary-button">Preview profile changes</button><button type="reset" class="secondary-button">Reset example values</button><p class="form-feedback" id="profile-feedback" role="status" aria-live="polite"></p></div>
+          </form></section>
+        </section></div>
+    </main>
+  </div>
+<script src="therapist.js" defer></script>
+<script src="therapist-nav.js" defer></script>
+<script src="therapist-profile-settings.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,479 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const views = Array.from(document.querySelectorAll(".portal-view"));
+  const navLinks = Array.from(document.querySelectorAll(".sidebar-nav .nav-link"));
+  const currentTitle = document.getElementById("current-view-title");
+  const sidebar = document.getElementById("therapist-sidebar");
+  const menuButton = document.getElementById("therapist-menu-button");
+  const overlay = document.getElementById("therapist-sidebar-overlay");
+  const now = new Date();
+  const localDate = (date) => [date.getFullYear(), String(date.getMonth() + 1).padStart(2, "0"), String(date.getDate()).padStart(2, "0")].join("-");
+  const dayOffset = (offset) => { const date = new Date(now); date.setDate(date.getDate() + offset); return localDate(date); };
+  const activeLocale = () => "en";
+  const prettyDate = (value) => new Date(value + "T12:00:00").toLocaleDateString(activeLocale(), { month: "short", day: "numeric", year: "numeric" });
+  const weekday = (value) => new Date(value + "T12:00:00").toLocaleDateString(activeLocale(), { weekday: "short" });
+  const clients = [
+    {
+      id: "demo-client-a", name: "Demo Client A", reference: "SAMPLE-01", status: "connected",
+      connectionLabel: "Connected · fictional permission preview", lastSession: dayOffset(-1),
+      goals: ["Build a sustainable evening routine", "Practice naming personal support preferences"],
+      followup: "Revisit the client-selected evening routine goal at the next session.", moodShared: true,
+      moodSummary: "Sixteen fictional mood check-ins were explicitly marked shared in this sample record this week.",
+      history: [{ date: dayOffset(-1), label: "Individual check-in", status: "completed", summary: "Reviewed the client's self-selected routine goal." }, { date: dayOffset(-8), label: "Initial planning session", status: "completed", summary: "Agreed on a small, client-led next step." }]
+    },
+    {
+      id: "demo-client-b", name: "Demo Client B", reference: "SAMPLE-02", status: "pending",
+      connectionLabel: "Pending · fictional sample", lastSession: "", goals: [], followup: "No authorized follow-up information is available for this sample profile.", moodShared: false,
+      moodSummary: "No mood summary is authorized in this fictional sample profile.", history: []
+    }
+  ];
+  const sessions = [
+    { id: "session-1", clientId: "demo-client-a", date: dayOffset(0), time: "10:30", label: "Individual check-in", status: "scheduled", format: "Online · sample" },
+    { id: "session-2", clientId: "demo-client-a", date: dayOffset(1), time: "14:00", label: "Goal review", status: "scheduled", format: "Online · sample" },
+    { id: "session-3", clientId: "demo-client-a", date: dayOffset(-1), time: "11:00", label: "Individual check-in", status: "completed", format: "Online · sample" },
+    { id: "session-5", clientId: "demo-client-a", date: dayOffset(-8), time: "09:30", label: "Initial planning session", status: "completed", format: "Online · sample" },
+    { id: "session-4", clientId: "demo-client-b", date: dayOffset(0), time: "15:00", label: "Introductory conversation", status: "cancelled", format: "Sample request" }
+  ];
+  const requests = [
+    { id: "request-1", clientId: "demo-client-b", date: dayOffset(2), topic: "Discussing support options", status: "pending", message: "Fictional sample request. No personal details are included." }
+  ];
+  const tasks = [
+    { id: "task-1", clientId: "demo-client-a", title: "Review the agreed routine goal", due: dayOffset(0), priority: "Routine", status: "open" },
+    { id: "task-2", clientId: "demo-client-a", title: "Prepare a short session check-in", due: dayOffset(1), priority: "Routine", status: "open" }
+  ];
+  const notePreviews = [];
+  let lastRoutedHash = null;
+  let hasInitialized = false;
+  let activeSessionFilter = "all";
+  let activeRequestFilter = "all";
+  let activeTaskFilter = "all";
+
+  function element(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined) node.textContent = text;
+    return node;
+  }
+  function getClient(clientId) { return clients.find((client) => client.id === clientId); }
+  function clientName(clientId) { return getClient(clientId)?.name || "Fictional sample client"; }
+  function setStatus(status) {
+    const pill = element("span", "th-status " + status.replaceAll(" ", "-"), status);
+    return pill;
+  }
+  function closeSidebar(returnFocus) {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("visible");
+    menuButton.setAttribute("aria-expanded", "false");
+    if (returnFocus) menuButton.focus();
+  }
+  function showView(viewId, pushHistory, moveFocus, clientId) {
+    const selected = views.find((view) => view.id === viewId);
+    if (!selected) return false;
+    views.forEach((view) => {
+      const current = view === selected;
+      view.hidden = !current;
+      view.setAttribute("aria-hidden", String(!current));
+    });
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      const current = href === "#" + viewId;
+      link.classList.toggle("active", current);
+      if (current) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+    });
+    const title = selected.dataset.title || "Therapist Portal";
+    currentTitle.textContent = title;
+    document.title = title + " | Nafas";
+    closeSidebar(false);
+    if (viewId === "client-details") renderClientDetails(clientId || "");
+    if (pushHistory) {
+      const nextHash = "#" + viewId + (clientId ? "/" + encodeURIComponent(clientId) : "");
+      if (window.location.hash !== nextHash) window.history.pushState(null, "", nextHash);
+    }
+    lastRoutedHash = window.location.hash;
+    const heading = selected.querySelector("h1");
+    if (moveFocus && heading) {
+      heading.setAttribute("tabindex", "-1");
+      heading.focus({ preventScroll: true });
+    }
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: moveFocus && !reduceMotion ? "smooth" : "auto" });
+    return true;
+  }
+  function routeFromHash() {
+    if (window.location.hash === lastRoutedHash) return;
+    if (profileDirty && lastRoutedHash && lastRoutedHash.startsWith("#profile")) {
+      if (!window.confirm("Your profile preview has unsaved changes. Leave this page and discard them?")) {
+        window.history.pushState(null, "", lastRoutedHash);
+        return;
+      }
+      profileDirty = false;
+    }
+    const parts = decodeURIComponent(window.location.hash.slice(1)).split("/");
+    const viewId = parts[0] || "dashboard";
+    if (!showView(viewId, false, hasInitialized, parts[1])) {
+      window.history.replaceState(null, "", window.location.pathname + window.location.search + "#dashboard");
+      showView("dashboard", false, hasInitialized);
+    }
+    hasInitialized = true;
+  }
+
+  document.addEventListener("click", function (event) {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link) return;
+    const raw = link.getAttribute("href").slice(1);
+    const [viewId, clientId] = decodeURIComponent(raw).split("/");
+    if (!views.some((view) => view.id === viewId)) return;
+    if (profileDirty && window.location.hash.startsWith("#profile") && raw !== window.location.hash.slice(1)) {
+      if (!window.confirm("Your profile preview has unsaved changes. Leave this page and discard them?")) { event.preventDefault(); return; }
+      profileDirty = false;
+    }
+    event.preventDefault();
+    showView(viewId, true, true, clientId);
+  });
+  window.addEventListener("popstate", routeFromHash);
+  window.addEventListener("hashchange", routeFromHash);
+  window.addEventListener("load", () => window.scrollTo({ top: 0, behavior: "auto" }), { once: true });
+  menuButton.addEventListener("click", function () {
+    const open = sidebar.classList.toggle("open");
+    overlay.classList.toggle("visible", open);
+    menuButton.setAttribute("aria-expanded", String(open));
+    if (open) sidebar.querySelector(".nav-link")?.focus();
+  });
+  overlay.addEventListener("click", () => closeSidebar(true));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && sidebar.classList.contains("open")) closeSidebar(true);
+  });
+  window.addEventListener("resize", () => { if (window.innerWidth > 820) closeSidebar(false); });
+
+  function renderDashboard() {
+    const activeCount = clients.filter((client) => client.status === "connected").length;
+    const todayCount = sessions.filter((session) => session.date === dayOffset(0) && session.status === "scheduled").length;
+    const pendingCount = requests.filter((request) => request.status === "pending").length;
+    const followupCount = tasks.filter((task) => task.status === "open").length;
+    document.getElementById("summary-active-clients").textContent = String(activeCount);
+    document.getElementById("summary-today-sessions").textContent = String(todayCount);
+    document.getElementById("summary-pending-requests").textContent = String(pendingCount);
+    document.getElementById("summary-followups").textContent = String(followupCount);
+    const upcoming = document.getElementById("dashboard-upcoming");
+    upcoming.replaceChildren();
+    const upcomingItems = sessions.filter((session) => session.status === "scheduled" && session.date >= dayOffset(0)).sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+    if (!upcomingItems.length) upcoming.appendChild(element("p", "empty-state compact-empty", "No upcoming sample sessions."));
+    upcomingItems.slice(0, 3).forEach((session) => {
+      const item = element("div", "th-compact-item");
+      item.append(element("span", "th-compact-date", weekday(session.date) + "\n" + session.time), element("div"));
+      item.children[1].append(element("strong", "", clientName(session.clientId)), element("small", "", session.label + " · fictional"));
+      item.appendChild(setStatus(session.status));
+      upcoming.appendChild(item);
+    });
+    const activity = document.getElementById("dashboard-activity");
+    activity.replaceChildren();
+    const activityItem = element("div", "th-compact-item");
+    activityItem.append(element("span", "th-compact-date", "DEMO"), element("div"));
+    activityItem.children[1].append(element("strong", "", "Client goal reviewed"), element("small", "", "" + clientName("demo-client-a") + " · fictional sample"));
+    activityItem.appendChild(setStatus("record available"));
+    activity.appendChild(activityItem);
+    const taskItem = element("div", "th-compact-item");
+    taskItem.append(element("span", "th-compact-date", "TASK"), element("div"));
+    taskItem.children[1].append(element("strong", "", "Follow-up tasks ready"), element("small", "", followupCount + " open in this sample"));
+    taskItem.appendChild(setStatus("demo only"));
+    activity.appendChild(taskItem);
+  }
+
+  function renderClients() {
+    const list = document.getElementById("client-list");
+    const query = document.getElementById("client-search").value.trim().toLowerCase();
+    const status = document.getElementById("client-status-filter").value;
+    const matches = clients.filter((client) => (status === "all" || client.status === status) && (client.name.toLowerCase().includes(query) || client.reference.toLowerCase().includes(query)));
+    list.replaceChildren();
+    if (!matches.length) {
+      const empty = element("div", "empty-state compact-empty");
+      empty.append(element("span", "empty-state-icon", "○"), element("h3", "", "No sample clients match"), element("p", "", "Try another name, reference, or connection filter."));
+      list.appendChild(empty);
+      return;
+    }
+    matches.forEach((client) => {
+      const card = element("article", "th-client-card");
+      const top = element("div", "th-card-topline");
+      const identity = element("div");
+      identity.append(element("h2", "", client.name), element("p", "", "Fictional record · " + client.reference));
+      top.append(identity, setStatus(client.status));
+      const meta = element("div", "th-client-meta");
+      meta.append(element("span", "", client.connectionLabel), element("span", "", "Last session: " + (client.lastSession ? prettyDate(client.lastSession) : "No session available")));
+      const actions = element("div", "th-card-actions");
+      const details = element("a", "primary-button", "Open Client Details →");
+      details.href = "#client-details/" + encodeURIComponent(client.id);
+      actions.appendChild(details);
+      card.append(top, meta, actions);
+      list.appendChild(card);
+    });
+  }
+  document.getElementById("client-search").addEventListener("input", renderClients);
+  document.getElementById("client-status-filter").addEventListener("change", renderClients);
+
+  function renderClientDetails(clientId) {
+    const client = getClient(clientId);
+    const content = document.getElementById("client-detail-content");
+    const empty = document.getElementById("client-detail-empty");
+    if (!client) { content.hidden = true; empty.hidden = false; return; }
+    content.hidden = false;
+    empty.hidden = true;
+    document.getElementById("detail-client-name").textContent = client.name;
+    document.getElementById("detail-client-reference").textContent = client.reference + " · fictional";
+    document.getElementById("detail-connection-status").textContent = client.connectionLabel;
+    document.getElementById("detail-last-session").textContent = client.lastSession ? prettyDate(client.lastSession) : "No session available";
+    const status = document.getElementById("detail-client-status");
+    status.className = "th-status " + client.status;
+    status.textContent = client.status;
+    const goals = document.getElementById("detail-goals");
+    goals.replaceChildren();
+    if (client.goals.length) client.goals.forEach((goal) => goals.appendChild(element("li", "", goal)));
+    else goals.appendChild(element("li", "", "No goals have been authorized for this fictional profile."));
+    document.getElementById("detail-followup").textContent = client.followup;
+    const mood = document.getElementById("detail-mood-sharing");
+    mood.replaceChildren();
+    mood.appendChild(element("p", "", client.moodSummary));
+    mood.appendChild(element("p", "", client.moodShared ? "Fictional sharing flag: enabled for this specific summary." : "Fictional sharing flag: not enabled. No mood data is displayed."));
+    const history = document.getElementById("detail-session-history");
+    history.replaceChildren();
+    if (!client.history.length) history.appendChild(element("p", "empty-state compact-empty", "No authorized session history in this sample."));
+    client.history.forEach((entry) => {
+      const row = element("div", "th-history-item");
+      const detail = element("span");
+      detail.append(element("strong", "", entry.label + " · "), document.createTextNode(prettyDate(entry.date) + " — " + entry.summary));
+      row.append(detail, setStatus(entry.status));
+      history.appendChild(row);
+    });
+  }
+
+  function sessionCard(session) {
+    const card = element("article", "th-session-card");
+    const time = element("div", "th-session-time");
+    time.append(element("strong", "", prettyDate(session.date)), element("span", "", session.time));
+    const details = element("div");
+    const top = element("div", "th-card-topline");
+    const identity = element("div");
+    identity.append(element("h2", "", clientName(session.clientId)), element("p", "", session.label + " · " + session.format));
+    top.append(identity, setStatus(session.status));
+    details.appendChild(top);
+    if (session.proposal) details.appendChild(element("p", "th-proposal-feedback", "Demo time proposal prepared for " + prettyDate(session.proposal.date) + " at " + session.proposal.time + ". Nothing was sent or changed on a calendar."));
+    if (session.status === "scheduled") {
+      const actions = element("div", "th-card-actions");
+      const complete = element("button", "secondary-button", "Mark completed");
+      complete.type = "button"; complete.dataset.completeSession = session.id;
+      const propose = element("button", "secondary-button", "Propose another time");
+      propose.type = "button"; propose.dataset.proposeSession = session.id;
+      actions.append(complete, propose);
+      details.appendChild(actions);
+      if (session.proposing) {
+        const form = element("form", "th-proposal-form");
+        form.dataset.sessionProposal = session.id;
+        const dateLabel = element("label", "", "Suggested date");
+        const date = element("input"); date.type = "date"; date.min = dayOffset(0); date.required = true; date.name = "date";
+        dateLabel.appendChild(date);
+        const timeLabel = element("label", "", "Suggested time");
+        const timeInput = element("input"); timeInput.type = "time"; timeInput.required = true; timeInput.name = "time";
+        timeLabel.appendChild(timeInput);
+        const submit = element("button", "primary-button", "Preview proposal"); submit.type = "submit";
+        form.append(dateLabel, timeLabel, submit);
+        details.appendChild(form);
+      }
+    }
+    card.append(time, details);
+    return card;
+  }
+  function renderSessions() {
+    const list = document.getElementById("session-list");
+    const filtered = sessions.filter((session) => activeSessionFilter === "all" || (activeSessionFilter === "today" && session.date === dayOffset(0)) || (activeSessionFilter === "week" && session.date >= dayOffset(0) && session.date <= dayOffset(6)));
+    list.replaceChildren();
+    if (!filtered.length) { list.appendChild(element("div", "empty-state compact-empty", "No sessions match this view.")); return; }
+    filtered.sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time)).forEach((session) => list.appendChild(sessionCard(session)));
+  }
+  document.querySelectorAll("[data-session-filter]").forEach((button) => button.addEventListener("click", function () {
+    activeSessionFilter = button.dataset.sessionFilter;
+    document.querySelectorAll("[data-session-filter]").forEach((item) => { const active = item === button; item.classList.toggle("active", active); item.setAttribute("aria-pressed", String(active)); });
+    renderSessions();
+  }));
+  document.getElementById("session-list").addEventListener("click", function (event) {
+    const completeButton = event.target.closest("[data-complete-session]");
+    if (completeButton) {
+      const session = sessions.find((item) => item.id === completeButton.dataset.completeSession);
+      if (session) session.status = "completed";
+      renderSessions(); renderDashboard(); return;
+    }
+    const proposeButton = event.target.closest("[data-propose-session]");
+    if (proposeButton) {
+      const session = sessions.find((item) => item.id === proposeButton.dataset.proposeSession);
+      if (session) session.proposing = !session.proposing;
+      renderSessions();
+    }
+  });
+  document.getElementById("session-list").addEventListener("submit", function (event) {
+    const form = event.target.closest("[data-session-proposal]");
+    if (!form) return;
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const session = sessions.find((item) => item.id === form.dataset.sessionProposal);
+    if (!session) return;
+    session.proposal = { date: form.elements.date.value, time: form.elements.time.value };
+    session.proposing = false;
+    renderSessions();
+  });
+
+  function renderRequests() {
+    const list = document.getElementById("request-list");
+    const filtered = requests.filter((request) => activeRequestFilter === "all" || (activeRequestFilter === "pending" && request.status === "pending") || (activeRequestFilter === "responded" && request.status !== "pending"));
+    list.replaceChildren();
+    if (!filtered.length) { list.appendChild(element("div", "empty-state compact-empty", "No consultation requests match this filter.")); return; }
+    filtered.forEach((request) => {
+      const card = element("article", "th-request-card");
+      const top = element("div", "th-card-topline");
+      const copy = element("div");
+      copy.append(element("h2", "", clientName(request.clientId)), element("p", "", "Fictional request · preferred " + prettyDate(request.date)));
+      top.append(copy, setStatus(request.status));
+      card.append(top, element("p", "th-card-copy", request.topic), element("p", "th-card-copy", request.message));
+      if (request.proposal) card.appendChild(element("p", "th-proposal-feedback", "Time proposal preview: " + prettyDate(request.proposal.date) + " at " + request.proposal.time + ". Not sent."));
+      if (request.status === "pending") {
+        const actions = element("div", "th-card-actions");
+        const accept = element("button", "primary-button", "Preview accept"); accept.type = "button"; accept.dataset.requestAction = "accepted"; accept.dataset.requestId = request.id;
+        const decline = element("button", "secondary-button", "Preview decline"); decline.type = "button"; decline.dataset.requestAction = "declined"; decline.dataset.requestId = request.id;
+        const propose = element("button", "secondary-button", "Propose another time"); propose.type = "button"; propose.dataset.requestProposal = request.id;
+        actions.append(accept, decline, propose); card.appendChild(actions);
+        if (request.proposing) {
+          const form = element("form", "th-proposal-form"); form.dataset.requestProposalForm = request.id;
+          const dateLabel = element("label", "", "Suggested date"); const date = element("input"); date.type = "date"; date.min = dayOffset(0); date.required = true; date.name = "date"; dateLabel.appendChild(date);
+          const timeLabel = element("label", "", "Suggested time"); const time = element("input"); time.type = "time"; time.required = true; time.name = "time"; timeLabel.appendChild(time);
+          const submit = element("button", "primary-button", "Preview proposal"); submit.type = "submit"; form.append(dateLabel, timeLabel, submit); card.appendChild(form);
+        }
+      }
+      list.appendChild(card);
+    });
+  }
+  document.querySelectorAll("[data-request-filter]").forEach((button) => button.addEventListener("click", function () {
+    activeRequestFilter = button.dataset.requestFilter;
+    document.querySelectorAll("[data-request-filter]").forEach((item) => { const active = item === button; item.classList.toggle("active", active); item.setAttribute("aria-pressed", String(active)); });
+    renderRequests();
+  }));
+  document.getElementById("request-list").addEventListener("click", function (event) {
+    const action = event.target.closest("[data-request-action]");
+    if (action) {
+      const request = requests.find((item) => item.id === action.dataset.requestId);
+      if (request) request.status = action.dataset.requestAction;
+      renderRequests(); renderDashboard(); return;
+    }
+    const proposal = event.target.closest("[data-request-proposal]");
+    if (proposal) {
+      const request = requests.find((item) => item.id === proposal.dataset.requestProposal);
+      if (request) request.proposing = !request.proposing;
+      renderRequests();
+    }
+  });
+  document.getElementById("request-list").addEventListener("submit", function (event) {
+    const form = event.target.closest("[data-request-proposal-form]");
+    if (!form) return;
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const request = requests.find((item) => item.id === form.dataset.requestProposalForm);
+    if (!request) return;
+    request.status = "time proposal drafted";
+    request.proposal = { date: form.elements.date.value, time: form.elements.time.value };
+    request.proposing = false;
+    renderRequests(); renderDashboard();
+  });
+
+  const noteForm = document.getElementById("clinical-note-form");
+  const noteClient = document.getElementById("note-client");
+  const noteSession = document.getElementById("note-session");
+  clients.forEach((client) => noteClient.appendChild(new Option(client.name + " · fictional", client.id)));
+  sessions.forEach((session) => noteSession.appendChild(new Option(prettyDate(session.date) + " · " + session.label, session.id)));
+  const noteContent = document.getElementById("note-content");
+  noteContent.addEventListener("input", () => { document.getElementById("note-character-count").textContent = String(noteContent.value.length); });
+  noteForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    if (!noteForm.reportValidity()) return;
+    const note = { client: noteClient.value, session: noteSession.value, goal: document.getElementById("note-goal").value.trim(), content: noteContent.value.trim(), followup: document.getElementById("note-followup").value.trim(), created: Date.now() };
+    if (!note.goal || !note.content || !note.followup) { document.getElementById("note-feedback").textContent = "Complete each note field before creating the preview."; return; }
+    notePreviews.unshift(note);
+    document.getElementById("note-feedback").textContent = "Temporary preview added to this page's memory only. It was not saved to a clinical record.";
+    noteForm.reset();
+    document.getElementById("note-character-count").textContent = "0";
+    renderNotes();
+  });
+  function renderNotes() {
+    const list = document.getElementById("clinical-note-list");
+    list.replaceChildren();
+    if (!notePreviews.length) {
+      const empty = element("div", "empty-state compact-empty"); empty.append(element("span", "empty-state-icon", "○"), element("h3", "", "No note previews yet"), element("p", "", "Use the form above to prepare a clearly temporary sample preview.")); list.appendChild(empty); return;
+    }
+    notePreviews.forEach((note) => {
+      const card = element("article", "th-note-card");
+      const top = element("div", "th-card-topline"); top.append(element("h3", "", clientName(note.client)), element("small", "", "Current page only · " + note.created));
+      card.append(top, element("p", "th-card-copy", "Goal: " + note.goal), element("p", "th-card-copy", "Session: " + (sessions.find((item) => item.id === note.session)?.label || "Fictional session")), element("p", "th-reading-copy", note.content), element("p", "th-card-copy", "Follow-up: " + note.followup));
+      list.appendChild(card);
+    });
+  }
+
+  function renderTasks() {
+    const list = document.getElementById("task-list");
+    const filtered = tasks.filter((task) => activeTaskFilter === "all" || task.status === activeTaskFilter);
+    list.replaceChildren();
+    if (!filtered.length) { list.appendChild(element("div", "empty-state compact-empty", "No sample tasks match this filter.")); return; }
+    filtered.forEach((task) => {
+      const card = element("article", "th-task-card");
+      const top = element("div", "th-card-topline"); const copy = element("div");
+      copy.append(element("h2", "", task.title), element("p", "", clientName(task.clientId) + " · due " + prettyDate(task.due)));
+      top.append(copy, setStatus(task.status));
+      card.append(top, element("p", "th-task-priority", task.priority + " priority · fictional task"));
+      if (task.status !== "completed") {
+        const actions = element("div", "th-card-actions");
+        if (task.status === "open") { const review = element("button", "secondary-button", "Mark reviewed"); review.type = "button"; review.dataset.reviewTask = task.id; actions.appendChild(review); }
+        const done = element("button", "primary-button", "Mark completed"); done.type = "button"; done.dataset.completeTask = task.id; actions.appendChild(done); card.appendChild(actions);
+      }
+      list.appendChild(card);
+    });
+  }
+  document.querySelectorAll("[data-task-filter]").forEach((button) => button.addEventListener("click", function () {
+    activeTaskFilter = button.dataset.taskFilter;
+    document.querySelectorAll("[data-task-filter]").forEach((item) => { const active = item === button; item.classList.toggle("active", active); item.setAttribute("aria-pressed", String(active)); });
+    renderTasks();
+  }));
+  document.getElementById("task-list").addEventListener("click", function (event) {
+    const review = event.target.closest("[data-review-task]");
+    const complete = event.target.closest("[data-complete-task]");
+    const taskId = review?.dataset.reviewTask || complete?.dataset.completeTask;
+    if (!taskId) return;
+    const task = tasks.find((item) => item.id === taskId);
+    if (task) task.status = complete ? "completed" : "reviewed";
+    renderTasks(); renderDashboard();
+  });
+
+  const profileForm = document.getElementById("therapist-profile-form");
+  let profileDirty = false;
+  profileForm.addEventListener("input", () => { profileDirty = true; document.getElementById("profile-feedback").textContent = ""; });
+  profileForm.addEventListener("change", () => { profileDirty = true; document.getElementById("profile-feedback").textContent = ""; });
+  profileForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    if (!profileForm.reportValidity()) return;
+    const values = new FormData(profileForm);
+    document.getElementById("profile-feedback").textContent = "Preview ready for " + values.get("displayName") + " (" + values.get("specialization") + "). Nothing was saved or sent.";
+    profileDirty = false;
+  });
+  profileForm.addEventListener("reset", function () {
+    window.setTimeout(() => { profileDirty = false; document.getElementById("profile-feedback").textContent = "Example values restored in this page only."; }, 0);
+  });
+  document.querySelectorAll(".logout-link").forEach((link) => link.addEventListener("click", function (event) {
+    if (!profileDirty) return;
+    if (!window.confirm("Your profile preview has unsaved changes. Return to role selection and discard them?")) event.preventDefault();
+    else profileDirty = false;
+  }));
+  window.addEventListener("beforeunload", function (event) {
+    if (!profileDirty) return;
+    event.preventDefault(); event.returnValue = "";
+  });
+  renderDashboard();
+  renderClients();
+  renderClientDetails("");
+  renderSessions();
+  renderRequests();
+  renderTasks();
+  routeFromHash();
+});

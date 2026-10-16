@@ -1,0 +1,19 @@
+@import url("../family/family.css");
+@import url("therapist.css");
+.th-report-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 14px; }
+.th-progress-row { display: grid; grid-template-columns: minmax(170px, .65fr) 1fr auto; align-items: center; gap: 13px; }
+.th-progress-row>div:first-child { display: grid; gap: 3px; }
+.th-progress-row strong { color: var(--navy); font-size: 11px; }
+.th-progress-row span { color: var(--muted); font-size: 9px; }
+.th-progress-track { height: 12px; overflow: hidden; border-radius: 99px; background: #e7f1f5; }
+.th-progress-track span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #65c6cf, #0b91ad); }
+.th-chart { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); align-items: end; gap: 10px; height: 175px; margin: 17px 0 8px; padding: 13px 12px 0; border-bottom: 1px solid var(--border); background: repeating-linear-gradient(to bottom, transparent 0, transparent 39px, #edf4f7 40px); }
+.th-chart-column { display: flex; height: 100%; flex-direction: column; align-items: center; justify-content: flex-end; gap: 5px; color: var(--muted); font-size: 9px; }
+.th-chart-column>span { width: min(28px, 62%); min-height: 8px; border-radius: 7px 7px 2px 2px; background: linear-gradient(180deg, #59bfcb, #0b91ad); }
+.th-chart-column>b { color: var(--navy); font-size: 9px; }
+.th-chart-column>small { padding-bottom: 5px; }
+.th-empty-report { margin-top: 13px; }
+
+@media (max-width: 960px) { .th-report-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+@media (max-width: 640px) { .th-report-stats { grid-template-columns: 1fr; } .th-progress-row { grid-template-columns: 1fr auto; } .th-progress-row .th-progress-track { grid-row: 2; grid-column: 1 / -1; } .th-chart { gap: 5px; padding-inline: 3px; } .th-chart-column { font-size: 8px; } }

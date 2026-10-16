@@ -1,0 +1,5 @@
+@import url("../family/family.css");
+@import url("therapist.css");
+ .th-note-list { display: grid; gap: 11px; }
+
+.th-reading-copy { color: #557286; font-size: 11px; }

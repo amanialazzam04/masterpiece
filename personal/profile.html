@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings & Privacy | Nafas</title>
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <a href="dashbord.html" class="brand" aria-label="Nafas home">
+      <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image">
+    </a>
+
+    <p class="sidebar-heading">MENU</p>
+
+    <nav class="navigation">
+      <a href="dashbord.html" class="nav-link">
+        <span class="nav-icon">⌂</span> Dashboard
+      </a>
+      <a href="ai-support.html" class="nav-link">
+        <span class="nav-icon">◉</span> AI Support
+      </a>
+      <a href="wellness.html" class="nav-link">
+        <span class="nav-icon">◇</span> Daily Wellness
+      </a>
+      <a href="session.html" class="nav-link">
+        <span class="nav-icon">▤</span> Sessions & Support
+      </a>
+      <a href="profile.html" class="nav-link">
+        <span class="nav-icon">○</span> My Profile
+      </a>
+      <a href="profile.html#account-permissions" class="nav-link active">
+        <span class="nav-icon">⚙</span> Settings
+      </a>
+    </nav>
+
+    <div class="sidebar-help">
+      <p class="help-label">YOUR WELLBEING</p>
+      <h3>Your privacy matters.</h3>
+      <p>Manage your preferences and account settings in one place.</p>
+    </div>
+
+    <a href="../loginpage/login.html" class="logout-link">Sign out</a>
+  </aside>
+
+  <main class="main-content">
+
+    <header class="topbar">
+      <div>
+        <p class="topbar-title">Personal Workspace</p>
+        <p class="topbar-subtitle">Manage your account and preferences</p>
+      </div>
+
+      <div class="account">
+        <span class="account-avatar">N</span>
+        <span>My Account</span>
+      </div>
+    </header>
+
+    <section class="page-header">
+      <div>
+        <p class="eyebrow">ACCOUNT MANAGEMENT</p>
+        <h1>Settings & Privacy</h1>
+        <p class="page-description">
+          Manage your account permissions, privacy, and personal preferences.
+        </p>
+      </div>
+    </section>
+
+    <div class="settings-layout">
+
+      <!-- SETTINGS NAVIGATION -->
+      <aside class="settings-navigation">
+        <p class="settings-nav-title">SETTINGS</p>
+
+        <a href="#account-permissions" class="settings-nav-link active">
+          Account Permissions
+        </a>
+        <a href="#privacy" class="settings-nav-link">
+          Privacy Settings
+        </a>
+        <a href="#data-preferences" class="settings-nav-link">
+          Data Preferences
+        </a>
+        <a href="#general-settings" class="settings-nav-link">
+          General Settings
+        </a>
+        <a href="#account-actions" class="settings-nav-link danger-link">
+          Account Actions
+        </a>
+      </aside>
+
+      <div class="settings-content">
+
+        <!-- ACCOUNT PERMISSIONS -->
+        <section class="settings-card" id="account-permissions">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">ACCOUNT</p>
+              <h2>Account Permissions</h2>
+              <p class="section-description">
+                Review your account type and access permissions.
+              </p>
+            </div>
+          </div>
+
+          <div class="account-type-box">
+            <div>
+              <p class="field-label">ACCOUNT TYPE</p>
+              <h3>Personal User</h3>
+              <p>
+                Your account is intended for personal wellbeing and support.
+              </p>
+            </div>
+            <span class="role-badge">Personal</span>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-text">
+              <h3>Personal Dashboard</h3>
+              <p>Access your personal wellbeing tools and progress.</p>
+            </div>
+            <span class="permission-badge">Standard access</span>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-text">
+              <h3>AI Support</h3>
+              <p>Access the platform's AI support interface.</p>
+            </div>
+            <span class="permission-badge">Standard access</span>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-text">
+              <h3>Therapy Session Requests</h3>
+              <p>Prepare requests for individual support sessions.</p>
+            </div>
+            <span class="permission-badge">Standard access</span>
+          </div>
+
+          <p class="info-note">
+            Account permissions shown here are examples for the prototype.
+            Actual access must be enforced by the backend.
+          </p>
+        </section>
+
+        <!-- PRIVACY SETTINGS -->
+        <section class="settings-card" id="privacy">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">PRIVACY CONTROL</p>
+              <h2>Privacy Settings</h2>
+              <p class="section-description">
+                Choose how your profile and activity preferences are presented.
+              </p>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-text">
+              <h3>Private Profile</h3>
+              <p>Keep your profile details private from other users.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="private-profile" checked>
+              <span class="slider"></span>
+              <span class="sr-only">Enable private profile</span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-text">
+              <h3>Share Progress with Therapist</h3>
+              <p>
+                Choose whether you want to share wellbeing progress
+                with a therapist when such a feature is available.
+              </p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="share-progress">
+              <span class="slider"></span>
+              <span class="sr-only">Share progress with therapist</span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-text">
+              <h3>Personalised Recommendations</h3>
+              <p>Allow preferences to guide suggested wellbeing content.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="personal-recommendations" checked>
+              <span class="slider"></span>
+              <span class="sr-only">Enable personalised recommendations</span>
+            </label>
+          </div>
+
+          <p class="info-note">
+            These controls are demonstrations only. They do not change
+            server permissions or share information at this stage.
+          </p>
+        </section>
+
+        <!-- DATA PREFERENCES -->
+        <section class="settings-card" id="data-preferences">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">YOUR DATA</p>
+              <h2>Data Preferences</h2>
+              <p class="section-description">
+                Review your preferences for data use and account information.
+              </p>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-text">
+              <h3>Essential Account Data</h3>
+              <p>
+                Data needed to operate your account and provide requested services.
+              </p>
+            </div>
+            <span class="required-badge">Essential</span>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-text">
+              <h3>Optional Usage Analytics</h3>
+              <p>
+                Allow anonymous usage analytics to help improve the platform.
+              </p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="usage-analytics">
+              <span class="slider"></span>
+              <span class="sr-only">Allow usage analytics</span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-text">
+              <h3>Product Updates</h3>
+              <p>Receive information about new features and improvements.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="product-updates">
+              <span class="slider"></span>
+              <span class="sr-only">Receive product updates</span>
+            </label>
+          </div>
+
+          <div class="data-actions">
+            <div>
+              <h3>Data Management</h3>
+              <p>Request information about your data or account deletion.</p>
+            </div>
+            <button type="button" class="outline-button" id="data-request">
+              View Options
+            </button>
+          </div>
+
+          <div class="data-request-panel" id="data-request-panel" hidden>
+            <p>
+              In the full application, you will be able to submit a request
+              to access or delete your account data.
+            </p>
+            <button type="button" class="text-button" id="close-data-options">
+              Close
+            </button>
+          </div>
+        </section>
+
+        <!-- GENERAL SETTINGS -->
+        <section class="settings-card" id="general-settings">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">PREFERENCES</p>
+              <h2>General Settings</h2>
+              <p class="section-description">
+                Adjust how you interact with the Nafas platform.
+              </p>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-text">
+              <h3>Language</h3>
+              <p>Select your preferred display language.</p>
+            </div>
+            <select id="language-select" class="setting-select">
+              <option value="English">English</option>
+              <option value="Arabic">العربية</option>
+            </select>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-text">
+              <h3>Email Notifications</h3>
+              <p>Receive account-related updates by email.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="email-notifications" checked>
+              <span class="slider"></span>
+              <span class="sr-only">Enable email notifications</span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-text">
+              <h3>Session Reminders</h3>
+              <p>Receive reminders about upcoming sessions when supported.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="session-reminders" checked>
+              <span class="slider"></span>
+              <span class="sr-only">Enable session reminders</span>
+            </label>
+          </div>
+
+          <div class="settings-actions">
+            <button type="button" class="outline-button" id="reset-settings">
+              Reset Changes
+            </button>
+            <button type="button" class="primary-button" id="save-settings">
+              Save Preferences
+            </button>
+          </div>
+
+          <p id="settings-message" class="feedback-message" aria-live="polite"></p>
+        </section>
+
+        <!-- ACCOUNT ACTIONS -->
+        <section class="settings-card account-actions" id="account-actions">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">ACCOUNT ACTIONS</p>
+              <h2>Sign Out</h2>
+              <p class="section-description">
+                End your current session on this device.
+              </p>
+            </div>
+          </div>
+
+          <div class="signout-row">
+            <div>
+              <h3>Sign out of Nafas</h3>
+              <p>
+                You will return to the login page.
+              </p>
+            </div>
+            <a href="../loginpage/login.html" class="signout-button" id="signout-link">
+              Sign Out
+            </a>
+          </div>
+
+          <p class="info-note">
+            This prototype links to the login page. A real application
+            must also invalidate the authenticated session on the server.
+          </p>
+        </section>
+
+      </div>
+    </div>
+
+    <footer class="page-footer">
+      <span>Nafas · Mental Wellbeing Platform</span>
+      <span>Your wellbeing matters.</span>
+    </footer>
+
+  </main>
+<script src="profile.js" defer></script>
+</body>
+</html>

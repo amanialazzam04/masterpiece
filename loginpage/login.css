@@ -1,0 +1,721 @@
+:root {
+    --navy: #0b456d;
+    --blue: #087fa8;
+    --teal: #0799b5;
+    --sky: #e8f8ff;
+    --pale: #f6fcff;
+    --card: #eefaff;
+    --muted: #52728a;
+    --line: #d7ebf4;
+    --white: #ffffff;
+    --danger: #b42318;
+    --success: #16794b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    overflow-y: auto;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--navy);
+    background: linear-gradient(
+        135deg,
+        #f4fbff 0%,
+        #ffffff 54%,
+        #edfaff 100%
+    );
+    font-family: "DM Sans", sans-serif;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--navy);
+}
+
+/* Full screen layout */
+
+.page-shell {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    padding: 16px 22px;
+}
+
+.login-layout {
+    display: grid;
+    flex: 1;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    min-height: calc(100vh - 65px);
+    overflow: hidden;
+    border: 1px solid #e0eff6;
+    border-radius: 20px;
+    background: var(--white);
+    box-shadow: 0 24px 70px #0b456d0d;
+}
+
+/* Welcome panel */
+
+.welcome-panel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 40px clamp(28px, 4vw, 64px);
+    background: linear-gradient(
+        150deg,
+        #e7f8ff 0%,
+        #dff5fc 48%,
+        #f2fcff 100%
+    );
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;
+    max-width: 430px;
+}
+
+.eyebrow,
+.form-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 4px #0799b51a;
+}
+
+h1,
+h2 {
+    font-family: "Manrope", sans-serif;
+}
+
+h1 {
+    margin: 22px 0 16px;
+    color: var(--navy);
+    font-size: clamp(32px, 3.2vw, 44px);
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+}
+
+h1 span {
+    color: var(--blue);
+}
+
+.welcome-content > p {
+    max-width: 390px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* Quote card */
+
+.quote-card {
+    position: relative;
+    margin-top: 28px;
+    padding: 20px 22px;
+    border: 1px solid #ffffffc9;
+    border-radius: 18px;
+    background: #ffffffb8;
+    box-shadow: 0 12px 28px #0b456d08;
+    backdrop-filter: blur(8px);
+}
+
+.quote-icon {
+    color: var(--teal);
+    font: 700 36px/0.8 Georgia, serif;
+}
+
+.quote-card p {
+    margin: 8px 0 12px;
+    color: var(--navy);
+    font: 600 14px/1.65 "Manrope", sans-serif;
+}
+
+.quote-caption {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.welcome-footer {
+    margin-top: 23px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.tiny-heart {
+    margin-right: 5px;
+    color: var(--teal);
+    font-size: 19px;
+    vertical-align: -2px;
+}
+
+/* Decorative shapes */
+
+.soft-orb {
+    position: absolute;
+    border: 1px solid #ffffffa8;
+    border-radius: 50%;
+}
+
+.orb-one {
+    top: -100px;
+    right: -100px;
+    width: 250px;
+    height: 250px;
+    box-shadow:
+        0 0 0 25px #ffffff26,
+        0 0 0 50px #ffffff1b;
+}
+
+.orb-two {
+    bottom: -75px;
+    left: -65px;
+    width: 160px;
+    height: 160px;
+    box-shadow: 0 0 0 22px #ffffff38;
+}
+
+.decor-leaf {
+    position: absolute;
+    z-index: 1;
+    width: 24px;
+    height: 43px;
+    border: 1px solid #0799b526;
+    border-radius: 100% 0 100% 0;
+    transform: rotate(35deg);
+}
+
+.leaf-one {
+    top: 23%;
+    right: 16%;
+}
+
+.leaf-two {
+    top: 29%;
+    right: 9%;
+    transform: rotate(75deg) scale(0.7);
+}
+
+/* Form panel */
+
+.form-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 28px clamp(24px, 4vw, 60px);
+}
+
+/* Logo beside heading */
+
+.form-heading {
+    margin-bottom: 20px;
+}
+
+.heading-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.brand-logo {
+    display: block;
+    width: 82px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.heading-text {
+    min-width: 0;
+}
+
+.form-kicker {
+    font-size: 10px;
+}
+
+h2 {
+    margin: 7px 0 6px;
+    color: var(--navy);
+    font-size: clamp(22px, 2.2vw, 28px);
+    letter-spacing: -0.8px;
+}
+
+.form-heading p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* Account type label */
+
+.account-label {
+    display: block;
+    margin: 0 0 10px;
+    color: #214e6b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Four account boxes */
+
+.account-types {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 9px;
+    margin-bottom: 17px;
+}
+
+.account-option {
+    display: block;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.account-option input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.account-box {
+    display: flex;
+    min-height: 78px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 3px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--muted);
+    background: #fbfeff;
+    text-align: center;
+    transition: 0.2s ease;
+}
+
+.account-icon {
+    color: var(--blue);
+    font-size: 22px;
+    line-height: 1;
+}
+
+.account-name {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.account-option input:checked + .account-box {
+    border: 1.5px solid var(--blue);
+    color: var(--navy);
+    background: var(--sky);
+    box-shadow: 0 0 0 2px #087fa812;
+}
+
+.account-option:hover .account-box {
+    border-color: var(--teal);
+}
+
+.account-option input:focus-visible + .account-box {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+}
+
+/* Inputs */
+
+form > label:not(.account-option),
+.password-label label {
+    display: block;
+    margin: 14px 0 7px;
+    color: #214e6b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.input-wrap {
+    position: relative;
+}
+
+.input-wrap input {
+    width: 100%;
+    height: 46px;
+    padding: 0 52px 0 43px;
+    outline: none;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    color: var(--navy);
+    background: #fbfeff;
+    font-size: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-wrap input::placeholder {
+    color: #9aafbd;
+}
+
+.input-wrap input:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px #0799b514;
+}
+
+.field-icon {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: #7093a8;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+}
+
+/* Password row */
+
+.password-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+}
+
+.password-label label {
+    margin: 0 0 7px;
+}
+
+.password-label a {
+    margin-bottom: 7px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.show-password {
+    position: absolute;
+    top: 0;
+    right: 7px;
+    height: 46px;
+    padding: 0 8px;
+    border: none;
+    color: var(--blue);
+    background: transparent;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Remember me */
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    margin: 13px 0 7px;
+}
+
+.remember-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--muted);
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.remember-label input {
+    width: 14px;
+    height: 14px;
+    accent-color: var(--blue);
+}
+
+/* Sign in button */
+
+.submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    height: 47px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 11px;
+    color: white;
+    background: linear-gradient(100deg, var(--navy), var(--blue));
+    box-shadow: 0 9px 20px #087fa82a;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-button span {
+    font-size: 18px;
+    transition: transform 0.2s;
+}
+
+.submit-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px #087fa833;
+}
+
+.submit-button:hover span {
+    transform: translateX(3px);
+}
+
+/* Messages */
+
+.form-message {
+    display: none;
+    margin: 12px 0 0;
+    padding: 10px 12px;
+    border-radius: 9px;
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+.form-message.show {
+    display: block;
+}
+
+.form-message.error {
+    color: var(--danger);
+    background: #fff1f0;
+}
+
+.form-message.success {
+    color: var(--success);
+    background: #eaf8f0;
+}
+
+/* Demo note */
+
+.demo-note {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 12px 13px;
+    border: 1px solid #d9f0f7;
+    border-radius: 12px;
+    background: #f3fbfe;
+}
+
+.demo-icon {
+    display: grid;
+    flex: 0 0 19px;
+    place-items: center;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    color: white;
+    background: var(--teal);
+    font: 700 12px Georgia, serif;
+}
+
+.demo-note strong {
+    display: block;
+    color: var(--navy);
+    font-size: 10px;
+}
+
+.demo-note p {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.demo-accounts {
+    display: grid;
+    gap: 5px;
+    margin: 7px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.demo-accounts li {
+    display: grid;
+    gap: 1px;
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.5;
+}
+
+.demo-accounts strong {
+    color: var(--navy);
+    font-size: 9px;
+}
+
+.demo-accounts span {
+    overflow-wrap: anywhere;
+}
+
+/* Signup */
+
+.signup-prompt {
+    margin-top: 17px;
+    color: var(--muted);
+    text-align: center;
+    font-size: 11px;
+}
+
+.signup-prompt a {
+    margin-left: 3px;
+    font-weight: 700;
+}
+
+/* Privacy */
+
+.privacy-note {
+    margin-top: 18px;
+    padding-top: 13px;
+    border-top: 1px solid #edf4f7;
+    color: #7892a2;
+    text-align: center;
+    font-size: 10px;
+}
+
+.privacy-note span {
+    margin-right: 4px;
+    color: var(--teal);
+    font-size: 14px;
+}
+
+/* Footer */
+
+.page-footer {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 8px 0;
+    color: #7892a2;
+    font-size: 10px;
+}
+
+/* Tablet */
+
+@media (max-width: 850px) {
+    .page-shell {
+        padding: 12px;
+    }
+
+    .login-layout {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .welcome-panel {
+        display: none;
+    }
+
+    .form-panel {
+        padding: 30px clamp(20px, 6vw, 42px);
+    }
+
+    .brand-logo {
+        width: 72px;
+        height: 62px;
+    }
+
+    .heading-brand {
+        gap: 13px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 420px) {
+    .page-shell {
+        padding: 8px;
+    }
+
+    .login-layout {
+        border-radius: 18px;
+    }
+
+    .form-panel {
+        padding: 24px 16px;
+    }
+
+    .brand-logo {
+        width: 58px;
+        height: 52px;
+    }
+
+    .heading-brand {
+        gap: 9px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    .form-heading p {
+        font-size: 10px;
+    }
+
+    .account-types {
+        gap: 5px;
+    }
+
+    .account-box {
+        min-height: 72px;
+        padding: 8px 2px;
+    }
+
+    .account-icon {
+        font-size: 20px;
+    }
+
+    .account-name {
+        font-size: 10px;
+    }
+
+    .page-footer {
+        font-size: 9px;
+    }
+}

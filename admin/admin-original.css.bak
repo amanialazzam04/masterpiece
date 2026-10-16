@@ -1,0 +1,24 @@
+.admin-layout .sidebar-nav { gap: 3px; }
+.admin-layout .nav-link { min-height: 41px; font-size: 11px; }
+.admin-layout .sidebar-label { margin-bottom: 9px; }
+.admin-metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.admin-metrics .summary-card strong { font-size: 17px; }
+.admin-toolbar { display: grid; grid-template-columns: repeat(2, minmax(180px, 1fr)); align-items: end; gap: 14px; margin: 0 0 15px; }
+.admin-toolbar .form-field input, .admin-toolbar .form-field select { width: 100%; min-height: 43px; padding: 9px 11px; border: 1px solid #d6e7ef; border-radius: 10px; background: #fff; color: var(--text); font-size: 12px; }
+.admin-toolbar input:disabled, .admin-toolbar select:disabled { background: #f4f8fa; color: #8297a4; }
+.admin-list { display: grid; gap: 12px; }
+.admin-draft { padding: 17px; border: 1px solid var(--border); border-radius: 14px; background: #fbfeff; }
+.admin-draft h3 { margin-bottom: 4px; font: 700 14px "Manrope", sans-serif; }
+.admin-draft p { color: var(--muted); font-size: 11px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.admin-draft .demo-label { display: inline-block; margin: 0 0 8px; }
+.admin-reference-list { display: grid; gap: 8px; padding-left: 20px; color: var(--muted); font-size: 12px; }
+.table-scroll { overflow-x: auto; }
+.admin-table { width: 100%; min-width: 680px; border-collapse: collapse; text-align: left; font-size: 11px; }
+.admin-table th, .admin-table td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.admin-table thead th { background: #f4fafc; color: var(--navy); font-weight: 800; }
+.admin-table tbody th { color: var(--navy); font-weight: 700; }
+.admin-table td { color: var(--muted); }
+#report-feedback { display: block; min-height: 18px; }
+@media (max-width: 1120px) { .admin-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .admin-layout .nav-link { min-height: 43px; } .admin-toolbar { grid-template-columns: 1fr; } .admin-toolbar .secondary-button { justify-self: start; } .admin-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 390px) { .admin-metrics { grid-template-columns: 1fr; } }

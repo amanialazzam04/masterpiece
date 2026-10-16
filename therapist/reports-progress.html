@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f0f9ff">
+  <title>Reports & Progress | Nafas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="reports-progress.css">
+</head>
+<body>
+  <div class="family-layout therapist-layout">
+    <aside class="sidebar" id="therapist-sidebar">
+      <a href="therapist-dashboard.html" class="logo" aria-label="Nafas Therapist Dashboard">
+        <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image">
+      </a>
+      <div class="sidebar-label">THERAPIST SPACE</div>
+      <nav class="sidebar-nav" aria-label="Therapist Portal navigation">
+        <a href="therapist-dashboard.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⌂</span><span>Therapist Dashboard</span></a>
+        <a href="my-clients.html" class="nav-link"><span class="nav-icon" aria-hidden="true">♧</span><span>My Clients</span></a>
+        <a href="client-details.html" class="nav-link"><span class="nav-icon" aria-hidden="true">○</span><span>Client Details</span></a>
+        <a href="sessions.html" class="nav-link"><span class="nav-icon" aria-hidden="true">▤</span><span>Sessions</span></a>
+        <a href="consultations-requests.html" class="nav-link"><span class="nav-icon" aria-hidden="true">↗</span><span>Consultations &amp; Requests</span></a>
+        <a href="clinical-notes.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✎</span><span>Clinical Notes</span></a>
+        <a href="alerts-follow-up.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✓</span><span>Alerts &amp; Follow-up</span></a>
+        <a href="reports-progress.html" class="nav-link active" aria-current="page"><span class="nav-icon" aria-hidden="true">⌁</span><span>Reports &amp; Progress</span></a>
+        <a href="therapist-profile-settings.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⚙</span><span>My Profile &amp; Settings</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><span class="help-icon" aria-hidden="true">♡</span><h3>Care with clear boundaries.</h3><p>This local prototype has no authenticated client records or secure clinical storage.</p></div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon" aria-hidden="true">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="therapist-sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="therapist-menu-button" aria-label="Toggle Therapist Portal navigation" aria-controls="therapist-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Therapist Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Reports & Progress</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot muted-dot"></span>Frontend demo</span></div>
+      </header>
+
+      <div class="portal-container therapist-container"><section class="portal-view" id="reports" data-title="Reports & Progress" aria-labelledby="reports-title">
+          <div class="page-heading"><div><p class="eyebrow">ATTENDANCE &amp; GOALS</p><h1 id="reports-title">Reports &amp; Progress</h1><p class="page-description">An accessible example of basic progress measures supported by the demo records.</p></div></div>
+          <div class="th-demo-banner" role="note"><strong>Fictional sample figures.</strong> These visualizations do not describe a real person, establish an outcome, or imply a diagnosis.</div>
+          <div class="th-report-stats"><article class="th-stat-card"><p>Completed sample sessions</p><strong>2</strong><small>fictional sessions</small></article><article class="th-stat-card"><p>Sample goal review</p><strong>60%</strong><small>demo measure only</small></article><article class="th-stat-card"><p>Shared check-ins</p><strong>16</strong><small>explicitly enabled fictional sample</small></article></div>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">FICTIONAL CLIENT-SELECTED GOAL</p><h2>Example goal progress</h2></div></div><div class="th-progress-row"><div><strong>Demo Client A · Evening routine goal</strong><span>Illustrative review measure</span></div><div class="th-progress-track" role="img" aria-label="Fictional progress illustration: 60 percent"><span style="width:60%"></span></div><strong>60%</strong></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">SHARED SAMPLE DATA</p><h2>Weekly mood check-ins</h2></div></div><p class="section-description">Illustrative values appear only for Demo Client A, whose fictional record has mood sharing enabled. These values are not clinical findings.</p><div class="th-chart" role="img" aria-label="Fictional shared mood check-in counts from Monday through Sunday"><div class="th-chart-column"><span style="height:42%"></span><small>Mon</small><b>2</b></div><div class="th-chart-column"><span style="height:62%"></span><small>Tue</small><b>3</b></div><div class="th-chart-column"><span style="height:28%"></span><small>Wed</small><b>1</b></div><div class="th-chart-column"><span style="height:82%"></span><small>Thu</small><b>4</b></div><div class="th-chart-column"><span style="height:62%"></span><small>Fri</small><b>3</b></div><div class="th-chart-column"><span style="height:42%"></span><small>Sat</small><b>2</b></div><div class="th-chart-column"><span style="height:28%"></span><small>Sun</small><b>1</b></div></div><p class="field-hint">Counts show fictional shared check-ins only. No private journal entries or private AI conversations are included.</p></section>
+          <section class="panel th-empty-report" id="empty-report"><div class="empty-state"><span class="empty-state-icon" aria-hidden="true">⌁</span><h3>No authorized progress data</h3><p>Reports remain empty unless a service provides relevant data with appropriate permission.</p></div></section>
+        </section></div>
+    </main>
+  </div>
+<script src="therapist.js" defer></script>
+<script src="therapist-nav.js" defer></script>
+<script src="reports-progress.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+"use strict";
+
+document.addEventListener("DOMContentLoaded", function () {
+  const views = Array.from(document.querySelectorAll(".portal-view"));
+  const links = Array.from(document.querySelectorAll(".sidebar-nav .nav-link"));
+  const title = document.getElementById("current-view-title");
+  const sidebar = document.getElementById("admin-sidebar");
+  const overlay = document.getElementById("admin-sidebar-overlay");
+  const menuButton = document.getElementById("admin-menu-button");
+
+  function setMenu(open) {
+    sidebar.classList.toggle("open", open);
+    overlay.classList.toggle("visible", open);
+    menuButton.setAttribute("aria-expanded", String(open));
+  }
+
+  function route() {
+    const requested = window.location.hash.slice(1).split("/")[0];
+    const current = views.find((view) => view.id === requested) || views[0];
+    views.forEach((view) => { view.hidden = view !== current; });
+    links.forEach((link) => {
+      const active = link.hash === `#${current.id}`;
+      link.classList.toggle("active", active);
+      if (active) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+    });
+    title.textContent = current.dataset.title;
+    document.title = `${current.dataset.title} | Nafas Admin`;
+    setMenu(false);
+    const heading = current.querySelector("h1");
+    if (heading) heading.focus({ preventScroll: true });
+  }
+
+  menuButton.addEventListener("click", () => setMenu(!sidebar.classList.contains("open")));
+  overlay.addEventListener("click", () => setMenu(false));
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape") setMenu(false); });
+  window.addEventListener("hashchange", route);
+  if (!window.location.hash) window.history.replaceState(null, "", "#dashboard");
+  route();
+
+  const contentForm = document.getElementById("content-form");
+  const draftList = document.getElementById("content-drafts");
+  const contentFeedback = document.getElementById("content-feedback");
+  const drafts = [];
+  contentForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    if (!contentForm.reportValidity()) return;
+    const data = new FormData(contentForm);
+    drafts.unshift({ title: data.get("title").trim(), category: data.get("category"), body: data.get("body").trim() });
+    contentFeedback.textContent = "Draft preview added to this page only. It was not published or saved.";
+    contentForm.reset();
+    draftList.replaceChildren();
+    drafts.forEach((draft) => {
+      const card = document.createElement("article");
+      card.className = "admin-draft";
+      const badge = document.createElement("span"); badge.className = "demo-label"; badge.textContent = "Local draft · not published";
+      const heading = document.createElement("h3"); heading.textContent = draft.title;
+      const category = document.createElement("p"); category.textContent = draft.category;
+      const body = document.createElement("p"); body.textContent = draft.body;
+      card.append(badge, heading, category, body);
+      draftList.appendChild(card);
+    });
+  });
+  contentForm.addEventListener("input", () => { contentFeedback.textContent = ""; });
+
+  document.getElementById("report-preview").addEventListener("click", function () {
+    const from = document.getElementById("report-from").value;
+    const to = document.getElementById("report-to").value;
+    const feedback = document.getElementById("report-feedback");
+    if (from && to && from > to) { feedback.textContent = "Choose a start date on or before the end date."; return; }
+    feedback.textContent = "No reporting service is connected. No report was generated.";
+  });
+
+  const profileForm = document.getElementById("profile-form");
+  profileForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    if (!profileForm.reportValidity()) return;
+    const name = profileForm.elements.name.value.trim();
+    const email = profileForm.elements.email.value.trim();
+    document.getElementById("profile-feedback").textContent = `Preview ready for ${name} (${email}). Nothing was saved.`;
+  });
+  profileForm.addEventListener("reset", function () {
+    window.setTimeout(() => { document.getElementById("profile-feedback").textContent = "Preview fields cleared."; }, 0);
+  });
+});

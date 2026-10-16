@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6fcff">
+  <title>Support & Guidance | Nafas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="support-guidance.css">
+</head>
+<body>
+  <div class="family-layout">
+    <aside class="sidebar" id="family-sidebar">
+      <a href="family-dashboard.html" class="logo" aria-label="Nafas Family Dashboard">
+        <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image">
+      </a>
+      <div class="sidebar-label">FAMILY SPACE</div>
+      <nav class="sidebar-nav" aria-label="Family Portal navigation">
+        <a href="family-dashboard.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⌂</span><span>Family Dashboard</span></a>
+        <a href="my-loved-ones.html" class="nav-link"><span class="nav-icon" aria-hidden="true">♡</span><span>My Loved Ones</span></a>
+        <a href="support-guidance.html" class="nav-link active" aria-current="page"><span class="nav-icon" aria-hidden="true">✧</span><span>Support &amp; Guidance</span></a>
+        <a href="shared-wellness.html" class="nav-link"><span class="nav-icon" aria-hidden="true">☼</span><span>Shared Wellness</span></a>
+        <a href="consultations.html" class="nav-link"><span class="nav-icon" aria-hidden="true">▤</span><span>Consultations</span></a>
+        <a href="family-profile-settings.html" class="nav-link"><span class="nav-icon" aria-hidden="true">○</span><span>My Profile &amp; Settings</span></a>
+        <a href="help-safety.html" class="nav-link"><span class="nav-icon" aria-hidden="true">?</span><span>Help &amp; Safety</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon" aria-hidden="true">♡</div>
+          <h3>Care for yourself, too.</h3>
+          <p>Supporting someone can be a lot to carry. Your wellbeing matters as well.</p>
+          <a href="help-safety.html" class="view-link">Visit Help &amp; Safety <span>→</span></a>
+        </div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon" aria-hidden="true">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="family-sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="family-menu-button" aria-label="Toggle Family Portal navigation" aria-controls="family-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Family Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Support & Guidance</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot"></span> Family Portal</span></div>
+      </header>
+
+      <div class="portal-container"><section class="portal-view" id="guidance" data-title="Support & Guidance" aria-labelledby="guidance-title">
+          <div class="page-heading"><div><p class="eyebrow">LEARN &amp; SUPPORT</p><h1 id="guidance-title">Support &amp; Guidance</h1><p class="page-description">Practical ideas for offering care while respecting your loved one's choices and boundaries.</p></div></div>
+          <div class="guidance-grid">
+            <article class="support-card"><span class="support-icon">♡</span><h2>Listen with care</h2><p>Give them time to speak. Ask open questions, listen without judgment, and let them set the pace.</p><p class="example-phrase">“Would you like me to listen, or think through options with you?”</p></article>
+            <article class="support-card"><span class="support-icon">✧</span><h2>Offer practical help</h2><p>Ask what would make today a little easier. Small, specific offers can be easier to accept than broad promises.</p><p class="example-phrase">“Would it help if I went with you to look for support?”</p></article>
+            <article class="support-card"><span class="support-icon">○</span><h2>Respect privacy and choice</h2><p>Let your loved one decide what to share and with whom. Do not ask for access to their private journal or AI conversations.</p><p class="example-phrase">“You can share only what feels comfortable.”</p></article>
+            <article class="support-card"><span class="support-icon">☼</span><h2>Look after yourself</h2><p>Supporting someone can affect you too. Keep your own support network and make room for rest and boundaries.</p><p class="example-phrase">You can care deeply and still take time for yourself.</p></article>
+          </div>
+          <section class="panel family-chat-panel" aria-labelledby="family-chat-title">
+            <div class="panel-heading"><div><p class="eyebrow">FAMILY GUIDANCE · DEMO MODE</p><h2 id="family-chat-title">Ask for supportive ideas</h2></div><button type="button" class="secondary-button chat-reset-button" id="family-chat-reset">Start a new conversation</button></div>
+            <p class="family-chat-intro">Explore general ideas for supporting someone you care about. This Family guidance chat is separate from the Personal User's private AI Support.</p>
+            <div class="family-chat-prompts" role="group" aria-label="Suggested questions">
+              <button type="button" class="chat-prompt" data-chat-prompt="How can I support someone who feels overwhelmed?">How can I support someone who feels overwhelmed?</button>
+              <button type="button" class="chat-prompt" data-chat-prompt="How can I listen without judging?">How can I listen without judging?</button>
+              <button type="button" class="chat-prompt" data-chat-prompt="How can I encourage someone to seek professional help?">How can I encourage someone to seek professional help?</button>
+              <button type="button" class="chat-prompt" data-chat-prompt="How can I take care of my own wellbeing while supporting someone?">How can I take care of my own wellbeing while supporting someone?</button>
+            </div>
+            <div class="family-chat-transcript" id="family-chat-transcript" role="log" aria-live="polite" aria-relevant="additions text">
+              <div class="family-chat-message assistant-message"><span class="chat-speaker">Nafas Family Guidance · Demo</span><p>Hi. I can offer general educational ideas for supporting a loved one. What would you like to explore?</p></div>
+            </div>
+            <div class="family-chat-loading" id="family-chat-loading" role="status" aria-live="polite"><span class="typing-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Preparing a guidance response…</span></div>
+            <p class="family-chat-error" id="family-chat-error" role="alert">That response could not be prepared. Please try again.</p>
+            <form class="family-chat-form" id="family-chat-form">
+              <label class="field-label" for="family-chat-input">Your question</label>
+              <div class="family-chat-compose"><textarea id="family-chat-input" rows="2" maxlength="1000" placeholder="Ask for a general supportive idea…" required></textarea><button type="submit" class="primary-button" id="family-chat-send">Send <span aria-hidden="true">→</span></button></div>
+              <p class="field-hint">Demo responses are predefined educational guidance. No AI service is connected, and messages are not sent or saved.</p>
+            </form>
+            <p class="chat-safety-note">This assistant does not diagnose or provide therapy. It cannot monitor safety or contact anyone. If someone may be in immediate danger, contact your local emergency services or go to the nearest emergency department.</p>
+          </section>
+          <section class="panel guidance-library"><div class="panel-heading"><div><p class="eyebrow">EDUCATIONAL RESOURCES</p><h2>Explore practical guidance</h2></div></div>
+            <div class="filter-row" role="group" aria-label="Filter guidance resources">
+              <button type="button" class="filter-button active" data-resource-filter="all" aria-pressed="true">All topics</button>
+              <button type="button" class="filter-button" data-resource-filter="wellbeing" aria-pressed="false">Emotional wellbeing</button>
+              <button type="button" class="filter-button" data-resource-filter="communication" aria-pressed="false">Communication</button>
+              <button type="button" class="filter-button" data-resource-filter="daily" aria-pressed="false">Daily support</button>
+              <button type="button" class="filter-button" data-resource-filter="caregiver" aria-pressed="false">Caregiver wellbeing</button>
+            </div>
+            <div class="resource-card-grid" id="guidance-resource-list">
+              <article class="education-card" data-resource-category="wellbeing"><p class="eyebrow">EMOTIONAL WELLBEING</p><h3>Notice without diagnosing</h3><p>People respond to stress in different ways. Ask what they have noticed and what support they want; avoid labeling or trying to diagnose them.</p><details><summary>Read supportive questions</summary><p>“What has felt hardest lately?” “What helps you feel a little more supported?” Let them decide how much to share.</p></details></article>
+              <article class="education-card" data-resource-category="communication"><p class="eyebrow">COMMUNICATION</p><h3>Acknowledge their feelings</h3><p>Reflect what you hear without comparing, dismissing, or immediately trying to fix the feeling.</p><details><summary>Read example responses</summary><p>“That sounds like a lot to manage.” “Thank you for telling me.” “I may not know exactly how it feels, but I want to understand.”</p></details></article>
+              <article class="education-card" data-resource-category="daily"><p class="eyebrow">DAILY SUPPORT</p><h3>Offer specific, small help</h3><p>Everyday tasks can feel more manageable when support is practical and offered with permission.</p><details><summary>Read practical ideas</summary><p>Ask whether help with a meal, a ride, an errand, or company would be useful. Accept “no” and ask again another time if appropriate.</p></details></article>
+              <article class="education-card" data-resource-category="caregiver"><p class="eyebrow">CAREGIVER WELLBEING</p><h3>Keep supportive boundaries</h3><p>Choose realistic ways to help and make time for your own rest, relationships, and support.</p><details><summary>Read self-care ideas</summary><p>Decide when you are available, identify someone you can talk with, and seek your own professional support if the situation is weighing on you.</p></details></article>
+            </div>
+            <p class="field-hint">General educational information only. It does not replace advice from a qualified professional.</p>
+          </section>
+          <section class="panel prompt-panel"><div class="panel-heading"><div><p class="eyebrow">GUIDED PROMPT · NOT AI</p><h2>Choose a conversation prompt</h2></div></div>
+            <form id="guidance-prompt-form" class="prompt-form"><label class="field-label" for="guidance-prompt">What would you like help with?</label><div class="prompt-controls"><select id="guidance-prompt" required><option value="">Choose a topic</option><option value="listen">Starting a supportive conversation</option><option value="practical">Offering practical help</option><option value="boundaries">Respecting boundaries</option></select><button class="secondary-button" type="submit">Show suggestion</button></div></form>
+            <p class="prompt-response" id="guidance-prompt-response" role="status" aria-live="polite"></p>
+            <p class="field-hint">Suggestions are predefined educational text. No AI service is connected.</p>
+          </section>
+          <section class="panel resource-panel"><div class="panel-heading"><div><p class="eyebrow">NAFAS RESOURCES</p><h2>Explore support together</h2></div></div><div class="resource-list">
+            <a class="resource-row" href="../personal/wellness.html"><span class="resource-icon">☼</span><span><strong>Daily Wellness</strong><small>Personal mood check-ins and self-care tools</small></span><span class="resource-arrow">→</span></a>
+            <a class="resource-row" href="../personal/session.html"><span class="resource-icon">✧</span><span><strong>Sessions &amp; Support</strong><small>Review sample therapist profiles and session options</small></span><span class="resource-arrow">→</span></a>
+            <a class="resource-row" href="../homepage/home.html#about"><span class="resource-icon">○</span><span><strong>About Nafas</strong><small>Learn about the Nafas wellbeing project</small></span><span class="resource-arrow">→</span></a>
+          </div></section>
+        </section></div>
+    </main>
+  </div>
+<script src="support-guidance.js" defer></script>
+<script src="family.js" defer></script>
+</body>
+</html>

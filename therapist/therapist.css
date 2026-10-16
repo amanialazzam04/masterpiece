@@ -1,0 +1,33 @@
+/* Therapist-specific layouts extend the approved Family Portal design system. */
+.therapist-layout { min-height: 100vh; }
+.therapist-container { display: grid; align-content: start; gap: 0; }
+.th-demo-banner { margin: 0 0 17px; padding: 12px 15px; border: 1px solid #d7eaf1; border-radius: 12px; background: linear-gradient(110deg, #f1faff, #f1fbf8); color: #58768a; font-size: 11px; }
+.th-demo-banner strong { color: var(--navy); }
+
+.th-client-list, .th-session-list, .th-request-list, .th-task-list, .th-note-list { display: grid; gap: 11px; }
+.th-client-card, .th-session-card, .th-request-card, .th-task-card, .th-note-card { min-width: 0; padding: 16px; border: 1px solid var(--border); border-radius: 15px; background: #fff; box-shadow: 0 5px 18px rgba(11,69,109,.035); }
+.th-card-topline { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.th-card-topline h2, .th-card-topline h3 { color: var(--navy); font: 700 14px "Manrope", sans-serif; }
+.th-card-topline p, .th-card-copy { margin-top: 5px; color: var(--muted); font-size: 11px; }
+.th-client-meta { display: flex; flex-wrap: wrap; gap: 7px 16px; margin: 11px 0; color: #607b8c; font-size: 10px; }
+.th-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; }
+.th-card-actions .primary-button, .th-card-actions .secondary-button { min-height: 36px; padding: 7px 12px; font-size: 10px; }
+.th-status { display: inline-flex; align-items: center; padding: 5px 9px; border-radius: 999px; background: #eaf7f2; color: #34866e; font-size: 9px; font-weight: 800; }
+.th-status.pending { background: #fff5e9; color: #a76a31; }
+.th-status.completed { background: #eaf7f2; color: #34866e; }
+.th-status.cancelled, .th-status.declined { background: #f5eff0; color: #8c6470; }
+.th-status.proposal { background: #edf3fc; color: #5775a1; }
+
+.th-privacy-panel { margin-bottom: 16px; }
+.th-availability { min-width: 0; padding: 0; border: 0; }
+.th-checkbox-row { display: flex; flex-wrap: wrap; gap: 8px 17px; }
+.th-checkbox-row label { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 11px; font-weight: 500; }
+.th-checkbox-row input { accent-color: var(--teal); }
+
+.therapist-container .field-hint { line-height: 1.6; }
+.therapist-container input:focus-visible, .therapist-container select:focus-visible, .therapist-container textarea:focus-visible { outline: 3px solid #79cfe2; outline-offset: 2px; }
+
+@media (max-width: 640px) {
+  .th-card-actions { align-items: stretch; }
+}
+@media (prefers-reduced-motion: reduce) { .th-shortcut, .th-compact-item { transition: none; } }

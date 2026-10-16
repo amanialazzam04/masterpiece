@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f0f9ff">
+  <title>Client Details | Nafas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="client-details.css">
+</head>
+<body>
+  <div class="family-layout therapist-layout">
+    <aside class="sidebar" id="therapist-sidebar">
+      <a href="therapist-dashboard.html" class="logo" aria-label="Nafas Therapist Dashboard">
+        <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image">
+      </a>
+      <div class="sidebar-label">THERAPIST SPACE</div>
+      <nav class="sidebar-nav" aria-label="Therapist Portal navigation">
+        <a href="therapist-dashboard.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⌂</span><span>Therapist Dashboard</span></a>
+        <a href="my-clients.html" class="nav-link"><span class="nav-icon" aria-hidden="true">♧</span><span>My Clients</span></a>
+        <a href="client-details.html" class="nav-link active" aria-current="page"><span class="nav-icon" aria-hidden="true">○</span><span>Client Details</span></a>
+        <a href="sessions.html" class="nav-link"><span class="nav-icon" aria-hidden="true">▤</span><span>Sessions</span></a>
+        <a href="consultations-requests.html" class="nav-link"><span class="nav-icon" aria-hidden="true">↗</span><span>Consultations &amp; Requests</span></a>
+        <a href="clinical-notes.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✎</span><span>Clinical Notes</span></a>
+        <a href="alerts-follow-up.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✓</span><span>Alerts &amp; Follow-up</span></a>
+        <a href="reports-progress.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⌁</span><span>Reports &amp; Progress</span></a>
+        <a href="therapist-profile-settings.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⚙</span><span>My Profile &amp; Settings</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><span class="help-icon" aria-hidden="true">♡</span><h3>Care with clear boundaries.</h3><p>This local prototype has no authenticated client records or secure clinical storage.</p></div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon" aria-hidden="true">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="therapist-sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="therapist-menu-button" aria-label="Toggle Therapist Portal navigation" aria-controls="therapist-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Therapist Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Client Details</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot muted-dot"></span>Frontend demo</span></div>
+      </header>
+
+      <div class="portal-container therapist-container"><section class="portal-view" id="client-details" data-title="Client Details" aria-labelledby="client-details-title">
+          <div class="page-heading"><div><p class="eyebrow">CLIENT DETAILS</p><h1 id="client-details-title">Client Details</h1><p class="page-description">Review only the example information marked as authorized for this fictional record.</p></div><a href="my-clients.html" class="secondary-button">← Back to My Clients</a></div>
+          <div class="th-demo-banner" role="note"><strong>Privacy boundary:</strong> this frontend does not authenticate staff or enforce permissions. Do not enter real clinical information. Private journals and private AI conversations are not included.</div>
+          <div id="client-detail-content" class="th-client-detail">
+            <section class="panel th-client-overview"><div class="panel-heading"><div><p class="eyebrow">FICTIONAL SAMPLE CLIENT</p><h2 id="detail-client-name">Demo Client</h2></div><span class="status-pill" id="detail-client-status">Demo status</span></div><div class="th-detail-facts"><p><span>Sample reference</span><strong id="detail-client-reference"></strong></p><p><span>Connection</span><strong id="detail-connection-status"></strong></p><p><span>Last session</span><strong id="detail-last-session"></strong></p></div></section>
+            <div class="dashboard-grid th-detail-grid"><section class="panel"><div class="panel-heading"><div><p class="eyebrow">CLIENT-SELECTED</p><h2>Therapeutic goals</h2></div></div><ul class="th-goal-list" id="detail-goals"></ul><h3 class="th-subheading">Follow-up plan</h3><p id="detail-followup" class="th-reading-copy"></p></section><section class="panel"><div class="panel-heading"><div><p class="eyebrow">AUTHORIZED SHARING</p><h2>Wellbeing information</h2></div><span class="panel-icon" aria-hidden="true">♡</span></div><div id="detail-mood-sharing" class="th-reading-copy"></div><p class="field-hint">Mood summaries appear here only in sample records where the sharing flag is explicitly enabled. No journals or AI conversations are shown.</p></section></div>
+            <section class="panel"><div class="panel-heading"><div><p class="eyebrow">DEMO HISTORY</p><h2>Session history and progress notes</h2></div></div><div class="th-history-list" id="detail-session-history"></div><p class="field-hint">Summaries are fictional interaction examples, not clinical conclusions.</p></section>
+          </div>
+          <div class="panel empty-state th-empty-state" id="client-detail-empty"><span class="empty-state-icon" aria-hidden="true">○</span><h3>Select a client to view their details</h3><p>Open a fictional client record from My Clients. A real service must verify identity, consent, and role permissions before exposing client information.</p><a href="my-clients.html" class="secondary-button">Go to My Clients</a></div>
+        </section></div>
+    </main>
+  </div>
+<script src="therapist.js" defer></script>
+<script src="therapist-nav.js" defer></script>
+<script src="client-details.js" defer></script>
+</body>
+</html>

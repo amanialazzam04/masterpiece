@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5fbff">
+  <title>Content Management | Nafas Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="content-management.css">
+</head>
+<body>
+  <div class="family-layout admin-layout">
+    <aside class="sidebar" id="admin-sidebar">
+      <a href="admin-dashboard.html" class="logo" aria-label="Nafas Admin Dashboard"><img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image"></a>
+      <div class="sidebar-label">ADMIN SPACE</div>
+      <nav class="sidebar-nav" aria-label="Admin Portal navigation">
+        <a href="admin-dashboard.html" class="nav-link"><span class="nav-icon">⌂</span><span>Admin Dashboard</span></a>
+        <a href="user-management.html" class="nav-link"><span class="nav-icon">♙</span><span>User Management</span></a>
+        <a href="therapist-management.html" class="nav-link"><span class="nav-icon">✚</span><span>Therapist Management</span></a>
+        <a href="family-connections.html" class="nav-link"><span class="nav-icon">♡</span><span>Family &amp; Connections</span></a>
+        <a href="sessions-consultations.html" class="nav-link"><span class="nav-icon">◷</span><span>Sessions &amp; Consultations</span></a>
+        <a href="content-management.html" class="nav-link active" aria-current="page"><span class="nav-icon">▤</span><span>Content Management</span></a>
+        <a href="reports-analytics.html" class="nav-link"><span class="nav-icon">⌁</span><span>Reports &amp; Analytics</span></a>
+        <a href="roles-permissions.html" class="nav-link"><span class="nav-icon">◇</span><span>Roles &amp; Permissions</span></a>
+        <a href="security-audit-logs.html" class="nav-link"><span class="nav-icon">◈</span><span>Security &amp; Audit Logs</span></a>
+        <a href="admin-profile-settings.html" class="nav-link"><span class="nav-icon">◉</span><span>Admin Profile &amp; Settings</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">i</div><h3>Prototype workspace</h3><p>This interface has no administrative backend. No changes to real accounts or records are possible here.</p></div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="admin-sidebar-overlay"></div>
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="admin-menu-button" aria-label="Toggle Admin Portal navigation" aria-controls="admin-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Admin Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Content Management</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot muted-dot"></span> Admin Portal · Demo</span></div>
+      </header>
+      <div class="portal-container"><section class="portal-view" id="content" data-title="Content Management" aria-labelledby="content-title">
+          <div class="page-heading"><div><p class="eyebrow">EDUCATIONAL LIBRARY</p><h1 id="content-title" tabindex="-1">Content Management</h1><p class="page-description">Prepare content drafts for this page session. Publishing is not connected to the site or a backend.</p></div></div>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">NEW CONTENT PREVIEW</p><h2>Draft an educational resource</h2></div><span class="panel-icon">▤</span></div><p class="demo-note">Drafts remain in this browser page only, disappear on reload, and are never published to the Nafas website.</p><form id="content-form" class="form-grid"><div class="form-field"><label for="content-title-input">Title</label><input id="content-title-input" name="title" maxlength="90" required></div><div class="form-field"><label for="content-category">Category</label><select id="content-category" name="category" required><option value="">Choose a category</option><option>Wellbeing guidance</option><option>Support resources</option><option>Platform information</option></select></div><div class="form-field full-field"><label for="content-body">Resource text</label><textarea id="content-body" name="body" rows="5" maxlength="1200" required></textarea></div><div class="form-actions"><button class="primary-button" type="submit">Save draft preview</button><span id="content-feedback" class="form-feedback" role="status" aria-live="polite"></span></div></form></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">CURRENT PAGE DRAFTS</p><h2>Draft previews</h2></div></div><div id="content-drafts" class="admin-list"><div class="empty-state compact-empty"><h3>No draft previews yet</h3><p>Draft content you enter will appear here until the page is reloaded.</p></div></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">EXISTING FAMILY GUIDANCE</p><h2>Current hard-coded resource themes</h2></div></div><p class="section-description">These labels describe guidance already written in the Family Portal. They are read-only references, not content records in a management system.</p><ul class="admin-reference-list"><li>Listen with care</li><li>Offer practical help</li><li>Respect privacy and choice</li><li>Look after yourself</li></ul></section>
+        </section></div>
+    </main>
+  </div>
+<script src="admin.js" defer></script>
+<script src="content-management.js" defer></script>
+</body>
+</html>

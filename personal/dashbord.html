@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6fcff">
+    <title>Personal Dashboard | Nafas</title>
+    <link rel="stylesheet" href="dashbord.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-layout">
+
+    <aside class="sidebar" id="sidebar">
+        <a href="dashbord.html" class="logo">
+            <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas Logo" class="logo-image">
+        </a>
+
+        <div class="sidebar-label">PERSONAL SPACE</div>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+            <a href="dashbord.html" class="nav-link active" aria-current="page">
+                <span class="nav-icon">⌂</span><span>Dashboard</span>
+            </a>
+            <a href="ai-support.html" class="nav-link">
+                <span class="nav-icon">✳</span><span>AI Support</span><span class="nav-badge">AI</span>
+            </a>
+            <a href="wellness.html" class="nav-link">
+                <span class="nav-icon">♧</span><span>Daily Wellness</span>
+            </a>
+            <a href="session.html" class="nav-link">
+                <span class="nav-icon">♡</span><span>Sessions &amp; Support</span>
+            </a>
+            <a href="profile.html" class="nav-link">
+                <span class="nav-icon">♙</span><span>My Profile</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="help-card">
+                <div class="help-icon">♡</div>
+                <h3>You're not alone</h3>
+                <p>Support is always within reach. Take your time and explore the help available to you.</p>
+                <a href="session.html">Explore support <span>→</span></a>
+            </div>
+
+            <button type="button" class="logout-button" id="logout-button">
+                <span class="nav-icon">↪</span> Log out
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <button type="button" class="menu-button" id="menu-button"
+                aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+
+            <div class="breadcrumb">
+                <span>Personal Space</span>
+                <span class="breadcrumb-separator">/</span>
+                <strong>Dashboard</strong>
+            </div>
+
+            <div class="topbar-actions">
+                <span class="today-date" id="today-date"></span>
+                <a href="profile.html" class="avatar" id="top-avatar" aria-label="Open profile">F</a>
+            </div>
+        </header>
+
+        <div class="dashboard-container">
+
+            <section class="welcome-section">
+                <div class="welcome-copy">
+                    <span class="section-kicker">YOUR PERSONAL SPACE</span>
+                    <h1>Take a breath, <span id="welcome-name">Friend</span> <span class="wave">☀</span></h1>
+                    <p>You don't need to have everything figured out today. Let's take one small step at a time.</p>
+                    <a href="ai-support.html" class="primary-button">Talk to Nafas AI <span>→</span></a>
+                </div>
+
+                <div class="welcome-art" aria-hidden="true">
+                    <div class="sun-circle"></div>
+                    <div class="art-cloud cloud-one"></div>
+                    <div class="art-cloud cloud-two"></div>
+                    <div class="art-hill hill-back"></div>
+                    <div class="art-hill hill-front"></div>
+                    <div class="art-flower flower-one">✿</div>
+                    <div class="art-flower flower-two">✿</div>
+                    <div class="art-star">✦</div>
+                    <div class="plant plant-one"></div>
+                    <div class="plant plant-two"></div>
+                </div>
+            </section>
+
+            <div class="dashboard-main-grid">
+
+                <section class="checkin-card" id="daily-checkin">
+                    <div class="checkin-heading">
+                        <div>
+                            <span class="section-kicker">DAILY CHECK-IN</span>
+                            <h2>How are you feeling today?</h2>
+                            <p>There is no right or wrong answer.</p>
+                        </div>
+                        <span class="checkin-sparkle">✧</span>
+                    </div>
+
+                    <div class="mood-options" id="mood-options">
+                        <button type="button" class="mood-option" data-mood="Great" aria-pressed="false">
+                            <span class="mood-emoji">☀️</span><span>Great</span>
+                        </button>
+                        <button type="button" class="mood-option" data-mood="Good" aria-pressed="false">
+                            <span class="mood-emoji">😊</span><span>Good</span>
+                        </button>
+                        <button type="button" class="mood-option" data-mood="Okay" aria-pressed="false">
+                            <span class="mood-emoji">😐</span><span>Okay</span>
+                        </button>
+                        <button type="button" class="mood-option" data-mood="Low" aria-pressed="false">
+                            <span class="mood-emoji">🌧️</span><span>Low</span>
+                        </button>
+                        <button type="button" class="mood-option" data-mood="Anxious" aria-pressed="false">
+                            <span class="mood-emoji">🌊</span><span>Anxious</span>
+                        </button>
+                    </div>
+
+                    <div class="mood-feedback">
+                        <div class="feedback-illustration">♧</div>
+                        <div class="feedback-copy">
+                            <h3 id="feedback-title">Take a moment for yourself.</h3>
+                            <p class="mood-message" id="mood-message" role="status" aria-live="polite">Your feelings matter. Choose the mood that best describes today.</p>
+                        </div>
+                        <span class="feedback-heart">♡</span>
+                    </div>
+                </section>
+
+                <section class="glance-card">
+                    <div class="glance-heading">
+                        <h2>Today at a glance</h2>
+                        <a href="wellness.html" class="text-link">View more →</a>
+                    </div>
+
+                    <div class="glance-grid">
+                        <article class="glance-item">
+                            <span class="glance-icon activities-icon">♧</span>
+                            <div><strong id="activity-count">0 activities</strong><p>Completed today</p></div>
+                        </article>
+
+                        <article class="glance-item">
+                            <span class="glance-icon mood-icon">☾</span>
+                            <div><p>Today's mood</p><strong id="mood-summary">Not checked in</strong></div>
+                        </article>
+
+                        <a href="wellness.html" class="glance-item">
+                            <span class="glance-icon wellness-icon">▤</span>
+                            <div><strong>Daily wellness</strong><p>Explore tools</p></div>
+                        </a>
+
+                        <a href="session.html" class="glance-item">
+                            <span class="glance-icon support-icon">♡</span>
+                            <div><strong>Need support?</strong><p>Explore sessions</p></div>
+                        </a>
+                    </div>
+
+                    <div class="mini-reminder">
+                        <div>
+                            <span class="section-kicker">A GENTLE REMINDER</span>
+                            <h3>Small steps create big changes.</h3>
+                            <p id="mood-summary-text">Take today at your own pace.</p>
+                        </div>
+                        <div class="reminder-plant" aria-hidden="true">♧</div>
+                    </div>
+                </section>
+
+            </div>
+
+            <section class="quick-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>Quick access</h2>
+                        <p>Find what you need, whenever you need it.</p>
+                    </div>
+                </div>
+
+                <div class="quick-grid">
+                    <a href="ai-support.html" class="quick-card ai-card">
+                        <span class="quick-icon ai-icon">✳</span>
+                        <span class="quick-card-text">
+                            <strong>AI Support</strong>
+                            <span>Chat, get guidance, and feel heard.</span>
+                        </span>
+                        <span class="quick-arrow">→</span>
+                    </a>
+
+                    <a href="wellness.html" class="quick-card wellness-card">
+                        <span class="quick-icon tips-icon">♧</span>
+                        <span class="quick-card-text">
+                            <strong>Daily Wellness</strong>
+                            <span>Try mindfulness, exercises and helpful tools.</span>
+                        </span>
+                        <span class="quick-arrow">→</span>
+                    </a>
+
+                    <a href="session.html" class="quick-card session-card">
+                        <span class="quick-icon session-icon">♡</span>
+                        <span class="quick-card-text">
+                            <strong>Sessions &amp; Support</strong>
+                            <span>Explore professional support options.</span>
+                        </span>
+                        <span class="quick-arrow">→</span>
+                    </a>
+
+                    <a href="profile.html" class="quick-card profile-card">
+                        <span class="quick-icon profile-icon">♙</span>
+                        <span class="quick-card-text">
+                            <strong>My Profile</strong>
+                            <span>View and manage your information.</span>
+                        </span>
+                        <span class="quick-arrow">→</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="encouragement-card">
+                <div class="encouragement-symbol">“</div>
+                <div>
+                    <span class="section-kicker">A KIND REMINDER</span>
+                    <h2>You are allowed to grow at your own pace.</h2>
+                    <p>Rest is part of the journey, too.</p>
+                </div>
+                <span class="encouragement-decoration">✧</span>
+            </section>
+
+            <footer class="dashboard-footer">
+                <span>© <span id="current-year"></span> Nafas</span>
+                <span>Your wellbeing matters.</span>
+            </footer>
+        </div>
+    </main>
+</div>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<script src="dashbord.js" defer></script>
+</body>
+</html>

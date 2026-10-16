@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6fcff">
+  <title>My Loved Ones | Nafas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="my-loved-ones.css">
+</head>
+<body>
+  <div class="family-layout">
+    <aside class="sidebar" id="family-sidebar">
+      <a href="family-dashboard.html" class="logo" aria-label="Nafas Family Dashboard">
+        <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image">
+      </a>
+      <div class="sidebar-label">FAMILY SPACE</div>
+      <nav class="sidebar-nav" aria-label="Family Portal navigation">
+        <a href="family-dashboard.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⌂</span><span>Family Dashboard</span></a>
+        <a href="my-loved-ones.html" class="nav-link active" aria-current="page"><span class="nav-icon" aria-hidden="true">♡</span><span>My Loved Ones</span></a>
+        <a href="support-guidance.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✧</span><span>Support &amp; Guidance</span></a>
+        <a href="shared-wellness.html" class="nav-link"><span class="nav-icon" aria-hidden="true">☼</span><span>Shared Wellness</span></a>
+        <a href="consultations.html" class="nav-link"><span class="nav-icon" aria-hidden="true">▤</span><span>Consultations</span></a>
+        <a href="family-profile-settings.html" class="nav-link"><span class="nav-icon" aria-hidden="true">○</span><span>My Profile &amp; Settings</span></a>
+        <a href="help-safety.html" class="nav-link"><span class="nav-icon" aria-hidden="true">?</span><span>Help &amp; Safety</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon" aria-hidden="true">♡</div>
+          <h3>Care for yourself, too.</h3>
+          <p>Supporting someone can be a lot to carry. Your wellbeing matters as well.</p>
+          <a href="help-safety.html" class="view-link">Visit Help &amp; Safety <span>→</span></a>
+        </div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon" aria-hidden="true">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="family-sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="family-menu-button" aria-label="Toggle Family Portal navigation" aria-controls="family-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Family Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">My Loved Ones</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot"></span> Family Portal</span></div>
+      </header>
+
+      <div class="portal-container"><section class="portal-view" id="loved-ones" data-title="My Loved Ones" aria-labelledby="loved-ones-title">
+          <div class="page-heading"><div><p class="eyebrow">CONNECTIONS &amp; PERMISSIONS</p><h1 id="loved-ones-title">My Loved Ones</h1><p class="page-description">Connections and sharing are controlled by each person from their own Personal User account.</p></div></div>
+          <section class="panel connection-panel"><div class="panel-heading"><div><p class="eyebrow">CONNECTED PEOPLE</p><h2>Your family connections</h2></div><span class="panel-icon" aria-hidden="true">♡</span></div>
+            <div class="empty-state"><span class="empty-state-icon" aria-hidden="true">○</span><h3>No loved ones connected yet</h3><p>There are no connected family members in this demo. No connection requests can be sent or accepted here.</p><a href="shared-wellness.html" class="secondary-button view-link">See how shared wellness works</a></div>
+            <div class="demo-action-row"><button class="secondary-button" type="button" id="disconnect-preview-button">Preview disconnect confirmation</button><p class="form-feedback" id="disconnect-preview-feedback" role="status" aria-live="polite"></p></div>
+            <p class="field-hint">This demonstrates the confirmation step only; there is no connected account to review or disconnect.</p>
+          </section>
+          <section class="panel request-connection-panel"><div class="panel-heading"><div><p class="eyebrow">CONNECTION REQUEST</p><h2>Connect with a loved one</h2></div></div>
+            <p class="section-description">Enter details to preview how a request could look. This form does not contact anyone or create a connection. The Personal User must review and consent before any sharing can begin.</p>
+            <form id="connection-form" class="form-grid">
+              <div class="form-field"><label for="connection-name">Loved one's display name</label><input id="connection-name" name="name" type="text" autocomplete="off" minlength="2" maxlength="80" required></div>
+              <div class="form-field"><label for="connection-email">Loved one's email address</label><input id="connection-email" name="email" type="email" autocomplete="off" maxlength="254" required></div>
+              <div class="form-actions"><button class="primary-button" type="submit">Preview request <span>→</span></button><button class="secondary-button" type="reset">Clear form</button><p class="form-feedback" id="connection-feedback" role="status" aria-live="polite"></p></div>
+            </form>
+            <p class="demo-note">Prototype only · No account lookup, message, invitation, or consent action is connected.</p>
+          </section>
+          <section class="panel request-status-panel"><div class="panel-heading"><div><p class="eyebrow">REQUEST STATUS</p><h2>Incoming and outgoing requests</h2></div></div>
+            <div class="empty-state compact-empty"><span class="empty-state-icon" aria-hidden="true">○</span><h3>No requests available</h3><p>Requests are not supported by the current frontend demo. Nothing has been received or sent.</p></div>
+          </section>
+          <section class="panel permissions-panel"><div class="panel-heading"><div><p class="eyebrow">SHARING STATUS</p><h2>Consent and sharing settings</h2></div></div>
+            <div class="permission-row"><span class="permission-symbol">✓</span><div><strong>Consent belongs to the Personal User</strong><p>Each person chooses whether to connect and which wellbeing updates, if any, to share.</p></div><span class="status-pill">Not connected</span></div>
+            <div class="permission-row"><span class="permission-symbol">○</span><div><strong>Mood trends</strong><p>Available only when a Personal User explicitly enables mood sharing.</p></div><span class="status-pill">Not shared</span></div>
+            <div class="permission-row"><span class="permission-symbol">○</span><div><strong>Private journals and AI conversations</strong><p>These remain private and are not available to family members.</p></div><span class="status-pill private-pill">Private</span></div>
+            <p class="demo-note">Connection and consent management are not connected to a backend in this demonstration.</p>
+          </section>
+        </section></div>
+    </main>
+  </div>
+<script src="my-loved-ones.js" defer></script>
+<script src="family.js" defer></script>
+</body>
+</html>

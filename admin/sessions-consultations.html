@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5fbff">
+  <title>Sessions & Consultations | Nafas Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sessions-consultations.css">
+</head>
+<body>
+  <div class="family-layout admin-layout">
+    <aside class="sidebar" id="admin-sidebar">
+      <a href="admin-dashboard.html" class="logo" aria-label="Nafas Admin Dashboard"><img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image"></a>
+      <div class="sidebar-label">ADMIN SPACE</div>
+      <nav class="sidebar-nav" aria-label="Admin Portal navigation">
+        <a href="admin-dashboard.html" class="nav-link"><span class="nav-icon">⌂</span><span>Admin Dashboard</span></a>
+        <a href="user-management.html" class="nav-link"><span class="nav-icon">♙</span><span>User Management</span></a>
+        <a href="therapist-management.html" class="nav-link"><span class="nav-icon">✚</span><span>Therapist Management</span></a>
+        <a href="family-connections.html" class="nav-link"><span class="nav-icon">♡</span><span>Family &amp; Connections</span></a>
+        <a href="sessions-consultations.html" class="nav-link active" aria-current="page"><span class="nav-icon">◷</span><span>Sessions &amp; Consultations</span></a>
+        <a href="content-management.html" class="nav-link"><span class="nav-icon">▤</span><span>Content Management</span></a>
+        <a href="reports-analytics.html" class="nav-link"><span class="nav-icon">⌁</span><span>Reports &amp; Analytics</span></a>
+        <a href="roles-permissions.html" class="nav-link"><span class="nav-icon">◇</span><span>Roles &amp; Permissions</span></a>
+        <a href="security-audit-logs.html" class="nav-link"><span class="nav-icon">◈</span><span>Security &amp; Audit Logs</span></a>
+        <a href="admin-profile-settings.html" class="nav-link"><span class="nav-icon">◉</span><span>Admin Profile &amp; Settings</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">i</div><h3>Prototype workspace</h3><p>This interface has no administrative backend. No changes to real accounts or records are possible here.</p></div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="admin-sidebar-overlay"></div>
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="admin-menu-button" aria-label="Toggle Admin Portal navigation" aria-controls="admin-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Admin Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Sessions & Consultations</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot muted-dot"></span> Admin Portal · Demo</span></div>
+      </header>
+      <div class="portal-container"><section class="portal-view" id="sessions" data-title="Sessions & Consultations" aria-labelledby="sessions-title">
+          <div class="page-heading"><div><p class="eyebrow">SERVICE ACTIVITY</p><h1 id="sessions-title" tabindex="-1">Sessions &amp; Consultations</h1><p class="page-description">Consultation and appointment records require a connected booking service.</p></div></div>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">BOOKING DIRECTORY</p><h2>Sessions and consultations</h2></div><span class="panel-icon">◷</span></div><div class="admin-toolbar"><label class="form-field"><span class="field-label">Date range</span><select disabled><option>All dates</option></select></label><label class="form-field"><span class="field-label">Status</span><select disabled><option>All statuses</option></select></label></div><div class="empty-state"><span class="empty-state-icon">○</span><h3>No booking data connected</h3><p>No sessions or consultation records are available or implied by this prototype.</p></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">CANCELLATIONS &amp; DISPUTES</p><h2>Service requests</h2></div></div><div class="empty-state compact-empty"><h3>No service requests available</h3><p>There are no connected cases to review.</p></div></section>
+        </section></div>
+    </main>
+  </div>
+<script src="admin.js" defer></script>
+<script src="sessions-consultations.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5fbff">
+  <title>Roles & Permissions | Nafas Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="roles-permissions.css">
+</head>
+<body>
+  <div class="family-layout admin-layout">
+    <aside class="sidebar" id="admin-sidebar">
+      <a href="admin-dashboard.html" class="logo" aria-label="Nafas Admin Dashboard"><img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image"></a>
+      <div class="sidebar-label">ADMIN SPACE</div>
+      <nav class="sidebar-nav" aria-label="Admin Portal navigation">
+        <a href="admin-dashboard.html" class="nav-link"><span class="nav-icon">⌂</span><span>Admin Dashboard</span></a>
+        <a href="user-management.html" class="nav-link"><span class="nav-icon">♙</span><span>User Management</span></a>
+        <a href="therapist-management.html" class="nav-link"><span class="nav-icon">✚</span><span>Therapist Management</span></a>
+        <a href="family-connections.html" class="nav-link"><span class="nav-icon">♡</span><span>Family &amp; Connections</span></a>
+        <a href="sessions-consultations.html" class="nav-link"><span class="nav-icon">◷</span><span>Sessions &amp; Consultations</span></a>
+        <a href="content-management.html" class="nav-link"><span class="nav-icon">▤</span><span>Content Management</span></a>
+        <a href="reports-analytics.html" class="nav-link"><span class="nav-icon">⌁</span><span>Reports &amp; Analytics</span></a>
+        <a href="roles-permissions.html" class="nav-link active" aria-current="page"><span class="nav-icon">◇</span><span>Roles &amp; Permissions</span></a>
+        <a href="security-audit-logs.html" class="nav-link"><span class="nav-icon">◈</span><span>Security &amp; Audit Logs</span></a>
+        <a href="admin-profile-settings.html" class="nav-link"><span class="nav-icon">◉</span><span>Admin Profile &amp; Settings</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">i</div><h3>Prototype workspace</h3><p>This interface has no administrative backend. No changes to real accounts or records are possible here.</p></div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="admin-sidebar-overlay"></div>
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="admin-menu-button" aria-label="Toggle Admin Portal navigation" aria-controls="admin-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Admin Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Roles & Permissions</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot muted-dot"></span> Admin Portal · Demo</span></div>
+      </header>
+      <div class="portal-container"><section class="portal-view" id="roles" data-title="Roles & Permissions" aria-labelledby="roles-title">
+          <div class="page-heading"><div><p class="eyebrow">ACCESS MODEL REFERENCE</p><h1 id="roles-title" tabindex="-1">Roles &amp; Permissions</h1><p class="page-description">A proposed role boundary reference for the four Nafas portals. It is documentation only and does not enforce access.</p></div></div>
+          <section class="safety-panel"><span class="safety-symbol">i</span><div><p class="eyebrow">PROTOTYPE ONLY</p><h2>No role controls are enforced here.</h2><p>Real authorization requires a secure backend, verified identity, and server-side permission checks. This table does not create, grant, or change any role.</p></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">PROPOSED CAPABILITIES</p><h2>Role boundary reference</h2></div></div><div class="table-scroll"><table class="admin-table"><thead><tr><th scope="col">Capability</th><th scope="col">Personal User</th><th scope="col">Family</th><th scope="col">Therapist</th><th scope="col">Admin</th></tr></thead><tbody><tr><th scope="row">Manage own profile</th><td>Own</td><td>Own</td><td>Own</td><td>Own</td></tr><tr><th scope="row">View personal wellbeing</th><td>Own</td><td>Consented only</td><td>Authorized only</td><td>Not by default</td></tr><tr><th scope="row">Manage therapeutic care</th><td>Own choices</td><td>No</td><td>Authorized care</td><td>No clinical access</td></tr><tr><th scope="row">Manage platform content</th><td>No</td><td>No</td><td>No</td><td>Proposed</td></tr><tr><th scope="row">Manage accounts &amp; roles</th><td>No</td><td>No</td><td>No</td><td>Proposed, server enforced</td></tr></tbody></table></div><p class="section-description">“Authorized” means a verified, explicit relationship and least-privilege access implemented by the real service. No user content becomes visible to Admin through this reference.</p></section>
+        </section></div>
+    </main>
+  </div>
+<script src="admin.js" defer></script>
+<script src="roles-permissions.js" defer></script>
+</body>
+</html>

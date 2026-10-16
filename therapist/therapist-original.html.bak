@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f0f9ff">
+  <title>Therapist Portal | Nafas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../family/family.css">
+  <link rel="stylesheet" href="therapist.css">
+</head>
+<body>
+  <div class="family-layout therapist-layout">
+    <aside class="sidebar" id="therapist-sidebar">
+      <a href="#dashboard" class="logo" aria-label="Nafas Therapist Dashboard">
+        <img src="../homepage/assets/nafas-logo.jpg" alt="Nafas" class="logo-image">
+      </a>
+      <div class="sidebar-label">THERAPIST SPACE</div>
+      <nav class="sidebar-nav" aria-label="Therapist Portal navigation">
+        <a href="#dashboard" class="nav-link active" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span><span>Therapist Dashboard</span></a>
+        <a href="#clients" class="nav-link"><span class="nav-icon" aria-hidden="true">♧</span><span>My Clients</span></a>
+        <a href="#client-details" class="nav-link"><span class="nav-icon" aria-hidden="true">○</span><span>Client Details</span></a>
+        <a href="#sessions" class="nav-link"><span class="nav-icon" aria-hidden="true">▤</span><span>Sessions</span></a>
+        <a href="#requests" class="nav-link"><span class="nav-icon" aria-hidden="true">↗</span><span>Consultations &amp; Requests</span></a>
+        <a href="#clinical-notes" class="nav-link"><span class="nav-icon" aria-hidden="true">✎</span><span>Clinical Notes</span></a>
+        <a href="#follow-up" class="nav-link"><span class="nav-icon" aria-hidden="true">✓</span><span>Alerts &amp; Follow-up</span></a>
+        <a href="#reports" class="nav-link"><span class="nav-icon" aria-hidden="true">⌁</span><span>Reports &amp; Progress</span></a>
+        <a href="#profile" class="nav-link"><span class="nav-icon" aria-hidden="true">⚙</span><span>My Profile &amp; Settings</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><span class="help-icon" aria-hidden="true">♡</span><h3>Care with clear boundaries.</h3><p>This local prototype has no authenticated client records or secure clinical storage.</p></div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon" aria-hidden="true">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="therapist-sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="therapist-menu-button" aria-label="Toggle Therapist Portal navigation" aria-controls="therapist-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Therapist Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Therapist Dashboard</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot muted-dot"></span>Frontend demo</span></div>
+      </header>
+
+      <div class="portal-container therapist-container">
+        <section class="portal-view" id="dashboard" data-title="Therapist Dashboard" aria-labelledby="dashboard-title">
+          <div class="page-heading"><div><p class="eyebrow">THERAPIST WORKSPACE</p><h1 id="dashboard-title">Therapist Dashboard</h1><p class="page-description">A focused view of example sessions, requests, and follow-up work.</p></div></div>
+          <div class="th-demo-banner" role="note"><strong>Fictional demo workspace.</strong> The sample records below are invented for interface preview. No real client or appointment data is connected.</div>
+          <div class="th-stat-grid" aria-label="Workspace summary">
+            <article class="th-stat-card"><span class="th-stat-icon">♧</span><p>Active clients</p><strong id="summary-active-clients">1</strong><small>fictional sample</small></article>
+            <article class="th-stat-card"><span class="th-stat-icon">▤</span><p>Today's sessions</p><strong id="summary-today-sessions">1</strong><small>fictional schedule</small></article>
+            <article class="th-stat-card"><span class="th-stat-icon">↗</span><p>Pending requests</p><strong id="summary-pending-requests">1</strong><small>demo request</small></article>
+            <article class="th-stat-card"><span class="th-stat-icon">✓</span><p>Follow-up tasks</p><strong id="summary-followups">2</strong><small>demo tasks</small></article>
+          </div>
+          <div class="dashboard-grid th-dashboard-grid">
+            <section class="panel" aria-labelledby="upcoming-title"><div class="panel-heading"><div><p class="eyebrow">SCHEDULE</p><h2 id="upcoming-title">Upcoming sessions</h2></div><span class="panel-icon" aria-hidden="true">▤</span></div><div class="th-compact-list" id="dashboard-upcoming"></div><a class="secondary-button th-inline-link" href="#sessions">Open session list <span aria-hidden="true">→</span></a></section>
+            <section class="panel" aria-labelledby="activity-title"><div class="panel-heading"><div><p class="eyebrow">WORKSPACE</p><h2 id="activity-title">Recent relevant activity</h2></div><span class="panel-icon" aria-hidden="true">⌁</span></div><div class="th-compact-list" id="dashboard-activity"></div><a class="secondary-button th-inline-link" href="#follow-up">Review follow-up tasks <span aria-hidden="true">→</span></a></section>
+          </div>
+          <section class="th-shortcut-section"><div class="section-heading"><p class="eyebrow">QUICK ACCESS</p><h2>Continue where you need to</h2></div><div class="th-shortcut-grid"><a href="#clients" class="th-shortcut"><span>♧</span><strong>My Clients</strong><small>Find a sample client record</small></a><a href="#sessions" class="th-shortcut"><span>▤</span><strong>Sessions</strong><small>Review the demo schedule</small></a><a href="#requests" class="th-shortcut"><span>↗</span><strong>Consultation requests</strong><small>Preview request actions</small></a></div></section>
+        </section>
+
+        <section class="portal-view" id="clients" data-title="My Clients" aria-labelledby="clients-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">AUTHORIZED CLIENT WORKSPACE</p><h1 id="clients-title">My Clients</h1><p class="page-description">Only necessary, explicitly authorized information belongs in a real client list.</p></div></div>
+          <div class="th-demo-banner" role="note"><strong>Fictional records only.</strong> These sample entries do not represent real people or establish a therapist-client relationship.</div>
+          <section class="panel"><div class="th-toolbar"><div class="form-field th-search-field"><label for="client-search">Search clients</label><input id="client-search" type="search" placeholder="Search demo client names or IDs" autocomplete="off"></div><div class="form-field"><label for="client-status-filter">Connection status</label><select id="client-status-filter"><option value="all">All statuses</option><option value="connected">Connected</option><option value="pending">Pending</option></select></div></div><div class="th-client-list" id="client-list" aria-live="polite"></div></section>
+        </section>
+
+        <section class="portal-view" id="client-details" data-title="Client Details" aria-labelledby="client-details-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">CLIENT DETAILS</p><h1 id="client-details-title">Client Details</h1><p class="page-description">Review only the example information marked as authorized for this fictional record.</p></div><a href="#clients" class="secondary-button">← Back to My Clients</a></div>
+          <div class="th-demo-banner" role="note"><strong>Privacy boundary:</strong> this frontend does not authenticate staff or enforce permissions. Do not enter real clinical information. Private journals and private AI conversations are not included.</div>
+          <div id="client-detail-content" class="th-client-detail" hidden>
+            <section class="panel th-client-overview"><div class="panel-heading"><div><p class="eyebrow">FICTIONAL SAMPLE CLIENT</p><h2 id="detail-client-name">Demo Client</h2></div><span class="status-pill" id="detail-client-status">Demo status</span></div><div class="th-detail-facts"><p><span>Sample reference</span><strong id="detail-client-reference"></strong></p><p><span>Connection</span><strong id="detail-connection-status"></strong></p><p><span>Last session</span><strong id="detail-last-session"></strong></p></div></section>
+            <div class="dashboard-grid th-detail-grid"><section class="panel"><div class="panel-heading"><div><p class="eyebrow">CLIENT-SELECTED</p><h2>Therapeutic goals</h2></div></div><ul class="th-goal-list" id="detail-goals"></ul><h3 class="th-subheading">Follow-up plan</h3><p id="detail-followup" class="th-reading-copy"></p></section><section class="panel"><div class="panel-heading"><div><p class="eyebrow">AUTHORIZED SHARING</p><h2>Wellbeing information</h2></div><span class="panel-icon" aria-hidden="true">♡</span></div><div id="detail-mood-sharing" class="th-reading-copy"></div><p class="field-hint">Mood summaries appear here only in sample records where the sharing flag is explicitly enabled. No journals or AI conversations are shown.</p></section></div>
+            <section class="panel"><div class="panel-heading"><div><p class="eyebrow">DEMO HISTORY</p><h2>Session history and progress notes</h2></div></div><div class="th-history-list" id="detail-session-history"></div><p class="field-hint">Summaries are fictional interaction examples, not clinical conclusions.</p></section>
+          </div>
+          <div class="panel empty-state th-empty-state" id="client-detail-empty"><span class="empty-state-icon" aria-hidden="true">○</span><h3>Select a client to view their details</h3><p>Open a fictional client record from My Clients. A real service must verify identity, consent, and role permissions before exposing client information.</p><a href="#clients" class="secondary-button">Go to My Clients</a></div>
+        </section>
+
+        <section class="portal-view" id="sessions" data-title="Sessions" aria-labelledby="sessions-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">SESSION SCHEDULE</p><h1 id="sessions-title">Sessions</h1><p class="page-description">Review fictional scheduled, completed, and cancelled sessions.</p></div></div>
+          <div class="th-demo-banner" role="note">All dates and sessions below are generated sample data. No calendar integration or booking service is connected.</div>
+          <div class="filter-row" role="group" aria-label="Filter session schedule"><button type="button" class="filter-button active" data-session-filter="all" aria-pressed="true">All sessions</button><button type="button" class="filter-button" data-session-filter="today" aria-pressed="false">Today</button><button type="button" class="filter-button" data-session-filter="week" aria-pressed="false">This week</button></div>
+          <div class="th-session-list" id="session-list"></div>
+        </section>
+
+        <section class="portal-view" id="requests" data-title="Consultations & Requests" aria-labelledby="requests-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">INCOMING CONSULTATIONS</p><h1 id="requests-title">Consultations &amp; Requests</h1><p class="page-description">Review sample requests and preview how a response might be prepared.</p></div></div>
+          <div class="th-demo-banner" role="note"><strong>Frontend demo only.</strong> Accepting, declining, or proposing a time changes this page's temporary sample state. It does not contact a client or confirm an appointment.</div>
+          <div class="filter-row" role="group" aria-label="Filter consultation requests"><button type="button" class="filter-button active" data-request-filter="all" aria-pressed="true">All requests</button><button type="button" class="filter-button" data-request-filter="pending" aria-pressed="false">Pending</button><button type="button" class="filter-button" data-request-filter="responded" aria-pressed="false">Responded</button></div>
+          <div class="th-request-list" id="request-list"></div>
+        </section>
+
+        <section class="portal-view" id="clinical-notes" data-title="Clinical Notes" aria-labelledby="notes-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">PRIVATE PROFESSIONAL WORKSPACE</p><h1 id="notes-title">Clinical Notes</h1><p class="page-description">Preview a client- and session-linked note form using fictional information only.</p></div></div>
+          <section class="safety-panel th-privacy-panel"><span class="safety-symbol" aria-hidden="true">!</span><div><p class="eyebrow">NOT FOR REAL CLINICAL NOTES</p><h2>Temporary browser preview</h2><p>Notes entered here remain only in this page's memory and disappear when it is reloaded. This prototype has no authentication, access controls, encryption, or secure record storage.</p><p class="demo-note">Do not enter identifying or real clinical information. These notes are not available in the Family Portal or Personal User pages.</p></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">DEMO NOTE ENTRY</p><h2>Session note and follow-up preview</h2></div></div><form id="clinical-note-form" class="form-grid">
+            <div class="form-field"><label for="note-client">Fictional client</label><select id="note-client" required></select></div>
+            <div class="form-field"><label for="note-session">Demo session</label><select id="note-session" required></select></div>
+            <div class="form-field full-field"><label for="note-goal">Client-selected goal summary</label><input id="note-goal" maxlength="160" placeholder="Brief goal description" required></div>
+            <div class="form-field full-field"><label for="note-content">Session note preview</label><textarea id="note-content" rows="5" maxlength="1200" placeholder="Use fictional text only" required></textarea><small class="field-hint"><span id="note-character-count">0</span>/1200 characters</small></div>
+            <div class="form-field full-field"><label for="note-followup">Follow-up action</label><input id="note-followup" maxlength="240" placeholder="Example: revisit the agreed goal next session" required></div>
+            <div class="form-actions"><button type="submit" class="primary-button">Preview note in this page</button><p class="form-feedback" id="note-feedback" role="status" aria-live="polite"></p></div>
+          </form></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">CURRENT PAGE ONLY</p><h2>Temporary note previews</h2></div></div><div id="clinical-note-list" class="th-note-list"><div class="empty-state compact-empty"><span class="empty-state-icon" aria-hidden="true">○</span><h3>No note previews yet</h3><p>Use the form above to prepare a clearly temporary sample preview.</p></div></div></section>
+        </section>
+
+        <section class="portal-view" id="follow-up" data-title="Alerts & Follow-up" aria-labelledby="followup-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">TASKS TO REVIEW</p><h1 id="followup-title">Alerts &amp; Follow-up</h1><p class="page-description">A small task list for demonstrating review and completion controls.</p></div></div>
+          <div class="th-demo-banner" role="note">These are fictional follow-up tasks, not clinical alerts or real notifications. Nafas does not monitor clients in this demo.</div>
+          <div class="filter-row" role="group" aria-label="Filter follow-up tasks"><button type="button" class="filter-button active" data-task-filter="all" aria-pressed="true">All tasks</button><button type="button" class="filter-button" data-task-filter="open" aria-pressed="false">Open</button><button type="button" class="filter-button" data-task-filter="reviewed" aria-pressed="false">Reviewed</button><button type="button" class="filter-button" data-task-filter="completed" aria-pressed="false">Completed</button></div>
+          <div class="th-task-list" id="task-list"></div>
+        </section>
+
+        <section class="portal-view" id="reports" data-title="Reports & Progress" aria-labelledby="reports-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">ATTENDANCE &amp; GOALS</p><h1 id="reports-title">Reports &amp; Progress</h1><p class="page-description">An accessible example of basic progress measures supported by the demo records.</p></div></div>
+          <div class="th-demo-banner" role="note"><strong>Fictional sample figures.</strong> These visualizations do not describe a real person, establish an outcome, or imply a diagnosis.</div>
+          <div class="th-report-stats"><article class="th-stat-card"><p>Completed sample sessions</p><strong>2</strong><small>fictional sessions</small></article><article class="th-stat-card"><p>Sample goal review</p><strong>60%</strong><small>demo measure only</small></article><article class="th-stat-card"><p>Shared check-ins</p><strong>16</strong><small>explicitly enabled fictional sample</small></article></div>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">FICTIONAL CLIENT-SELECTED GOAL</p><h2>Example goal progress</h2></div></div><div class="th-progress-row"><div><strong>Demo Client A · Evening routine goal</strong><span>Illustrative review measure</span></div><div class="th-progress-track" role="img" aria-label="Fictional progress illustration: 60 percent"><span style="width:60%"></span></div><strong>60%</strong></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">SHARED SAMPLE DATA</p><h2>Weekly mood check-ins</h2></div></div><p class="section-description">Illustrative values appear only for Demo Client A, whose fictional record has mood sharing enabled. These values are not clinical findings.</p><div class="th-chart" role="img" aria-label="Fictional shared mood check-in counts from Monday through Sunday"><div class="th-chart-column"><span style="height:42%"></span><small>Mon</small><b>2</b></div><div class="th-chart-column"><span style="height:62%"></span><small>Tue</small><b>3</b></div><div class="th-chart-column"><span style="height:28%"></span><small>Wed</small><b>1</b></div><div class="th-chart-column"><span style="height:82%"></span><small>Thu</small><b>4</b></div><div class="th-chart-column"><span style="height:62%"></span><small>Fri</small><b>3</b></div><div class="th-chart-column"><span style="height:42%"></span><small>Sat</small><b>2</b></div><div class="th-chart-column"><span style="height:28%"></span><small>Sun</small><b>1</b></div></div><p class="field-hint">Counts show fictional shared check-ins only. No private journal entries or private AI conversations are included.</p></section>
+          <section class="panel th-empty-report" id="empty-report" hidden><div class="empty-state"><span class="empty-state-icon" aria-hidden="true">⌁</span><h3>No authorized progress data</h3><p>Reports remain empty unless a service provides relevant data with appropriate permission.</p></div></section>
+        </section>
+
+        <section class="portal-view" id="profile" data-title="My Profile & Settings" aria-labelledby="profile-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">PROFESSIONAL ACCOUNT</p><h1 id="profile-title">My Profile &amp; Settings</h1><p class="page-description">Review a fictional professional profile and notification preferences.</p></div></div>
+          <div class="th-demo-banner" role="note">Profile values are examples. Saving shows a local preview only; no account data or settings are sent or stored.</div>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">PROFILE DETAILS</p><h2>Professional profile</h2></div></div><form id="therapist-profile-form" class="form-grid">
+            <div class="form-field"><label for="profile-name">Display name</label><input id="profile-name" name="displayName" value="Therapist Demo" minlength="2" maxlength="80" required></div>
+            <div class="form-field"><label for="profile-email">Contact email</label><input id="profile-email" name="email" type="email" value="demo-therapist@nafas.test" required></div>
+            <div class="form-field"><label for="profile-specialization">Specialization</label><input id="profile-specialization" name="specialization" maxlength="100" value="Wellbeing support (sample)" required></div>
+            <div class="form-field"><label for="profile-qualifications">Qualifications</label><input id="profile-qualifications" name="qualifications" maxlength="180" placeholder="Example only; not verified" required></div>
+            <div class="form-field full-field"><label for="profile-contact">Professional contact details</label><input id="profile-contact" name="contact" maxlength="180" placeholder="Optional demo contact details"></div>
+            <fieldset class="form-field full-field th-availability"><legend class="field-label">Availability preview</legend><div class="th-checkbox-row"><label><input type="checkbox" name="availability" value="weekdays" checked> Weekdays</label><label><input type="checkbox" name="availability" value="evenings"> Evenings</label><label><input type="checkbox" name="availability" value="weekends"> Weekends</label></div></fieldset>
+            <fieldset class="form-field full-field th-availability"><legend class="field-label">Notification preferences</legend><div class="th-checkbox-row"><label><input type="checkbox" name="notifications" value="requests" checked> Consultation request reminders</label><label><input type="checkbox" name="notifications" value="followups" checked> Follow-up task reminders</label></div></fieldset>
+            <div class="form-actions"><button type="submit" class="primary-button">Preview profile changes</button><button type="reset" class="secondary-button">Reset example values</button><p class="form-feedback" id="profile-feedback" role="status" aria-live="polite"></p></div>
+          </form></section>
+        </section>
+      </div>
+    </main>
+  </div>
+<script src="therapist.js" defer></script>
+</body>
+</html>

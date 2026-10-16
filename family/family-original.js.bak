@@ -1,0 +1,318 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const views = Array.from(document.querySelectorAll(".portal-view"));
+  const navLinks = Array.from(document.querySelectorAll(".sidebar-nav .nav-link"));
+  const title = document.getElementById("current-view-title");
+  const sidebar = document.getElementById("family-sidebar");
+  const menuButton = document.getElementById("family-menu-button");
+  const overlay = document.getElementById("family-sidebar-overlay");
+  let lastRoutedHash = null;
+  let hasInitialized = false;
+
+  function closeSidebar(returnFocus) {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("visible");
+    menuButton.setAttribute("aria-expanded", "false");
+    if (returnFocus) menuButton.focus();
+  }
+
+  function showView(viewId, updateHash, moveFocus) {
+    const selected = views.find(function (view) { return view.id === viewId; });
+    if (!selected) return false;
+
+    views.forEach(function (view) {
+      const isCurrent = view === selected;
+      view.hidden = !isCurrent;
+      view.setAttribute("aria-hidden", String(!isCurrent));
+    });
+
+    navLinks.forEach(function (link) {
+      const isCurrent = link.getAttribute("href") === "#" + selected.id;
+      link.classList.toggle("active", isCurrent);
+      if (isCurrent) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+    });
+
+    const viewTitle = selected.dataset.title || "Family Portal";
+    title.textContent = viewTitle;
+    document.title = viewTitle + " | Nafas";
+    closeSidebar(false);
+
+    if (updateHash && window.location.hash !== "#" + selected.id) {
+      window.history.pushState(null, "", "#" + selected.id);
+    }
+    lastRoutedHash = window.location.hash;
+
+    const heading = selected.querySelector("h1");
+    if (moveFocus && heading) {
+      heading.setAttribute("tabindex", "-1");
+      heading.focus({ preventScroll: true });
+    }
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: moveFocus && !reduceMotion ? "smooth" : "auto" });
+    return true;
+  }
+
+  function routeFromHash() {
+    if (window.location.hash === lastRoutedHash) return;
+    const requestedView = window.location.hash.slice(1);
+    if (!requestedView) {
+      showView("dashboard", false, hasInitialized);
+      hasInitialized = true;
+      return;
+    }
+    if (!showView(requestedView, false, hasInitialized)) {
+      window.history.replaceState(null, "", window.location.pathname + window.location.search + "#dashboard");
+      showView("dashboard", false, hasInitialized);
+    }
+    hasInitialized = true;
+  }
+
+  document.addEventListener("click", function (event) {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link) return;
+    const viewId = link.getAttribute("href").slice(1);
+    if (!views.some(function (view) { return view.id === viewId; })) return;
+    event.preventDefault();
+    showView(viewId, true, true);
+  });
+
+  window.addEventListener("popstate", routeFromHash);
+  window.addEventListener("hashchange", routeFromHash);
+  window.addEventListener("load", function () {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, { once: true });
+
+  menuButton.addEventListener("click", function () {
+    const isOpen = sidebar.classList.toggle("open");
+    overlay.classList.toggle("visible", isOpen);
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    if (isOpen) sidebar.querySelector(".nav-link")?.focus();
+  });
+  overlay.addEventListener("click", function () { closeSidebar(true); });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && sidebar.classList.contains("open")) closeSidebar(true);
+  });
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 820) closeSidebar(false);
+  });
+
+  const sharePreviewToggle = document.getElementById("demo-sharing-toggle");
+  const trendEmpty = document.getElementById("trend-empty");
+  const trendPreview = document.getElementById("trend-preview");
+  sharePreviewToggle.addEventListener("change", function () {
+    const showSample = sharePreviewToggle.checked;
+    trendEmpty.hidden = showSample;
+    trendPreview.hidden = !showSample;
+  });
+
+  const connectionForm = document.getElementById("connection-form");
+  const connectionFeedback = document.getElementById("connection-feedback");
+  connectionForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    connectionFeedback.textContent = "Demo preview only. No invitation was sent, no account was looked up, and no connection or sharing was enabled. The Personal User must explicitly consent.";
+  });
+  connectionForm.addEventListener("reset", function () {
+    connectionFeedback.textContent = "";
+  });
+
+  document.getElementById("disconnect-preview-button").addEventListener("click", function () {
+    const confirmed = window.confirm("Preview the disconnect confirmation? No family account is connected in this demo, so no connection will be changed.");
+    document.getElementById("disconnect-preview-feedback").textContent = confirmed
+      ? "Confirmation preview complete. No account was connected or disconnected."
+      : "Preview canceled. No account was connected or disconnected.";
+  });
+
+  const resourceFilters = Array.from(document.querySelectorAll("[data-resource-filter]"));
+  const resourceCards = Array.from(document.querySelectorAll("[data-resource-category]"));
+  resourceFilters.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const category = button.dataset.resourceFilter;
+      resourceFilters.forEach(function (filter) {
+        const active = filter === button;
+        filter.classList.toggle("active", active);
+        filter.setAttribute("aria-pressed", String(active));
+      });
+      resourceCards.forEach(function (card) {
+        card.hidden = category !== "all" && card.dataset.resourceCategory !== category;
+      });
+    });
+  });
+
+  const familyChatForm = document.getElementById("family-chat-form");
+  const familyChatInput = document.getElementById("family-chat-input");
+  const familyChatTranscript = document.getElementById("family-chat-transcript");
+  const familyChatLoading = document.getElementById("family-chat-loading");
+  const familyChatError = document.getElementById("family-chat-error");
+  const familyChatSend = document.getElementById("family-chat-send");
+  const familyChatReset = document.getElementById("family-chat-reset");
+  const familyChatInitialMessage = familyChatTranscript.innerHTML;
+  let familyChatBusy = false;
+
+  function createFamilyChatMessage(message, sender) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "family-chat-message " + sender + "-message";
+    const speaker = document.createElement("span");
+    speaker.className = "chat-speaker";
+    speaker.textContent = sender === "user" ? "You" : "Nafas Family Guidance · Demo";
+    const body = document.createElement("p");
+    body.textContent = message;
+    wrapper.append(speaker, body);
+    familyChatTranscript.appendChild(wrapper);
+    familyChatTranscript.scrollTop = familyChatTranscript.scrollHeight;
+  }
+
+  // Future backend seam: replace this function with a same-origin, consent-aware API call.
+  // Never add a model API key to this browser code or send personal account information.
+  function getFamilyGuidanceDemoResponse(message) {
+    const text = message.toLowerCase();
+    if (/immediate danger|suicid|self[- ]?harm|hurt them(selves)?|can.?t stay safe|unsafe right now/.test(text)) {
+      return "If someone may be in immediate danger or cannot stay safe, contact your local emergency services now or go to the nearest emergency department. If it is safe for you, stay nearby and involve a trusted person. This demo chat cannot assess danger, monitor anyone, or contact help.";
+    }
+    if (/overwhelm|too much|stressed|pressure|anxious/.test(text)) {
+      return "Start by listening and acknowledging that things feel difficult. Ask what would help most right now: quiet company, help with one practical task, or space. Offer a small choice and respect their answer. If distress continues, encourage support from a qualified professional.";
+    }
+    if (/listen|judg|talk|conversation|say to/.test(text)) {
+      return "Try an open question such as, ‘Would you like to tell me more?’ Give them time, reflect what you heard, and ask whether they want listening or help thinking through options. Avoid comparisons, assumptions, and quick fixes.";
+    }
+    if (/professional|therap|counsel|help seeking|seek help/.test(text)) {
+      return "You could say, ‘You deserve support, and I can help you look at options if you want.’ Ask permission before offering suggestions, let them choose a qualified provider, and offer practical help such as accompanying them. Their decision and privacy remain theirs.";
+    }
+    if (/myself|self[- ]?care|wellbeing|boundary|rest|caregiver/.test(text)) {
+      return "Choose support you can offer sustainably, set clear limits on your time, and keep space for rest and your own relationships. Consider talking with someone you trust or a qualified professional for support for yourself too.";
+    }
+    return "You might begin with a calm, open question and ask what kind of support would feel useful. Offer one specific option, respect their boundaries, and avoid trying to diagnose or solve everything at once. A qualified mental health professional can help with ongoing concerns.";
+  }
+
+  async function prepareFamilyGuidanceResponse(message) {
+    // This short pause lets the demo loading state be visible; it does not call an AI service.
+    await new Promise(function (resolve) { window.setTimeout(resolve, 350); });
+    return getFamilyGuidanceDemoResponse(message);
+  }
+
+  familyChatForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const message = familyChatInput.value.trim();
+    if (!message || familyChatBusy) {
+      if (!message) familyChatInput.focus();
+      return;
+    }
+
+    familyChatBusy = true;
+    familyChatError.hidden = true;
+    familyChatInput.value = "";
+    familyChatInput.disabled = true;
+    familyChatSend.disabled = true;
+    familyChatReset.disabled = true;
+    familyChatLoading.hidden = false;
+    createFamilyChatMessage(message, "user");
+    try {
+      const response = await prepareFamilyGuidanceResponse(message);
+      createFamilyChatMessage(response, "assistant");
+    } catch (error) {
+      familyChatError.hidden = false;
+    } finally {
+      familyChatLoading.hidden = true;
+      familyChatInput.disabled = false;
+      familyChatSend.disabled = false;
+      familyChatReset.disabled = false;
+      familyChatBusy = false;
+      familyChatInput.focus();
+    }
+  });
+
+  familyChatInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      if (!familyChatBusy) familyChatForm.requestSubmit();
+    }
+  });
+  document.querySelectorAll("[data-chat-prompt]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      if (familyChatBusy) return;
+      familyChatInput.value = button.dataset.chatPrompt;
+      familyChatForm.requestSubmit();
+    });
+  });
+  familyChatReset.addEventListener("click", function () {
+    if (familyChatBusy) return;
+    familyChatTranscript.innerHTML = familyChatInitialMessage;
+    familyChatError.hidden = true;
+    familyChatInput.value = "";
+    familyChatInput.focus();
+    familyChatTranscript.scrollTop = 0;
+  });
+
+  const promptSuggestions = {
+    listen: "Try an open question such as, ‘What has been weighing on you lately?’ Then give them time to answer without rushing to fix it.",
+    practical: "Offer one specific choice: ‘Would help with a meal, a ride, or company be useful this week?’ Let them choose or decline.",
+    boundaries: "Ask what they are comfortable sharing and respect their answer. You can offer support without requesting access to private journals or conversations."
+  };
+  const promptForm = document.getElementById("guidance-prompt-form");
+  const promptSelect = document.getElementById("guidance-prompt");
+  const promptResponse = document.getElementById("guidance-prompt-response");
+  promptForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    promptResponse.textContent = promptSuggestions[promptSelect.value] || "Choose a topic to see a predefined suggestion.";
+    promptResponse.hidden = false;
+  });
+
+  const consultationForm = document.getElementById("consultation-form");
+  const consultationDate = document.getElementById("consultation-date");
+  const consultationMessage = document.getElementById("consultation-message");
+  const consultationCount = document.getElementById("consultation-message-count");
+  function localDateValue(date) {
+    return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, "0"), String(date.getDate()).padStart(2, "0")].join("-");
+  }
+  consultationDate.min = localDateValue(new Date());
+  consultationMessage.addEventListener("input", function () {
+    consultationCount.textContent = String(consultationMessage.value.length);
+  });
+  consultationForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const therapist = document.getElementById("consultation-therapist").value;
+    const topic = document.getElementById("consultation-type").value;
+    const preferredDate = consultationDate.value ? " Preferred date: " + consultationDate.value + "." : " No date selected.";
+    const preferredTime = document.getElementById("consultation-time").value ? " Preferred time: " + document.getElementById("consultation-time").value + "." : " No time selected.";
+    document.getElementById("consultation-feedback").textContent = "Demo preview for " + therapist + " · " + topic + "." + preferredDate + preferredTime + " Nothing was sent, booked, or saved.";
+  });
+
+  const profileForm = document.getElementById("profile-form");
+  const profileFeedback = document.getElementById("profile-feedback");
+  let profileDirty = false;
+  function markProfileDirty() {
+    profileDirty = true;
+    profileFeedback.textContent = "";
+  }
+  profileForm.addEventListener("input", markProfileDirty);
+  profileForm.addEventListener("change", markProfileDirty);
+  profileForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    profileFeedback.textContent = "Preview complete. Profile details were not saved, and no notification was sent.";
+  });
+  document.querySelectorAll(".logout-link, .role-link").forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      if (profileDirty) {
+        const discard = window.confirm("Your profile preview has unsaved changes. Return to role selection and discard this page's entries?");
+        if (!discard) {
+          event.preventDefault();
+        } else {
+          profileDirty = false;
+        }
+      }
+    });
+  });
+  window.addEventListener("beforeunload", function (event) {
+    if (!profileDirty) return;
+    event.preventDefault();
+    event.returnValue = "";
+  });
+
+  [connectionForm, consultationForm, promptForm].forEach(function (form) {
+    form.addEventListener("input", function () {
+      const feedback = form.querySelector(".form-feedback");
+      if (feedback) feedback.textContent = "";
+    });
+  });
+
+  routeFromHash();
+});

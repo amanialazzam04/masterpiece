@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6fcff">
+    <title>AI Support | Nafas</title>
+    <link rel="stylesheet" href="ai-support.css">
+</head>
+<body>
+<div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+        <a href="dashbord.html" class="logo" aria-label="Nafas home">
+            <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image">
+        </a>
+
+        <p class="sidebar-label">WORKSPACE</p>
+        <nav class="sidebar-nav" aria-label="Main navigation">
+            <a href="dashbord.html" class="nav-link">
+                <span class="nav-icon">⌂</span> Dashboard
+            </a>
+            <a href="ai-support.html" class="nav-link active" aria-current="page">
+                <span class="nav-icon">✳</span> AI Support
+                <span class="nav-badge">AI</span>
+            </a>
+            <a href="wellness.html" class="nav-link">
+                <span class="nav-icon">☼</span> Daily Wellness
+            </a>
+            <a href="session.html" class="nav-link">
+                <span class="nav-icon">♡</span> Sessions &amp; Support
+            </a>
+            <a href="profile.html" class="nav-link">
+                <span class="nav-icon">♙</span> My Profile
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="privacy-card">
+                <span class="privacy-icon">♡</span>
+                <h3>A space for you</h3>
+                <p>Share what you feel at your own pace. Your privacy matters.</p>
+            </div>
+            <button type="button" class="logout-link" id="logout-button">
+                <span class="nav-icon">↪</span> Back to Login
+            </button>
+        </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="main-content">
+        <header class="topbar">
+            <button type="button" id="menu-button" class="menu-button"
+                    aria-label="Toggle navigation" aria-controls="sidebar"
+                    aria-expanded="false">☰</button>
+            <div class="breadcrumb">
+                <a href="dashbord.html">Dashboard</a>
+                <span>/</span>
+                <strong>AI Support</strong>
+            </div>
+            <a href="profile.html" class="profile-link">
+                <span class="profile-avatar">U</span>
+                <span>My Profile</span>
+            </a>
+        </header>
+
+        <div class="page-container">
+            <section class="page-heading">
+                <div>
+                    <span class="eyebrow">YOUR PERSONAL SPACE</span>
+                    <h1>Let's talk <span>♡</span></h1>
+                    <p>You can share what's on your mind. We'll take it one step at a time.</p>
+                </div>
+                <span class="demo-status"><span class="status-dot"></span> Demo mode</span>
+            </section>
+
+            <section class="safety-intro" aria-label="Safety information">
+                <span class="safety-intro-icon">♡</span>
+                <div>
+                    <strong>Your safety comes first</strong>
+                    <p>This demo can show a safety message when certain concerning phrases are detected.
+                       It does not contact a therapist, administrator, or emergency service.</p>
+                </div>
+            </section>
+
+            <section class="safety-alert" id="safety-alert"
+                     role="alert" aria-live="assertive" hidden>
+                <div class="alert-symbol">!</div>
+                <div class="alert-content">
+                    <span class="alert-kicker">SAFETY SUPPORT</span>
+                    <h2>You deserve support right now</h2>
+                    <p id="safety-alert-message">Your message may mean you need immediate support.</p>
+                    <p class="alert-guidance">
+                        If you may act on these thoughts or are in immediate danger,
+                        contact local emergency services or go to the nearest emergency
+                        department. If possible, reach out to someone you trust and stay with them.
+                    </p>
+                    <div class="alert-actions">
+                        <a href="session.html" class="alert-primary">Explore support options</a>
+                        <button type="button" id="dismiss-alert" class="alert-secondary">Dismiss message</button>
+                    </div>
+                    <small class="alert-disclaimer">
+                        This is an automated demo warning, not a diagnosis or a monitored emergency service.
+                    </small>
+                </div>
+            </section>
+
+            <section class="modes-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>Choose your kind of support</h2>
+                        <p>You can switch approaches whenever you need.</p>
+                    </div>
+                    <span class="mode-count">3 MODES</span>
+                </div>
+                <div class="modes-grid">
+                    <button type="button" class="mode-card selected" data-mode="emotional" aria-pressed="true">
+                        <span class="mode-icon">♡</span>
+                        <span class="mode-copy">
+                            <strong>Emotional Support</strong>
+                            <span>A gentle space to express your feelings.</span>
+                        </span>
+                        <span class="mode-check">✓</span>
+                    </button>
+                    <button type="button" class="mode-card" data-mode="educational" aria-pressed="false">
+                        <span class="mode-icon">✳</span>
+                        <span class="mode-copy">
+                            <strong>Scientific Support</strong>
+                            <span>Understand emotions and mental wellness.</span>
+                        </span>
+                        <span class="mode-check">✓</span>
+                    </button>
+                    <button type="button" class="mode-card" data-mode="routine" aria-pressed="false">
+                        <span class="mode-icon">☼</span>
+                        <span class="mode-copy">
+                            <strong>Routine Coach</strong>
+                            <span>Find small steps to make the day easier.</span>
+                        </span>
+                        <span class="mode-check">✓</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="group-session-section" id="group-session">
+                <div class="group-session-intro">
+                    <div class="group-session-copy">
+                        <span class="eyebrow">SHARED SUPPORT</span>
+                        <h2>You don't have to go through it alone.</h2>
+                        <p>Join a welcoming group where you can share your feelings, listen to others, and feel understood at your own pace.</p>
+                        <div class="session-benefits">
+                            <span><b>✓</b> A respectful, judgment-free space</span>
+                            <span><b>✓</b> Share only what feels comfortable</span>
+                            <span><b>✓</b> Connect with people who understand</span>
+                        </div>
+                    </div>
+                    <div class="group-session-art" aria-hidden="true">
+                        <div class="group-art-circle"></div>
+                        <div class="group-person person-one">♡</div>
+                        <div class="group-person person-two">✿</div>
+                        <div class="group-person person-three">☼</div>
+                        <span class="group-art-sparkle sparkle-one">✦</span>
+                        <span class="group-art-sparkle sparkle-two">✧</span>
+                    </div>
+                </div>
+
+                <div class="booking-card">
+                    <div class="booking-heading">
+                        <div class="booking-heading-icon">♡</div>
+                        <div>
+                            <span class="eyebrow">GROUP VENTING SESSION</span>
+                            <h3>Request a place</h3>
+                            <p>Choose a preferred date and time.</p>
+                        </div>
+                    </div>
+
+                    <div class="session-details">
+                        <div class="session-detail">
+                            <span class="detail-icon">◷</span>
+                            <div><strong>45–60 minutes</strong><small>Suggested duration</small></div>
+                        </div>
+                        <div class="session-detail">
+                            <span class="detail-icon">♧</span>
+                            <div><strong>Small group</strong><small>A supportive setting</small></div>
+                        </div>
+                        <div class="session-detail">
+                            <span class="detail-icon">◎</span>
+                            <div><strong>Online session</strong><small>Join from your own space</small></div>
+                        </div>
+                    </div>
+
+                    <form id="group-booking-form" class="group-booking-form">
+                        <div class="booking-fields">
+                            <div class="booking-field">
+                                <label for="group-session-date">Preferred date</label>
+                                <input type="date" id="group-session-date" name="sessionDate" required>
+                            </div>
+                            <div class="booking-field">
+                                <label for="group-session-time">Preferred time</label>
+                                <select id="group-session-time" name="sessionTime" required>
+                                    <option value="">Choose a time</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="booking-field">
+                            <label for="group-session-topic">What would you like support with? <span>(Optional)</span></label>
+                            <select id="group-session-topic" name="sessionTopic">
+                                <option value="">Choose a topic, if you wish</option>
+                                <option value="stress">Stress and daily pressure</option>
+                                <option value="anxiety">Anxiety and overthinking</option>
+                                <option value="loneliness">Loneliness and connection</option>
+                                <option value="emotions">Understanding my emotions</option>
+                                <option value="general">General emotional support</option>
+                            </select>
+                        </div>
+
+                        <label class="booking-consent">
+                            <input type="checkbox" id="group-session-consent" required>
+                            <span>I understand this is a demo request and that no real session is booked or confirmed.</span>
+                        </label>
+
+                        <button type="submit" class="booking-submit">Request a session <span>→</span></button>
+                        <p class="booking-message" id="booking-message" role="status" aria-live="polite"></p>
+                    </form>
+
+                    <p class="booking-disclaimer">This demo does not connect you with a live group or therapist. Availability and professional facilitation must be confirmed before real bookings can be offered.</p>
+                </div>
+            </section>
+
+            <section class="chat-layout">
+                <aside class="history-panel">
+                    <div class="history-heading">
+                        <h2>Your conversations</h2>
+                        <button type="button" id="new-chat-button" class="new-chat-button" aria-label="Start a new conversation">+</button>
+                    </div>
+                    <div class="history-item active">
+                        <span class="history-icon">✧</span>
+                        <span>
+                            <strong>Current conversation</strong>
+                            <small>Temporary demo</small>
+                        </span>
+                    </div>
+                    <div class="history-note">
+                        <span>ⓘ</span>
+                        <p>This demo does not save chat history. Refreshing the page clears the conversation.</p>
+                    </div>
+                </aside>
+
+                <div class="chat-panel">
+                    <div class="chat-header">
+                        <div class="assistant-avatar" id="assistant-avatar">♡</div>
+                        <div class="assistant-info">
+                            <h2 id="assistant-name">Emotional Support</h2>
+                            <p id="assistant-description">A gentle space to express yourself.</p>
+                        </div>
+                        <span class="chat-status"><span class="status-dot"></span> Demo</span>
+                    </div>
+
+                    <div class="chat-messages" id="chat-messages" aria-live="polite" aria-label="Conversation">
+                        <div class="welcome-message" id="welcome-message">
+                            <div class="welcome-illustration">♡</div>
+                            <h3 id="welcome-title">You can start wherever you are.</h3>
+                            <p id="welcome-description">
+                                What's been on your mind lately? You don't need to find the perfect words.
+                            </p>
+                            <span class="welcome-hint">Choose a prompt or write your own message.</span>
+                            <div class="suggestion-list" id="suggestion-list">
+                                <button type="button" class="suggestion-chip">I've had a difficult day</button>
+                                <button type="button" class="suggestion-chip">I feel overwhelmed</button>
+                                <button type="button" class="suggestion-chip">I just need someone to listen</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-notice">
+                        <span>ⓘ</span>
+                        <p>AI responses are simulated in this demo. They are not professional diagnosis or treatment.</p>
+                    </div>
+
+                    <form id="chat-form" class="chat-composer">
+                        <label for="message-input" class="sr-only">Your message</label>
+                        <textarea id="message-input" name="message" rows="2" maxlength="2000" placeholder="Write what's on your mind..." required></textarea>
+                        <div class="composer-toolbar">
+                            <span id="input-status" role="status" aria-live="polite">Your message is not saved.</span>
+                            <button type="submit" class="send-button" id="send-button">
+                                <span>Send</span><span>↑</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <span>© <span id="current-year"></span> Nafas</span>
+                <span>Your wellbeing matters.</span>
+            </footer>
+        </div>
+    </main>
+</div>
+<script src="ai-support.js" defer></script>
+</body>
+</html>

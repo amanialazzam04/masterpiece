@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sessions & Support | Nafas</title>
+  <link rel="stylesheet" href="session.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a href="dashbord.html" class="brand" aria-label="Nafas home">
+      <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image">
+    </a>
+
+    <p class="sidebar-heading">MENU</p>
+
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="dashbord.html" class="nav-link"><span class="nav-icon">⌂</span>Dashboard</a>
+      <a href="ai-support.html" class="nav-link"><span class="nav-icon">◉</span>AI Support</a>
+      <a href="wellness.html" class="nav-link"><span class="nav-icon">◇</span>Daily Wellness</a>
+      <a href="session.html" class="nav-link active" aria-current="page"><span class="nav-icon">▤</span>Sessions & Support</a>
+      <a href="profile.html" class="nav-link"><span class="nav-icon">○</span>My Profile</a>
+    </nav>
+
+    <div class="sidebar-help">
+      <p class="help-label">NEED HELP?</p>
+      <h3>You don't have to face it alone.</h3>
+      <p>If you may be in immediate danger, contact local emergency services or go to the nearest emergency department.</p>
+      <a href="#safety-support">View safety support</a>
+    </div>
+
+    <a href="../loginpage/login.html" class="logout-link">Sign out</a>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <p class="topbar-title">Personal Workspace</p>
+        <p class="topbar-subtitle">Your space for wellbeing and support</p>
+      </div>
+      <div class="account">
+        <span class="account-avatar">N</span>
+        <span>My Account</span>
+      </div>
+    </header>
+
+    <section class="page-header">
+      <div>
+        <p class="eyebrow">CARE & SUPPORT</p>
+        <h1>Sessions & Support</h1>
+        <p class="page-description">Connect with support, express your feelings, and take care of your wellbeing.</p>
+      </div>
+      <a href="#booking" class="primary-button">Request a Session</a>
+    </section>
+
+    <!-- SAFETY SUPPORT -->
+    <section class="safety-panel" id="safety-support" aria-labelledby="safety-title">
+      <div class="safety-symbol" aria-hidden="true">!</div>
+      <div>
+        <p class="eyebrow">YOUR SAFETY MATTERS</p>
+        <h2 id="safety-title">Need urgent support?</h2>
+        <p>If you feel you might hurt yourself or someone else, don't wait for a website alert. Contact local emergency services, go to the nearest emergency department, or reach out now to a trusted person who can stay with you.</p>
+        <p class="demo-note">Prototype notice: this page does not send alerts to a therapist, administrator, or family member.</p>
+      </div>
+    </section>
+
+    <!-- GROUP SUPPORT INTRO -->
+    <section class="group-intro" id="group-sessions">
+      <div class="group-intro-content">
+        <p class="eyebrow">GROUP SUPPORT</p>
+        <h2>A space to share and feel understood.</h2>
+        <p>Group discussions can offer a respectful environment to express thoughts, listen to others, and explore shared experiences.</p>
+
+        <div class="group-details">
+          <div>
+            <span class="detail-title">FORMAT</span>
+            <span>Online discussions</span>
+          </div>
+          <div>
+            <span class="detail-title">ENVIRONMENT</span>
+            <span>Respectful and supportive</span>
+          </div>
+          <div>
+            <span class="detail-title">GUIDANCE</span>
+            <span>Facilitator support planned</span>
+          </div>
+        </div>
+
+        <a href="#group-options" class="primary-button">Explore Group Sessions</a>
+      </div>
+
+      <div class="group-intro-side">
+        <div class="decorative-line"></div>
+        <p class="side-quote">You deserve a space where you can speak openly and be heard.</p>
+        <span class="side-caption">NAFAS WELLBEING</span>
+      </div>
+    </section>
+
+    <!-- GROUP SESSIONS -->
+    <section class="content-section" id="group-options">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">SHARE & CONNECT</p>
+          <h2>Group Support Sessions</h2>
+          <p class="section-description">Explore discussion topics that may relate to your experiences.</p>
+        </div>
+      </div>
+
+      <div class="group-grid">
+        <article class="group-card">
+          <div class="card-header">
+            <span class="category-label">EMOTIONAL WELLBEING</span>
+            <span class="type-label">Group</span>
+          </div>
+          <h3>Managing Daily Stress</h3>
+          <p>Discuss everyday pressures, understand common stress responses, and share helpful coping approaches.</p>
+          <div class="card-divider"></div>
+          <p class="card-info">Online discussion · Small group</p>
+          <button type="button" class="outline-button join-group" data-session="Managing Daily Stress">Express Interest</button>
+        </article>
+
+        <article class="group-card">
+          <div class="card-header">
+            <span class="category-label">SELF-AWARENESS</span>
+            <span class="type-label">Group</span>
+          </div>
+          <h3>Understanding My Feelings</h3>
+          <p>Explore ways to recognise emotions, communicate feelings, and understand personal experiences.</p>
+          <div class="card-divider"></div>
+          <p class="card-info">Online discussion · Small group</p>
+          <button type="button" class="outline-button join-group" data-session="Understanding My Feelings">Express Interest</button>
+        </article>
+
+        <article class="group-card">
+          <div class="card-header">
+            <span class="category-label">PERSONAL GROWTH</span>
+            <span class="type-label">Group</span>
+          </div>
+          <h3>Healthy Relationships</h3>
+          <p>Discuss communication, personal boundaries, and building healthier connections with others.</p>
+          <div class="card-divider"></div>
+          <p class="card-info">Online discussion · Small group</p>
+          <button type="button" class="outline-button join-group" data-session="Healthy Relationships">Express Interest</button>
+        </article>
+      </div>
+
+      <p id="group-message" class="feedback-message" aria-live="polite"></p>
+      <p class="disclaimer">These are demonstration options and are not live or confirmed bookings.</p>
+    </section>
+
+    <!-- THERAPISTS -->
+    <section class="content-section" id="therapists">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">INDIVIDUAL SUPPORT</p>
+          <h2>Meet Our Therapists</h2>
+          <p class="section-description">Prepare a request for an individual support session.</p>
+        </div>
+      </div>
+
+      <div class="therapist-grid">
+        <article class="therapist-card">
+          <div class="therapist-initials">LA</div>
+          <div class="therapist-content">
+            <h3>Dr. Lina Ahmad</h3>
+            <p class="therapist-role">Clinical Psychologist</p>
+            <p class="therapist-bio">Stress management, anxiety, and life transitions.</p>
+            <button type="button" class="text-button book-therapist" data-therapist="Dr. Lina Ahmad">Request a Session →</button>
+          </div>
+        </article>
+
+        <article class="therapist-card">
+          <div class="therapist-initials initials-blue">OK</div>
+          <div class="therapist-content">
+            <h3>Dr. Omar Khaled</h3>
+            <p class="therapist-role">Therapist</p>
+            <p class="therapist-bio">Relationships, confidence, and emotional wellbeing.</p>
+            <button type="button" class="text-button book-therapist" data-therapist="Dr. Omar Khaled">Request a Session →</button>
+          </div>
+        </article>
+
+        <article class="therapist-card">
+          <div class="therapist-initials initials-light">SN</div>
+          <div class="therapist-content">
+            <h3>Dr. Sara Nasser</h3>
+            <p class="therapist-role">Counselor</p>
+            <p class="therapist-bio">Emotional awareness and personal development.</p>
+            <button type="button" class="text-button book-therapist" data-therapist="Dr. Sara Nasser">Request a Session →</button>
+          </div>
+        </article>
+      </div>
+
+      <p class="disclaimer">Therapist profiles are sample content for the project prototype.</p>
+    </section>
+
+    <!-- BOOKING FORM -->
+    <section class="booking-layout" id="booking">
+      <div class="panel">
+        <div class="panel-heading">
+          <p class="eyebrow">SESSION DETAILS</p>
+          <h2>Request an Individual Session</h2>
+          <p class="section-description">Choose your preferences to prepare a session request.</p>
+        </div>
+
+        <form id="booking-form">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="therapist-select">Select Therapist <span>*</span></label>
+              <select id="therapist-select" required>
+                <option value="">Choose a therapist</option>
+                <option>Dr. Lina Ahmad</option>
+                <option>Dr. Omar Khaled</option>
+                <option>Dr. Sara Nasser</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="session-type">Session Format <span>*</span></label>
+              <select id="session-type" required>
+                <option value="Online">Online</option>
+                <option value="In person">In person</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="session-date">Preferred Date <span>*</span></label>
+              <input type="date" id="session-date" required>
+            </div>
+
+            <div class="form-field">
+              <label for="session-time">Preferred Time <span>*</span></label>
+              <select id="session-time" required>
+                <option value="">Choose a time</option>
+                <option>09:00 AM</option>
+                <option>11:00 AM</option>
+                <option>01:00 PM</option>
+                <option>03:00 PM</option>
+                <option>05:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="session-note">Additional Notes <span class="optional">(Optional)</span></label>
+            <textarea id="session-note" rows="4" maxlength="500" placeholder="Add any information you would like to include."></textarea>
+            <p class="character-count"><span id="note-count">0</span>/500</p>
+          </div>
+
+          <button type="submit" class="primary-button full-width">Submit Request</button>
+          <p id="booking-message" class="feedback-message" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="panel requests-panel" id="my-requests">
+        <div class="panel-heading">
+          <p class="eyebrow">REQUEST TRACKING</p>
+          <h2>My Session Requests</h2>
+          <p class="section-description">Requests are shown only during this visit.</p>
+        </div>
+        <div id="request-list" class="request-list">
+          <div class="empty-state">
+            <div class="empty-icon">—</div>
+            <h3>No requests yet</h3>
+            <p>Your session requests will appear here after submission.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVATE REFLECTION -->
+    <section class="reflection-panel" id="venting">
+      <div class="reflection-content">
+        <p class="eyebrow">PRIVATE REFLECTION</p>
+        <h2>A Space for Your Thoughts</h2>
+        <p>Writing can help you organise your thoughts. Use this space to reflect on whatever feels important to you.</p>
+
+        <div class="privacy-notice">
+          <span class="notice-title">Privacy notice</span>
+          <p>Your writing is not stored or sent to a server. It will be cleared when you refresh or leave this page. Avoid entering details you would not want visible on your device.</p>
+        </div>
+      </div>
+
+      <div class="reflection-editor">
+        <label for="venting-entry">Your reflection</label>
+        <textarea id="venting-entry" rows="7" maxlength="3000" placeholder="Write at your own pace..."></textarea>
+
+        <div class="reflection-actions">
+          <span><span id="reflection-count">0</span>/3000 characters</span>
+          <button type="button" class="primary-button" id="save-venting">Finish Reflection</button>
+        </div>
+
+        <p id="reflection-message" class="feedback-message" aria-live="polite"></p>
+
+        <div id="reflection-safety-message" class="reflection-safety" role="alert" hidden>
+          <strong>Your safety matters.</strong>
+          <p>Your words may indicate that you need immediate support. This demo cannot contact anyone for you. If you are in immediate danger, contact local emergency services or go to the nearest emergency department. If possible, reach out to a trusted person who can stay with you.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>Nafas · Mental Wellbeing Platform</span>
+      <span>Your wellbeing matters.</span>
+    </footer>
+  </main>
+<script src="session.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create your Nafas account.">
+    <title>Create Account | Nafas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+<main class="register-page">
+
+    <section class="welcome-side">
+        <a href="../homepage/home.html" class="logo">
+            <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="registration-logo">
+        </a>
+
+        <div class="welcome-content">
+            <span class="welcome-label">
+                <span class="label-dot"></span>
+                YOUR SAFE SPACE
+            </span>
+
+            <h1>A new beginning starts with <em>you.</em></h1>
+
+            <p>
+                Take a gentle step toward your wellbeing.
+                Create your Nafas profile and explore a space
+                designed to support your journey.
+            </p>
+
+            <div class="quote">
+                <span class="quote-mark" aria-hidden="true">“</span>
+                <p>You don't have to have it all figured out to begin.</p>
+                <span class="quote-caption">One step at a time</span>
+            </div>
+        </div>
+
+        <p class="welcome-footer">
+            <span aria-hidden="true">♡</span>
+            A supportive space for every step of your journey.
+        </p>
+
+        <div class="decor decor-one" aria-hidden="true"></div>
+        <div class="decor decor-two" aria-hidden="true"></div>
+    </section>
+
+    <section class="form-side">
+        <div class="register-card">
+
+            <a href="../homepage/home.html" class="mobile-logo">
+                <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="registration-logo">
+            </a>
+
+            <div class="form-heading">
+                <span class="eyebrow">LET'S GET STARTED</span>
+                <h2>Create your account</h2>
+                <p>Join Nafas and take the next step at your own pace.</p>
+            </div>
+
+            <form id="register-form" novalidate>
+
+                <div class="form-group">
+                    <label for="full-name">Full name</label>
+                    <input
+                        type="text"
+                        id="full-name"
+                        name="fullName"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required
+                        minlength="2"
+                        aria-describedby="name-error"
+                    >
+                    <small class="error-message" id="name-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                        aria-describedby="email-error"
+                    >
+                    <small class="error-message" id="email-error"></small>
+                </div>
+
+                <fieldset class="account-fieldset">
+                    <legend>Choose your account type</legend>
+
+                    <div class="account-types">
+                        <label class="account-option">
+                            <input type="radio" name="accountType" value="user" checked>
+                            <span class="account-box">
+                            <span class="account-icon" aria-hidden="true">♡</span>
+                                <span>Personal User</span>
+                            </span>
+                        </label>
+
+                        <label class="account-option">
+                            <input type="radio" name="accountType" value="family">
+                            <span class="account-box">
+                                <span class="account-icon" aria-hidden="true">⌂</span>
+                                <span>Family Member</span>
+                            </span>
+                        </label>
+
+                        <label class="account-option">
+                            <input type="radio" name="accountType" value="therapist">
+                            <span class="account-box">
+                                <span class="account-icon" aria-hidden="true">✚</span>
+                                <span>Therapist</span>
+                            </span>
+                        </label>
+
+                        <label class="account-option">
+                            <input type="radio" name="accountType" value="admin">
+                            <span class="account-box">
+                                <span class="account-icon" aria-hidden="true">◇</span>
+                                <span>Admin</span>
+                            </span>
+                        </label>
+                    </div>
+                </fieldset>
+                <p class="field-hint role-demo-warning">Use a fictional name and an @nafas.local test email. Role selection is for local portal testing; Admin does not create secure or production-ready access.</p>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                            required
+                            minlength="8"
+                            aria-describedby="password-error"
+                        >
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            id="toggle-password"
+                            aria-label="Show password"
+                            aria-pressed="false"
+                        >Show</button>
+                    </div>
+                    <small class="field-hint">Use at least 8 characters.</small>
+                    <small class="error-message" id="password-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm password</label>
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        name="confirmPassword"
+                        placeholder="Enter your password again"
+                        autocomplete="new-password"
+                        required
+                        aria-describedby="confirm-password-error"
+                    >
+                    <small class="error-message" id="confirm-password-error"></small>
+                </div>
+
+                <label class="terms-option">
+                    <input type="checkbox" id="terms">
+                    <span>
+                        I agree to the terms and privacy guidelines.
+                    </span>
+                </label>
+                <small class="error-message terms-error" id="terms-error"></small>
+
+                <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+
+                <button type="submit" class="register-button">
+                    <span>Create account</span>
+                    <span class="button-arrow" aria-hidden="true">→</span>
+                </button>
+
+                <p class="demo-note">
+                    Frontend-only demo authentication. A successful registration stores this account temporarily in this browser tab's session storage so you can sign in and test the selected portal. It is not sent to a server, is not secure authentication, and is cleared when the tab session ends.
+                </p>
+            </form>
+
+            <div class="form-divider"><span>ALREADY A MEMBER?</span></div>
+
+            <p class="login-text">
+                Already have an account?
+                <a href="login.html">Sign in</a>
+            </p>
+
+            <a href="../homepage/home.html" class="back-home">
+                ← Back to home
+            </a>
+
+        </div>
+    </section>
+
+</main>
+<script src="register.js" defer></script>
+</body>
+</html>

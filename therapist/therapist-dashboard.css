@@ -1,0 +1,29 @@
+@import url("../family/family.css");
+@import url("therapist.css");
+.th-stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 13px; margin-bottom: 17px; }
+.th-stat-card { position: relative; min-width: 0; padding: 18px 17px; border: 1px solid var(--border); border-radius: 16px; background: #fff; box-shadow: 0 6px 22px rgba(11,69,109,.04); }
+.th-stat-icon { display: grid; width: 34px; height: 34px; margin-bottom: 12px; place-items: center; border-radius: 11px; background: #e8f7fb; color: var(--teal); font-size: 19px; }
+.th-stat-card p { color: var(--muted); font-size: 11px; font-weight: 600; }
+.th-stat-card>strong { display: block; margin-top: 2px; color: var(--navy); font: 800 25px/1.25 "Manrope", sans-serif; }
+.th-stat-card small { color: #8a9eab; font-size: 9px; }
+.th-dashboard-grid { margin-top: 0; }
+.th-compact-list { display: grid; gap: 9px; margin-bottom: 13px; }
+.th-compact-item { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; padding: 10px 11px; border: 1px solid #e7f0f4; border-radius: 11px; background: #fbfdfe; }
+.th-compact-date { display: grid; min-width: 48px; min-height: 44px; place-content: center; border-radius: 10px; background: #eaf7fa; color: var(--blue); font-size: 9px; font-weight: 800; line-height: 1.35; text-align: center; }
+.th-compact-item strong, .th-compact-item small { display: block; }
+.th-compact-item strong { color: var(--navy); font-size: 11px; }
+.th-compact-item small { color: var(--muted); font-size: 9px; }
+.th-inline-link { min-height: 36px; margin-top: 2px; }
+.th-shortcut-section { margin-top: 23px; }
+.th-shortcut-section .section-heading { margin-bottom: 12px; }
+.th-shortcut-section .section-heading h2 { color: var(--navy); font: 700 19px "Manrope", sans-serif; }
+.th-shortcut-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.th-shortcut { display: grid; gap: 4px; padding: 16px; border: 1px solid var(--border); border-radius: 15px; background: #fff; box-shadow: 0 5px 17px rgba(11,69,109,.035); transition: border-color .2s, transform .2s, box-shadow .2s; }
+.th-shortcut:hover { transform: translateY(-2px); border-color: #b5e3ed; box-shadow: var(--shadow); }
+.th-shortcut>span { color: var(--teal); font-size: 22px; }
+.th-shortcut strong { color: var(--navy); font: 700 12px "Manrope", sans-serif; }
+.th-shortcut small { color: var(--muted); font-size: 10px; }
+
+@media (max-width: 960px) { .th-stat-grid, .th-shortcut-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+@media (max-width: 640px) { .th-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .th-shortcut-grid { grid-template-columns: 1fr; } }

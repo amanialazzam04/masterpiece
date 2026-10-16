@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f0f9ff">
+  <title>Clinical Notes | Nafas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="clinical-notes.css">
+</head>
+<body>
+  <div class="family-layout therapist-layout">
+    <aside class="sidebar" id="therapist-sidebar">
+      <a href="therapist-dashboard.html" class="logo" aria-label="Nafas Therapist Dashboard">
+        <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image">
+      </a>
+      <div class="sidebar-label">THERAPIST SPACE</div>
+      <nav class="sidebar-nav" aria-label="Therapist Portal navigation">
+        <a href="therapist-dashboard.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⌂</span><span>Therapist Dashboard</span></a>
+        <a href="my-clients.html" class="nav-link"><span class="nav-icon" aria-hidden="true">♧</span><span>My Clients</span></a>
+        <a href="client-details.html" class="nav-link"><span class="nav-icon" aria-hidden="true">○</span><span>Client Details</span></a>
+        <a href="sessions.html" class="nav-link"><span class="nav-icon" aria-hidden="true">▤</span><span>Sessions</span></a>
+        <a href="consultations-requests.html" class="nav-link"><span class="nav-icon" aria-hidden="true">↗</span><span>Consultations &amp; Requests</span></a>
+        <a href="clinical-notes.html" class="nav-link active" aria-current="page"><span class="nav-icon" aria-hidden="true">✎</span><span>Clinical Notes</span></a>
+        <a href="alerts-follow-up.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✓</span><span>Alerts &amp; Follow-up</span></a>
+        <a href="reports-progress.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⌁</span><span>Reports &amp; Progress</span></a>
+        <a href="therapist-profile-settings.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⚙</span><span>My Profile &amp; Settings</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><span class="help-icon" aria-hidden="true">♡</span><h3>Care with clear boundaries.</h3><p>This local prototype has no authenticated client records or secure clinical storage.</p></div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon" aria-hidden="true">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="therapist-sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="therapist-menu-button" aria-label="Toggle Therapist Portal navigation" aria-controls="therapist-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Therapist Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Clinical Notes</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot muted-dot"></span>Frontend demo</span></div>
+      </header>
+
+      <div class="portal-container therapist-container"><section class="portal-view" id="clinical-notes" data-title="Clinical Notes" aria-labelledby="notes-title">
+          <div class="page-heading"><div><p class="eyebrow">PRIVATE PROFESSIONAL WORKSPACE</p><h1 id="notes-title">Clinical Notes</h1><p class="page-description">Preview a client- and session-linked note form using fictional information only.</p></div></div>
+          <section class="safety-panel th-privacy-panel"><span class="safety-symbol" aria-hidden="true">!</span><div><p class="eyebrow">NOT FOR REAL CLINICAL NOTES</p><h2>Temporary browser preview</h2><p>Notes entered here remain only in this page's memory and disappear when it is reloaded. This prototype has no authentication, access controls, encryption, or secure record storage.</p><p class="demo-note">Do not enter identifying or real clinical information. These notes are not available in the Family Portal or Personal User pages.</p></div></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">DEMO NOTE ENTRY</p><h2>Session note and follow-up preview</h2></div></div><form id="clinical-note-form" class="form-grid">
+            <div class="form-field"><label for="note-client">Fictional client</label><select id="note-client" required></select></div>
+            <div class="form-field"><label for="note-session">Demo session</label><select id="note-session" required></select></div>
+            <div class="form-field full-field"><label for="note-goal">Client-selected goal summary</label><input id="note-goal" maxlength="160" placeholder="Brief goal description" required></div>
+            <div class="form-field full-field"><label for="note-content">Session note preview</label><textarea id="note-content" rows="5" maxlength="1200" placeholder="Use fictional text only" required></textarea><small class="field-hint"><span id="note-character-count">0</span>/1200 characters</small></div>
+            <div class="form-field full-field"><label for="note-followup">Follow-up action</label><input id="note-followup" maxlength="240" placeholder="Example: revisit the agreed goal next session" required></div>
+            <div class="form-actions"><button type="submit" class="primary-button">Preview note in this page</button><p class="form-feedback" id="note-feedback" role="status" aria-live="polite"></p></div>
+          </form></section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">CURRENT PAGE ONLY</p><h2>Temporary note previews</h2></div></div><div id="clinical-note-list" class="th-note-list"><div class="empty-state compact-empty"><span class="empty-state-icon" aria-hidden="true">○</span><h3>No note previews yet</h3><p>Use the form above to prepare a clearly temporary sample preview.</p></div></div></section>
+        </section></div>
+    </main>
+  </div>
+<script src="therapist.js" defer></script>
+<script src="therapist-nav.js" defer></script>
+<script src="clinical-notes.js" defer></script>
+</body>
+</html>

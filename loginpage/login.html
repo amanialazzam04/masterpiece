@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Nafas</title>
+
+    <link rel="stylesheet" href="login.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="page-shell">
+
+        <section class="login-layout">
+
+            <!-- Welcome Panel -->
+            <div class="welcome-panel">
+
+                <div class="soft-orb orb-one"></div>
+                <div class="soft-orb orb-two"></div>
+
+                <div class="welcome-content">
+
+                    <span class="eyebrow">
+                        <span class="status-dot"></span>
+                        YOUR WELLBEING MATTERS
+                    </span>
+
+                    <h1>
+                        Take a breath.<br>
+                        <span>You're in a safe space.</span>
+                    </h1>
+
+                    <p>
+                        Come as you are. Take a moment for yourself,
+                        check in with your feelings, and move forward
+                        at your own pace.
+                    </p>
+
+                    <div class="quote-card">
+                        <span class="quote-icon">“</span>
+
+                        <p>
+                            You don't have to have it all figured out
+                            to take the next step.
+                        </p>
+
+                        <span class="quote-caption">
+                            A gentle reminder from Nafas
+                        </span>
+                    </div>
+
+                    <div class="welcome-footer">
+                        <span class="tiny-heart">♡</span>
+                        A little care can make a difference.
+                    </div>
+
+                </div>
+
+                <div class="decor-leaf leaf-one"></div>
+                <div class="decor-leaf leaf-two"></div>
+
+            </div>
+
+            <!-- Login Form -->
+            <div class="form-panel">
+
+                <div class="form-heading">
+
+                    <div class="heading-brand">
+
+                        <a href="../homepage/home.html" class="brand">
+                            <img
+                                src="../homepage/assets/nafas-logo-transparent.png"
+                                alt="Nafas Logo"
+                                class="brand-logo"
+                            >
+                        </a>
+
+                        <div class="heading-text">
+
+                            <span class="form-kicker">
+                                WELCOME BACK
+                            </span>
+
+                            <h2>Sign in to Nafas</h2>
+
+                            <p>
+                                We're glad you're here.
+                                Let's pick up where you left off.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <form id="login-form" novalidate>
+
+                    <!-- Email -->
+                    <label for="email">
+                        Email address
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <svg class="field-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect>
+                            <path d="m4.5 7 7.5 5.5L19.5 7"></path>
+                        </svg>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                    <!-- Password -->
+                    <div class="password-label">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <a href="#" id="forgot-link">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+                    <div class="input-wrap">
+
+                        <svg class="field-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="4.5" y="10" width="15" height="10" rx="2"></rect>
+                            <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                            <path d="M12 14v2"></path>
+                        </svg>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            class="show-password"
+                            type="button"
+                            id="toggle-password"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                    <!-- Remember Me -->
+                    <div class="form-options">
+
+                        <label class="remember-label">
+                            <input type="checkbox" id="remember">
+                            <span>Keep me signed in</span>
+                        </label>
+
+                    </div>
+
+                    <!-- Messages -->
+                    <p
+                        class="form-message"
+                        id="form-message"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
+
+                    <!-- Submit -->
+                    <button class="submit-button" type="submit">
+                        Sign in
+                        <span>→</span>
+                    </button>
+
+                </form>
+
+                <!-- Demo Information -->
+                <div class="demo-note">
+
+                    <div class="demo-icon">i</div>
+
+                    <div>
+                        <strong>Frontend demo</strong>
+
+                        <p>Frontend-only demo sign-in. Accounts are matched to a fixed role; this is not real or secure authentication.</p>
+                        <ul class="demo-accounts">
+                            <li><strong>Personal User</strong><span>user.demo@nafas.local · NafasUser123!</span></li>
+                            <li><strong>Family Member</strong><span>family.demo@nafas.local · NafasFamily123!</span></li>
+                            <li><strong>Therapist</strong><span>therapist.demo@nafas.local · NafasTherapist123!</span></li>
+                            <li><strong>Admin demo</strong><span>admin.demo@nafas.local · NafasAdmin123!</span></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Registration Link -->
+                <div class="signup-prompt">
+                    New to Nafas?
+                    <a href="register.html">Create an account</a>
+                </div>
+
+                <div class="privacy-note">
+                    <span>♡</span>
+                    Your wellbeing journey deserves care and privacy.
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer class="page-footer">
+            <span>© 2026 Nafas</span>
+            <span>Made with care, for your wellbeing</span>
+        </footer>
+
+    </main>
+<script src="login.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6fcff">
+  <title>Help & Safety | Nafas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="help-safety.css">
+</head>
+<body>
+  <div class="family-layout">
+    <aside class="sidebar" id="family-sidebar">
+      <a href="family-dashboard.html" class="logo" aria-label="Nafas Family Dashboard">
+        <img src="../homepage/assets/nafas-logo-transparent.png" alt="Nafas" class="logo-image">
+      </a>
+      <div class="sidebar-label">FAMILY SPACE</div>
+      <nav class="sidebar-nav" aria-label="Family Portal navigation">
+        <a href="family-dashboard.html" class="nav-link"><span class="nav-icon" aria-hidden="true">⌂</span><span>Family Dashboard</span></a>
+        <a href="my-loved-ones.html" class="nav-link"><span class="nav-icon" aria-hidden="true">♡</span><span>My Loved Ones</span></a>
+        <a href="support-guidance.html" class="nav-link"><span class="nav-icon" aria-hidden="true">✧</span><span>Support &amp; Guidance</span></a>
+        <a href="shared-wellness.html" class="nav-link"><span class="nav-icon" aria-hidden="true">☼</span><span>Shared Wellness</span></a>
+        <a href="consultations.html" class="nav-link"><span class="nav-icon" aria-hidden="true">▤</span><span>Consultations</span></a>
+        <a href="family-profile-settings.html" class="nav-link"><span class="nav-icon" aria-hidden="true">○</span><span>My Profile &amp; Settings</span></a>
+        <a href="help-safety.html" class="nav-link active" aria-current="page"><span class="nav-icon" aria-hidden="true">?</span><span>Help &amp; Safety</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon" aria-hidden="true">♡</div>
+          <h3>Care for yourself, too.</h3>
+          <p>Supporting someone can be a lot to carry. Your wellbeing matters as well.</p>
+          <a href="help-safety.html" class="view-link">Visit Help &amp; Safety <span>→</span></a>
+        </div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon" aria-hidden="true">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="family-sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="family-menu-button" aria-label="Toggle Family Portal navigation" aria-controls="family-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Family Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Help & Safety</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot"></span> Family Portal</span></div>
+      </header>
+
+      <div class="portal-container"><section class="portal-view" id="help" data-title="Help & Safety" aria-labelledby="help-title">
+          <div class="page-heading"><div><p class="eyebrow">SUPPORT &amp; SAFETY</p><h1 id="help-title">Help &amp; Safety</h1><p class="page-description">Guidance for getting support and responding when someone may be at risk.</p></div></div>
+          <section class="safety-panel"><span class="safety-symbol" aria-hidden="true">!</span><div><p class="eyebrow">IMMEDIATE DANGER</p><h2>Contact local emergency help.</h2><p>If you believe someone may act on thoughts of harming themselves or another person, contact your local emergency services or go to the nearest emergency department. If it is safe, stay with them and involve a trusted person nearby.</p><p class="demo-note">Nafas is not an emergency service. This portal does not monitor messages or send alerts.</p></div></section>
+          <div class="guidance-grid help-grid">
+            <article class="support-card"><span class="support-icon">♡</span><h2>Talk and listen</h2><p>Ask calmly and directly how they are doing. Listen without judgment and take what they tell you seriously.</p></article>
+            <article class="support-card"><span class="support-icon">✧</span><h2>Stay connected</h2><p>Ask what would help right now. Encourage support from a qualified professional or someone they trust.</p></article>
+            <article class="support-card"><span class="support-icon">○</span><h2>Find local support</h2><p>Emergency numbers and crisis resources vary by location. Contact local health services or emergency responders for guidance in your area.</p></article>
+          </div>
+          <section class="panel safety-navigation"><div class="panel-heading"><div><p class="eyebrow">USEFUL NEXT STEPS</p><h2>Continue to the right support</h2></div></div><div class="next-step-grid"><a class="next-step-card view-link" href="support-guidance.html"><strong>Support &amp; Guidance</strong><span>Read practical, respectful suggestions.</span><b>Open guidance →</b></a><a class="next-step-card view-link" href="my-loved-ones.html"><strong>My Loved Ones</strong><span>Review the current connection and consent state.</span><b>Review connections →</b></a><a class="next-step-card view-link" href="consultations.html"><strong>Consultations</strong><span>Explore sample consultation options.</span><b>View consultations →</b></a></div><a href="../homepage/home.html" class="secondary-button homepage-link">Nafas Homepage <span>→</span></a></section>
+        </section>
+        <footer class="page-footer">Made with care by Nafas <span aria-hidden="true">♡</span><span class="demo-label">Family Portal · Frontend demo</span></footer></div>
+    </main>
+  </div>
+<script src="help-safety.js" defer></script>
+<script src="family.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6fcff">
+  <title>Family Portal | Nafas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="family.css">
+</head>
+<body>
+  <div class="family-layout">
+    <aside class="sidebar" id="family-sidebar">
+      <a href="#dashboard" class="logo" aria-label="Nafas Family Dashboard">
+        <img src="../homepage/assets/nafas-logo.jpg" alt="Nafas" class="logo-image">
+      </a>
+      <div class="sidebar-label">FAMILY SPACE</div>
+      <nav class="sidebar-nav" aria-label="Family Portal navigation">
+        <a href="#dashboard" class="nav-link active" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span><span>Family Dashboard</span></a>
+        <a href="#loved-ones" class="nav-link"><span class="nav-icon" aria-hidden="true">♡</span><span>My Loved Ones</span></a>
+        <a href="#guidance" class="nav-link"><span class="nav-icon" aria-hidden="true">✧</span><span>Support &amp; Guidance</span></a>
+        <a href="#wellness" class="nav-link"><span class="nav-icon" aria-hidden="true">☼</span><span>Shared Wellness</span></a>
+        <a href="#consultations" class="nav-link"><span class="nav-icon" aria-hidden="true">▤</span><span>Consultations</span></a>
+        <a href="#profile" class="nav-link"><span class="nav-icon" aria-hidden="true">○</span><span>My Profile &amp; Settings</span></a>
+        <a href="#help" class="nav-link"><span class="nav-icon" aria-hidden="true">?</span><span>Help &amp; Safety</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon" aria-hidden="true">♡</div>
+          <h3>Care for yourself, too.</h3>
+          <p>Supporting someone can be a lot to carry. Your wellbeing matters as well.</p>
+          <a href="#help" class="view-link">Visit Help &amp; Safety <span>→</span></a>
+        </div>
+        <a href="../loginpage/login.html" class="logout-link"><span class="nav-icon" aria-hidden="true">↩</span> Back to Role Selection</a>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="family-sidebar-overlay"></div>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button type="button" class="menu-button" id="family-menu-button" aria-label="Toggle Family Portal navigation" aria-controls="family-sidebar" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Family Space</span><span class="breadcrumb-separator">/</span><strong id="current-view-title">Family Dashboard</strong></div>
+        <div class="topbar-actions"><span class="portal-badge"><span class="status-dot"></span> Family Portal</span></div>
+      </header>
+
+      <div class="portal-container">
+        <section class="portal-view" id="dashboard" data-title="Family Dashboard" aria-labelledby="dashboard-title">
+          <div class="page-heading">
+            <div><p class="eyebrow">FAMILY DASHBOARD</p><h1 id="dashboard-title">Support, with their permission.</h1><p class="page-description">See only the updates your loved one has chosen to share with you.</p></div>
+            <span class="demo-status"><span class="status-dot muted-dot"></span> No family data connected</span>
+          </div>
+          <section class="welcome-card">
+            <div class="welcome-copy"><p class="eyebrow">A SPACE FOR FAMILY SUPPORT</p><h2>Start with listening and care.</h2><p>Nafas keeps personal wellbeing information private unless a person chooses to share specific updates. Connect with a loved one to see any information they have consented to share.</p><a class="primary-button view-link" href="#guidance">Explore supportive guidance <span>→</span></a></div>
+            <div class="welcome-art" aria-hidden="true"><span class="welcome-orb">♡</span><span class="welcome-ring"></span></div>
+          </section>
+          <section class="connection-summary" aria-label="Connection summary">
+            <article class="summary-card"><span class="summary-label">CONNECTED LOVED ONES</span><strong>0</strong><span>No accounts connected</span></article>
+            <article class="summary-card"><span class="summary-label">SHARING UPDATES</span><strong>0</strong><span>No one has shared updates</span></article>
+            <article class="summary-card"><span class="summary-label">SHARING STATUS</span><strong class="summary-status">Not connected</strong><span>Consent is controlled by each Personal User</span></article>
+            <a class="summary-card summary-action view-link" href="#loved-ones"><span class="summary-label">NEXT STEP</span><strong>Connect with a loved one</strong><span>Review connection options →</span></a>
+          </section>
+          <div class="dashboard-grid">
+            <section class="panel update-panel" aria-labelledby="updates-title">
+              <div class="panel-heading"><div><p class="eyebrow">CONSENTED UPDATES</p><h2 id="updates-title">Updates from loved ones</h2></div><span class="panel-icon" aria-hidden="true">♡</span></div>
+              <div class="empty-state"><span class="empty-state-icon" aria-hidden="true">○</span><h3>No updates have been shared</h3><p>There are no connected accounts or consented updates in this demo. Private journals and AI conversations are never available here.</p><a href="#loved-ones" class="secondary-button view-link">Review connections</a></div>
+            </section>
+            <section class="panel trend-panel" aria-labelledby="trend-title">
+              <div class="panel-heading"><div><p class="eyebrow">WEEKLY MOOD</p><h2 id="trend-title">Shared mood trends</h2></div><span class="panel-icon" aria-hidden="true">⌁</span></div>
+              <div class="empty-state" id="trend-empty"><span class="empty-state-icon" aria-hidden="true">⌁</span><h3>No shared mood data</h3><p>Weekly trends appear only when a Personal User connects and explicitly enables mood sharing.</p></div>
+              <div class="trend-preview" id="trend-preview" hidden aria-live="polite">
+                <p class="demo-note"><strong>Fictional sample preview.</strong> This example is not connected to a person and is not real wellbeing data.</p>
+                <div class="trend-chart" role="img" aria-label="Illustrative sample mood trend across a week"><div class="trend-day"><span class="trend-bar bar-one"></span><small>Mon</small></div><div class="trend-day"><span class="trend-bar bar-two"></span><small>Tue</small></div><div class="trend-day"><span class="trend-bar bar-three"></span><small>Wed</small></div><div class="trend-day"><span class="trend-bar bar-four"></span><small>Thu</small></div><div class="trend-day"><span class="trend-bar bar-five"></span><small>Fri</small></div><div class="trend-day"><span class="trend-bar bar-six"></span><small>Sat</small></div><div class="trend-day"><span class="trend-bar bar-seven"></span><small>Sun</small></div></div>
+                <p class="chart-caption">Fictional sample · Monday–Sunday · Bar heights are illustrative only. No private notes, journal entries, or AI conversations.</p>
+              </div>
+              <label class="preview-toggle"><input type="checkbox" id="demo-sharing-toggle"><span>Preview a sample trend (demo only)</span></label>
+              <p class="field-hint">This local preview does not enable real sharing or change another person's settings.</p>
+            </section>
+          </div>
+          <section class="next-steps-section" aria-labelledby="next-steps-title"><div class="section-heading"><p class="eyebrow">HELPFUL NEXT STEPS</p><h2 id="next-steps-title">Support them at their pace</h2></div><div class="next-step-grid">
+            <a class="next-step-card view-link" href="#guidance"><strong>Support &amp; Guidance</strong><span>Try a listening prompt or explore practical resources.</span><b>Explore guidance →</b></a>
+            <a class="next-step-card view-link" href="#wellness"><strong>Shared Wellness</strong><span>Review the privacy-first view of updates they choose to share.</span><b>Open shared wellness →</b></a>
+            <a class="next-step-card view-link" href="#consultations"><strong>Consultations</strong><span>Learn about sample consultation options.</span><b>View consultations →</b></a>
+          </div></section>
+          <div class="dashboard-grid activity-grid"><section class="panel" aria-labelledby="activity-title"><div class="panel-heading"><div><p class="eyebrow">RECENT ACTIVITY</p><h2 id="activity-title">Connection and sharing activity</h2></div><span class="panel-icon" aria-hidden="true">⌁</span></div><div class="empty-state compact-empty"><span class="empty-state-icon" aria-hidden="true">○</span><h3>No permitted activity to show</h3><p>Connection or sharing activity will appear here only when the service provides an authorized record. None is available in this demo.</p></div></section></div>
+          <div class="privacy-banner"><span class="privacy-icon" aria-hidden="true">♡</span><p><strong>Privacy comes first.</strong> Only information explicitly shared by a Personal User can appear in this portal. Consider asking what kind of support they would welcome.</p></div>
+        </section>
+
+        <section class="portal-view" id="loved-ones" data-title="My Loved Ones" aria-labelledby="loved-ones-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">CONNECTIONS &amp; PERMISSIONS</p><h1 id="loved-ones-title">My Loved Ones</h1><p class="page-description">Connections and sharing are controlled by each person from their own Personal User account.</p></div></div>
+          <section class="panel connection-panel"><div class="panel-heading"><div><p class="eyebrow">CONNECTED PEOPLE</p><h2>Your family connections</h2></div><span class="panel-icon" aria-hidden="true">♡</span></div>
+            <div class="empty-state"><span class="empty-state-icon" aria-hidden="true">○</span><h3>No loved ones connected yet</h3><p>There are no connected family members in this demo. No connection requests can be sent or accepted here.</p><a href="#wellness" class="secondary-button view-link">See how shared wellness works</a></div>
+            <div class="demo-action-row"><button class="secondary-button" type="button" id="disconnect-preview-button">Preview disconnect confirmation</button><p class="form-feedback" id="disconnect-preview-feedback" role="status" aria-live="polite"></p></div>
+            <p class="field-hint">This demonstrates the confirmation step only; there is no connected account to review or disconnect.</p>
+          </section>
+          <section class="panel request-connection-panel"><div class="panel-heading"><div><p class="eyebrow">CONNECTION REQUEST</p><h2>Connect with a loved one</h2></div></div>
+            <p class="section-description">Enter details to preview how a request could look. This form does not contact anyone or create a connection. The Personal User must review and consent before any sharing can begin.</p>
+            <form id="connection-form" class="form-grid">
+              <div class="form-field"><label for="connection-name">Loved one's display name</label><input id="connection-name" name="name" type="text" autocomplete="off" minlength="2" maxlength="80" required></div>
+              <div class="form-field"><label for="connection-email">Loved one's email address</label><input id="connection-email" name="email" type="email" autocomplete="off" maxlength="254" required></div>
+              <div class="form-actions"><button class="primary-button" type="submit">Preview request <span>→</span></button><button class="secondary-button" type="reset">Clear form</button><p class="form-feedback" id="connection-feedback" role="status" aria-live="polite"></p></div>
+            </form>
+            <p class="demo-note">Prototype only · No account lookup, message, invitation, or consent action is connected.</p>
+          </section>
+          <section class="panel request-status-panel"><div class="panel-heading"><div><p class="eyebrow">REQUEST STATUS</p><h2>Incoming and outgoing requests</h2></div></div>
+            <div class="empty-state compact-empty"><span class="empty-state-icon" aria-hidden="true">○</span><h3>No requests available</h3><p>Requests are not supported by the current frontend demo. Nothing has been received or sent.</p></div>
+          </section>
+          <section class="panel permissions-panel"><div class="panel-heading"><div><p class="eyebrow">SHARING STATUS</p><h2>Consent and sharing settings</h2></div></div>
+            <div class="permission-row"><span class="permission-symbol">✓</span><div><strong>Consent belongs to the Personal User</strong><p>Each person chooses whether to connect and which wellbeing updates, if any, to share.</p></div><span class="status-pill">Not connected</span></div>
+            <div class="permission-row"><span class="permission-symbol">○</span><div><strong>Mood trends</strong><p>Available only when a Personal User explicitly enables mood sharing.</p></div><span class="status-pill">Not shared</span></div>
+            <div class="permission-row"><span class="permission-symbol">○</span><div><strong>Private journals and AI conversations</strong><p>These remain private and are not available to family members.</p></div><span class="status-pill private-pill">Private</span></div>
+            <p class="demo-note">Connection and consent management are not connected to a backend in this demonstration.</p>
+          </section>
+        </section>
+
+        <section class="portal-view" id="guidance" data-title="Support & Guidance" aria-labelledby="guidance-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">LEARN &amp; SUPPORT</p><h1 id="guidance-title">Support &amp; Guidance</h1><p class="page-description">Practical ideas for offering care while respecting your loved one's choices and boundaries.</p></div></div>
+          <div class="guidance-grid">
+            <article class="support-card"><span class="support-icon">♡</span><h2>Listen with care</h2><p>Give them time to speak. Ask open questions, listen without judgment, and let them set the pace.</p><p class="example-phrase">“Would you like me to listen, or think through options with you?”</p></article>
+            <article class="support-card"><span class="support-icon">✧</span><h2>Offer practical help</h2><p>Ask what would make today a little easier. Small, specific offers can be easier to accept than broad promises.</p><p class="example-phrase">“Would it help if I went with you to look for support?”</p></article>
+            <article class="support-card"><span class="support-icon">○</span><h2>Respect privacy and choice</h2><p>Let your loved one decide what to share and with whom. Do not ask for access to their private journal or AI conversations.</p><p class="example-phrase">“You can share only what feels comfortable.”</p></article>
+            <article class="support-card"><span class="support-icon">☼</span><h2>Look after yourself</h2><p>Supporting someone can affect you too. Keep your own support network and make room for rest and boundaries.</p><p class="example-phrase">You can care deeply and still take time for yourself.</p></article>
+          </div>
+          <section class="panel family-chat-panel" aria-labelledby="family-chat-title">
+            <div class="panel-heading"><div><p class="eyebrow">FAMILY GUIDANCE · DEMO MODE</p><h2 id="family-chat-title">Ask for supportive ideas</h2></div><button type="button" class="secondary-button chat-reset-button" id="family-chat-reset">Start a new conversation</button></div>
+            <p class="family-chat-intro">Explore general ideas for supporting someone you care about. This Family guidance chat is separate from the Personal User's private AI Support.</p>
+            <div class="family-chat-prompts" role="group" aria-label="Suggested questions">
+              <button type="button" class="chat-prompt" data-chat-prompt="How can I support someone who feels overwhelmed?">How can I support someone who feels overwhelmed?</button>
+              <button type="button" class="chat-prompt" data-chat-prompt="How can I listen without judging?">How can I listen without judging?</button>
+              <button type="button" class="chat-prompt" data-chat-prompt="How can I encourage someone to seek professional help?">How can I encourage someone to seek professional help?</button>
+              <button type="button" class="chat-prompt" data-chat-prompt="How can I take care of my own wellbeing while supporting someone?">How can I take care of my own wellbeing while supporting someone?</button>
+            </div>
+            <div class="family-chat-transcript" id="family-chat-transcript" role="log" aria-live="polite" aria-relevant="additions text">
+              <div class="family-chat-message assistant-message"><span class="chat-speaker">Nafas Family Guidance · Demo</span><p>Hi. I can offer general educational ideas for supporting a loved one. What would you like to explore?</p></div>
+            </div>
+            <div class="family-chat-loading" id="family-chat-loading" role="status" aria-live="polite" hidden><span class="typing-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Preparing a guidance response…</span></div>
+            <p class="family-chat-error" id="family-chat-error" role="alert" hidden>That response could not be prepared. Please try again.</p>
+            <form class="family-chat-form" id="family-chat-form">
+              <label class="field-label" for="family-chat-input">Your question</label>
+              <div class="family-chat-compose"><textarea id="family-chat-input" rows="2" maxlength="1000" placeholder="Ask for a general supportive idea…" required></textarea><button type="submit" class="primary-button" id="family-chat-send">Send <span aria-hidden="true">→</span></button></div>
+              <p class="field-hint">Demo responses are predefined educational guidance. No AI service is connected, and messages are not sent or saved.</p>
+            </form>
+            <p class="chat-safety-note">This assistant does not diagnose or provide therapy. It cannot monitor safety or contact anyone. If someone may be in immediate danger, contact your local emergency services or go to the nearest emergency department.</p>
+          </section>
+          <section class="panel guidance-library"><div class="panel-heading"><div><p class="eyebrow">EDUCATIONAL RESOURCES</p><h2>Explore practical guidance</h2></div></div>
+            <div class="filter-row" role="group" aria-label="Filter guidance resources">
+              <button type="button" class="filter-button active" data-resource-filter="all" aria-pressed="true">All topics</button>
+              <button type="button" class="filter-button" data-resource-filter="wellbeing" aria-pressed="false">Emotional wellbeing</button>
+              <button type="button" class="filter-button" data-resource-filter="communication" aria-pressed="false">Communication</button>
+              <button type="button" class="filter-button" data-resource-filter="daily" aria-pressed="false">Daily support</button>
+              <button type="button" class="filter-button" data-resource-filter="caregiver" aria-pressed="false">Caregiver wellbeing</button>
+            </div>
+            <div class="resource-card-grid" id="guidance-resource-list">
+              <article class="education-card" data-resource-category="wellbeing"><p class="eyebrow">EMOTIONAL WELLBEING</p><h3>Notice without diagnosing</h3><p>People respond to stress in different ways. Ask what they have noticed and what support they want; avoid labeling or trying to diagnose them.</p><details><summary>Read supportive questions</summary><p>“What has felt hardest lately?” “What helps you feel a little more supported?” Let them decide how much to share.</p></details></article>
+              <article class="education-card" data-resource-category="communication"><p class="eyebrow">COMMUNICATION</p><h3>Acknowledge their feelings</h3><p>Reflect what you hear without comparing, dismissing, or immediately trying to fix the feeling.</p><details><summary>Read example responses</summary><p>“That sounds like a lot to manage.” “Thank you for telling me.” “I may not know exactly how it feels, but I want to understand.”</p></details></article>
+              <article class="education-card" data-resource-category="daily"><p class="eyebrow">DAILY SUPPORT</p><h3>Offer specific, small help</h3><p>Everyday tasks can feel more manageable when support is practical and offered with permission.</p><details><summary>Read practical ideas</summary><p>Ask whether help with a meal, a ride, an errand, or company would be useful. Accept “no” and ask again another time if appropriate.</p></details></article>
+              <article class="education-card" data-resource-category="caregiver"><p class="eyebrow">CAREGIVER WELLBEING</p><h3>Keep supportive boundaries</h3><p>Choose realistic ways to help and make time for your own rest, relationships, and support.</p><details><summary>Read self-care ideas</summary><p>Decide when you are available, identify someone you can talk with, and seek your own professional support if the situation is weighing on you.</p></details></article>
+            </div>
+            <p class="field-hint">General educational information only. It does not replace advice from a qualified professional.</p>
+          </section>
+          <section class="panel prompt-panel"><div class="panel-heading"><div><p class="eyebrow">GUIDED PROMPT · NOT AI</p><h2>Choose a conversation prompt</h2></div></div>
+            <form id="guidance-prompt-form" class="prompt-form"><label class="field-label" for="guidance-prompt">What would you like help with?</label><div class="prompt-controls"><select id="guidance-prompt" required><option value="">Choose a topic</option><option value="listen">Starting a supportive conversation</option><option value="practical">Offering practical help</option><option value="boundaries">Respecting boundaries</option></select><button class="secondary-button" type="submit">Show suggestion</button></div></form>
+            <p class="prompt-response" id="guidance-prompt-response" role="status" aria-live="polite" hidden></p>
+            <p class="field-hint">Suggestions are predefined educational text. No AI service is connected.</p>
+          </section>
+          <section class="panel resource-panel"><div class="panel-heading"><div><p class="eyebrow">NAFAS RESOURCES</p><h2>Explore support together</h2></div></div><div class="resource-list">
+            <a class="resource-row" href="../personal/wellness.html"><span class="resource-icon">☼</span><span><strong>Daily Wellness</strong><small>Personal mood check-ins and self-care tools</small></span><span class="resource-arrow">→</span></a>
+            <a class="resource-row" href="../personal/session.html"><span class="resource-icon">✧</span><span><strong>Sessions &amp; Support</strong><small>Review sample therapist profiles and session options</small></span><span class="resource-arrow">→</span></a>
+            <a class="resource-row" href="../homepage/home.html#about"><span class="resource-icon">○</span><span><strong>About Nafas</strong><small>Learn about the Nafas wellbeing project</small></span><span class="resource-arrow">→</span></a>
+          </div></section>
+        </section>
+
+        <section class="portal-view" id="wellness" data-title="Shared Wellness" aria-labelledby="wellness-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">ONLY WHAT THEY CHOOSE TO SHARE</p><h1 id="wellness-title">Shared Wellness</h1><p class="page-description">This view is reserved for wellbeing information a Personal User has explicitly chosen to share.</p></div></div>
+          <section class="privacy-banner prominent-banner"><span class="privacy-icon" aria-hidden="true">♡</span><p><strong>Private by default.</strong> Personal journals, journal notes, and AI conversations are never displayed in the Family Portal.</p></section>
+          <section class="panel shared-data-panel"><div class="panel-heading"><div><p class="eyebrow">SHARED WITH YOU</p><h2>Wellbeing updates</h2></div><span class="status-pill">No shared data</span></div>
+            <div class="sharing-summary"><p><strong>Connected person:</strong> None</p><p><strong>Shared categories:</strong> None available</p><p><strong>Last update:</strong> Not available; no shared account is connected</p></div>
+            <div class="empty-state"><span class="empty-state-icon" aria-hidden="true">○</span><h3>Nothing has been shared with this account</h3><p>A Personal User must connect with you and explicitly enable sharing before any of their updates can appear here. This demonstration has no connected accounts.</p><a href="#loved-ones" class="secondary-button view-link">Review connection status</a></div>
+          </section>
+          <p class="field-hint">The dashboard's optional sample trend is illustrative only and is not member data.</p>
+        </section>
+
+        <section class="portal-view" id="consultations" data-title="Consultations" aria-labelledby="consultations-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">PROFESSIONAL SUPPORT</p><h1 id="consultations-title">Consultations</h1><p class="page-description">Explore the sample therapist information already available in Nafas.</p></div></div>
+          <div class="therapist-grid">
+            <article class="therapist-card"><div class="therapist-initials">LA</div><div><h2>Dr. Lina Ahmad</h2><p class="therapist-role">Clinical Psychologist · Sample profile</p><p>Stress management, anxiety, and life transitions.</p></div></article>
+            <article class="therapist-card"><div class="therapist-initials initials-blue">OK</div><div><h2>Dr. Omar Khaled</h2><p class="therapist-role">Therapist · Sample profile</p><p>Relationships, confidence, and emotional wellbeing.</p></div></article>
+            <article class="therapist-card"><div class="therapist-initials initials-light">SN</div><div><h2>Dr. Sara Nasser</h2><p class="therapist-role">Counselor · Sample profile</p><p>Emotional awareness and personal development.</p></div></article>
+          </div>
+          <p class="demo-note">These are sample profiles from the existing Nafas session page. No provider availability or credentials are verified by this demo.</p>
+          <section class="panel request-panel"><div class="panel-heading"><div><p class="eyebrow">DEMO ONLY</p><h2>Prepare a consultation request</h2></div></div>
+            <p class="section-description">This form is for preview only. It does not contact a therapist, create an appointment, or save your information.</p>
+            <form id="consultation-form" class="form-grid">
+              <div class="form-field"><label for="consultation-therapist">Sample therapist</label><select id="consultation-therapist" required><option value="">Choose a sample profile</option><option>Dr. Lina Ahmad</option><option>Dr. Omar Khaled</option><option>Dr. Sara Nasser</option></select></div>
+              <div class="form-field"><label for="consultation-type">Consultation topic</label><select id="consultation-type" required><option value="">Choose a topic</option><option>General wellbeing support</option><option>Supporting a family member</option><option>Understanding available services</option></select></div>
+              <div class="form-field"><label for="consultation-date">Preferred date <span class="optional-label">Optional</span></label><input id="consultation-date" type="date"></div>
+              <div class="form-field"><label for="consultation-time">Preferred time <span class="optional-label">Optional</span></label><input id="consultation-time" type="time"></div>
+              <div class="form-field full-field"><label for="consultation-message">Optional message</label><textarea id="consultation-message" rows="3" maxlength="500" placeholder="Share only information about your own request. Do not include another person's private clinical details."></textarea><span class="field-hint"><span id="consultation-message-count">0</span>/500 characters</span></div>
+              <div class="form-actions"><button class="primary-button" type="submit">Preview demo request <span>→</span></button><p class="form-feedback" id="consultation-feedback" role="status" aria-live="polite"></p></div>
+            </form>
+          </section>
+          <section class="panel"><div class="panel-heading"><div><p class="eyebrow">WHAT TO EXPECT</p><h2>Family consultation guidance</h2></div></div><p class="section-description">A family consultation may help you discuss supportive communication, practical boundaries, and ways to care for yourself. It should not expose a Personal User's private information without their permission.</p><p class="demo-note">This prototype has no verified provider availability or booking service. For real care, contact a qualified professional through a service you can verify.</p></section>
+        </section>
+
+        <section class="portal-view" id="profile" data-title="My Profile & Settings" aria-labelledby="profile-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">YOUR FAMILY ACCOUNT</p><h1 id="profile-title">My Profile &amp; Settings</h1><p class="page-description">These controls demonstrate the Family Portal layout. Your account information is not connected or stored.</p></div></div>
+          <section class="panel profile-panel"><div class="panel-heading"><div><p class="eyebrow">PROFILE</p><h2>Family account details</h2></div></div>
+            <form id="profile-form" class="form-grid">
+              <div class="form-field"><label for="family-name">Display name</label><input id="family-name" name="displayName" type="text" autocomplete="name" minlength="2" maxlength="80" placeholder="Enter a display name" required></div>
+              <div class="form-field"><label for="family-email">Email address</label><input id="family-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@example.com" required></div>
+              <div class="form-field full-field"><span class="field-label">Portal notifications</span><label class="check-row"><input id="family-notifications" type="checkbox"><span>Preview notification preference (demo only)</span></label></div>
+              <div class="form-actions"><button class="primary-button" type="submit">Preview settings <span>→</span></button><p class="form-feedback" id="profile-feedback" role="status" aria-live="polite"></p></div>
+            </form>
+            <p class="demo-note">This preview does not save account details or notify family members.</p>
+          </section>
+          <a href="../loginpage/login.html" class="secondary-button role-link">Return to Role Selection</a>
+        </section>
+
+        <section class="portal-view" id="help" data-title="Help & Safety" aria-labelledby="help-title" hidden>
+          <div class="page-heading"><div><p class="eyebrow">SUPPORT &amp; SAFETY</p><h1 id="help-title">Help &amp; Safety</h1><p class="page-description">Guidance for getting support and responding when someone may be at risk.</p></div></div>
+          <section class="safety-panel"><span class="safety-symbol" aria-hidden="true">!</span><div><p class="eyebrow">IMMEDIATE DANGER</p><h2>Contact local emergency help.</h2><p>If you believe someone may act on thoughts of harming themselves or another person, contact your local emergency services or go to the nearest emergency department. If it is safe, stay with them and involve a trusted person nearby.</p><p class="demo-note">Nafas is not an emergency service. This portal does not monitor messages or send alerts.</p></div></section>
+          <div class="guidance-grid help-grid">
+            <article class="support-card"><span class="support-icon">♡</span><h2>Talk and listen</h2><p>Ask calmly and directly how they are doing. Listen without judgment and take what they tell you seriously.</p></article>
+            <article class="support-card"><span class="support-icon">✧</span><h2>Stay connected</h2><p>Ask what would help right now. Encourage support from a qualified professional or someone they trust.</p></article>
+            <article class="support-card"><span class="support-icon">○</span><h2>Find local support</h2><p>Emergency numbers and crisis resources vary by location. Contact local health services or emergency responders for guidance in your area.</p></article>
+          </div>
+          <section class="panel safety-navigation"><div class="panel-heading"><div><p class="eyebrow">USEFUL NEXT STEPS</p><h2>Continue to the right support</h2></div></div><div class="next-step-grid"><a class="next-step-card view-link" href="#guidance"><strong>Support &amp; Guidance</strong><span>Read practical, respectful suggestions.</span><b>Open guidance →</b></a><a class="next-step-card view-link" href="#loved-ones"><strong>My Loved Ones</strong><span>Review the current connection and consent state.</span><b>Review connections →</b></a><a class="next-step-card view-link" href="#consultations"><strong>Consultations</strong><span>Explore sample consultation options.</span><b>View consultations →</b></a></div><a href="../homepage/home.html" class="secondary-button homepage-link">Nafas Homepage <span>→</span></a></section>
+        </section>
+        <footer class="page-footer">Made with care by Nafas <span aria-hidden="true">♡</span><span class="demo-label">Family Portal · Frontend demo</span></footer>
+      </div>
+    </main>
+  </div>
+<script src="family.js" defer></script>
+</body>
+</html>
